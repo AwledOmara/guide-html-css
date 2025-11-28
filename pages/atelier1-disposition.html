@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Disposition avec Flexbox</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🎯 Disposition avec Flexbox</h1>
+            <p class="subtitle">Crée des mises en page modernes</p>
+        </div>
+
+
+        <div class="section">
+            <h2 class="section-title">📖 Flexbox</h2>
+            <p>Flexbox est un système de mise en page qui permet d'aligner et distribuer facilement des éléments.</p>
+        </div>
+
+        <div class="demo-box">
+            <div class="demo-header">
+                <h4>👀 Démonstration : Flexbox</h4>
+                <span class="demo-badge">LIVE</span>
+            </div>
+            <div class="demo-content">
+                <div style="display: flex; gap: 1rem; padding: 1rem; background: #f1f3f5; border-radius: 8px;">
+                    <div style="flex: 1; background: #667eea; color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <strong>Élément 1</strong>
+                    </div>
+                    <div style="flex: 1; background: #764ba2; color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <strong>Élément 2</strong>
+                    </div>
+                    <div style="flex: 1; background: #10b981; color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                        <strong>Élément 3</strong>
+                    </div>
+                </div>
+                <code style="display: block; margin-top: 1rem;">display: flex; gap: 1rem;</code>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h3 class="activity-title">✍️ Activité : Crée une galerie</h3>
+            <p>Utilise Flexbox pour créer une galerie d'images :</p>
+            <div class="code-block">
+                <pre><code>.galerie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.galerie img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}</code></pre>
+            </div>
+        </div>
+
+
+        <div class="info-box success">
+            <strong>🎉 Félicitations !</strong>
+            <p>Tu as terminé cette section. Continue vers la suivante pour approfondir tes connaissances !</p>
+        </div>
+    </div>
+</body>
+</html>

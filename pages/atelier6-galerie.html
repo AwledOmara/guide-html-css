@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 6 : Galerie de Photos</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📦 Atelier 6 : Galerie de Photos</h1>
+            <p class="subtitle">Crée une galerie responsive avec Flexbox</p>
+        </div>
+
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Ce que tu vas créer</h2>
+            <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                Une galerie de photos moderne avec :
+            </p>
+            <ul>
+                <li>Disposition flexible avec Flexbox</li>
+                <li>Images qui s'adaptent à l'écran</li>
+                <li>Effets au survol</li>
+                <li>Design responsive (mobile/desktop)</li>
+            </ul>
+        </div>
+
+        <div class="demo-box">
+            <div class="demo-header">
+                <h4>👀 Aperçu du résultat final</h4>
+                <span class="demo-badge">OBJECTIF</span>
+            </div>
+            <div class="demo-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <div
+                        style="width: 200px; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; transition: transform 0.3s;">
+                        🏔️</div>
+                    <div
+                        style="width: 200px; height: 200px; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; transition: transform 0.3s;">
+                        🌊</div>
+                    <div
+                        style="width: 200px; height: 200px; background: linear-gradient(135deg, #4facfe, #00f2fe); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; transition: transform 0.3s;">
+                        🌲</div>
+                    <div
+                        style="width: 200px; height: 200px; background: linear-gradient(135deg, #43e97b, #38f9d7); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; transition: transform 0.3s;">
+                        🏖️</div>
+                    <div
+                        style="width: 200px; height: 200px; background: linear-gradient(135deg, #fa709a, #fee140); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; transition: transform 0.3s;">
+                        🌅</div>
+                    <div
+                        style="width: 200px; height: 200px; background: linear-gradient(135deg, #30cfd0, #330867); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; transition: transform 0.3s;">
+                        🌌</div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-medium); font-size: 0.875rem;">💡
+                    Passe ta souris sur les images !</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h3 class="activity-title">✍️ Construis ta galerie étape par étape</h3>
+
+            <div class="activity-steps">
+                <div class="activity-step" data-step="1">
+                    <h4>Crée la structure HTML</h4>
+                    <p>Crée un fichier <code>galerie.html</code> :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ma Galerie&lt;/title&gt;
+    &lt;style&gt;
+        /* Le CSS ira ici */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Ma Galerie de Photos&lt;/h1&gt;
+    
+    &lt;div class="galerie"&gt;
+        &lt;div class="photo"&gt;Photo 1&lt;/div&gt;
+        &lt;div class="photo"&gt;Photo 2&lt;/div&gt;
+        &lt;div class="photo"&gt;Photo 3&lt;/div&gt;
+        &lt;div class="photo"&gt;Photo 4&lt;/div&gt;
+        &lt;div class="photo"&gt;Photo 5&lt;/div&gt;
+        &lt;div class="photo"&gt;Photo 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                    <div class="info-box info">
+                        <strong>💡 Structure simple</strong>
+                        <p>Un conteneur <code>.galerie</code> avec plusieurs <code>.photo</code> à l'intérieur</p>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="2">
+                    <h4>Active Flexbox sur le conteneur</h4>
+                    <p>Dans <code>&lt;style&gt;</code>, ajoute :</p>
+                    <div class="code-block css">
+                        <pre><code>.galerie {
+    display: flex;           /* Active Flexbox */
+    flex-wrap: wrap;         /* Permet le retour à la ligne */
+    gap: 20px;              /* Espace entre les photos */
+    justify-content: center; /* Centre les photos */
+    padding: 20px;
+}</code></pre>
+                    </div>
+                    <div class="info-box success">
+                        <strong>✅ Flexbox magique !</strong>
+                        <p><code>flex-wrap: wrap</code> fait passer les photos à la ligne automatiquement</p>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="3">
+                    <h4>Style les photos</h4>
+                    <p>Donne une taille et un style aux photos :</p>
+                    <div class="code-block css">
+                        <pre><code>.photo {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    
+    /* Centre le texte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="4">
+                    <h4>Ajoute un effet hover</h4>
+                    <p>Fais grossir les photos au survol :</p>
+                    <div class="code-block css">
+                        <pre><code>.photo {
+    /* ... le CSS précédent ... */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.photo:hover {
+    transform: scale(1.1);  /* Grossit de 10% */
+}</code></pre>
+                    </div>
+                    <div class="info-box warning">
+                        <strong>🎨 Transform: scale()</strong>
+                        <p><code>scale(1.1)</code> = 110% de la taille originale</p>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="5">
+                    <h4>Rends la galerie responsive</h4>
+                    <p>Adapte la taille des photos sur mobile :</p>
+                    <div class="code-block css">
+                        <pre><code>@media (max-width: 768px) {
+    .photo {
+        width: 150px;    /* Plus petites sur mobile */
+        height: 150px;
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="6">
+                    <h4>Utilise de vraies images (optionnel)</h4>
+                    <p>Si tu as des images, remplace les divs par :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;div class="galerie"&gt;
+    &lt;img src="photo1.jpg" alt="Photo 1" class="photo"&gt;
+    &lt;img src="photo2.jpg" alt="Photo 2" class="photo"&gt;
+    &lt;img src="photo3.jpg" alt="Photo 3" class="photo"&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <p style="margin-top: 1rem;">Et ajoute ce CSS pour les images :</p>
+                    <div class="code-block css">
+                        <pre><code>.photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;  /* Remplit la zone sans déformer */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3 class="challenge-title">🏆 Défis bonus</h3>
+
+            <div class="challenge-levels">
+                <div class="challenge-level easy">
+                    <h4>⭐ Défi 1 : Ajoute des ombres</h4>
+                    <p>Ajoute une ombre qui s'agrandit au survol :</p>
+                    <div class="code-block css">
+                        <pre><code>.photo {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="challenge-level medium">
+                    <h4>⭐⭐ Défi 2 : Ajoute des légendes</h4>
+                    <p>Ajoute un titre qui apparaît au survol :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;div class="photo-container"&gt;
+    &lt;img src="photo.jpg" class="photo"&gt;
+    &lt;div class="legende"&gt;Titre de la photo&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="code-block css">
+                        <pre><code>.photo-container {
+    position: relative;
+}
+
+.legende {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.photo-container:hover .legende {
+    opacity: 1;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="challenge-level hard">
+                    <h4>⭐⭐⭐ Défi 3 : Galerie en grille</h4>
+                    <p>Utilise CSS Grid au lieu de Flexbox pour un contrôle précis :</p>
+                    <div class="code-block css">
+                        <pre><code>.galerie {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>🎉 Excellent travail !</strong>
+            <p>Tu as créé une galerie responsive ! Tu as appris :</p>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ <code>display: flex</code> et <code>flex-wrap</code></li>
+                <li>✅ <code>gap</code> pour espacer les éléments</li>
+                <li>✅ <code>transform: scale()</code> pour agrandir</li>
+                <li>✅ <code>@media</code> pour le responsive</li>
+                <li>✅ <code>object-fit: cover</code> pour les images</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine étape :</strong> Atelier 7 - Cartes Animées</p>
+        </div>
+    </div>
+</body>
+
+</html>

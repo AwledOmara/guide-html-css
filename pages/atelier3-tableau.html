@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 3 : Tableau de Notes</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📊 Atelier 3 : Tableau de Notes</h1>
+            <p class="subtitle">Crée un tableau de notes d'élèves stylisé</p>
+        </div>
+
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Ce que tu vas créer</h2>
+            <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                Un tableau de notes professionnel avec :
+            </p>
+            <ul>
+                <li>En-tête avec les matières</li>
+                <li>Lignes pour chaque élève</li>
+                <li>Pied de page avec moyennes</li>
+                <li>Style CSS moderne</li>
+                <li>Couleurs alternées</li>
+            </ul>
+        </div>
+
+        <div class="demo-box">
+            <div class="demo-header">
+                <h4>👀 Aperçu du résultat final</h4>
+                <span class="demo-badge">OBJECTIF</span>
+            </div>
+            <div class="demo-content">
+                <table
+                    style="width: 100%; border-collapse: collapse; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                    <thead style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                        <tr>
+                            <th style="padding: 1rem; text-align: left;">Nom</th>
+                            <th style="padding: 1rem; text-align: center;">Math</th>
+                            <th style="padding: 1rem; text-align: center;">Français</th>
+                            <th style="padding: 1rem; text-align: center;">Anglais</th>
+                            <th style="padding: 1rem; text-align: center;">Moyenne</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: white;">
+                            <td style="padding: 0.875rem; border-bottom: 1px solid #e9ecef;">Ahmed Ben Ali</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">16</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">14</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">15</td>
+                            <td
+                                style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef; font-weight: 600; color: #667eea;">
+                                15</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.875rem; border-bottom: 1px solid #e9ecef;">Fatma Trabelsi</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">18</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">17</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">16</td>
+                            <td
+                                style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef; font-weight: 600; color: #667eea;">
+                                17</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 0.875rem; border-bottom: 1px solid #e9ecef;">Mohamed Sassi</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">12</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">13</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">14</td>
+                            <td
+                                style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef; font-weight: 600; color: #667eea;">
+                                13</td>
+                        </tr>
+                    </tbody>
+                    <tfoot style="background: #f8f9fa; font-weight: 600;">
+                        <tr>
+                            <td style="padding: 1rem;">Moyenne de classe</td>
+                            <td style="padding: 1rem; text-align: center; color: #667eea;">15.3</td>
+                            <td style="padding: 1rem; text-align: center; color: #667eea;">14.7</td>
+                            <td style="padding: 1rem; text-align: center; color: #667eea;">15</td>
+                            <td style="padding: 1rem; text-align: center; color: #667eea; font-size: 1.125rem;">15</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h3 class="activity-title">✍️ Construis ton tableau étape par étape</h3>
+
+            <div class="activity-steps">
+                <div class="activity-step" data-step="1">
+                    <h4>Crée le fichier HTML de base</h4>
+                    <p>Crée un fichier <code>tableau-notes.html</code> avec la structure de base.</p>
+
+                    <div class="solution-container">
+                        <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                        <div class="solution-content">
+                            <div class="code-block">
+                                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Tableau de Notes&lt;/title&gt;
+    &lt;style&gt;
+        /* Le CSS ira ici */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Tableau de Notes - 2ème Année&lt;/h1&gt;
+    
+    &lt;!-- Le tableau ira ici --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="2">
+                    <h4>Crée la structure du tableau</h4>
+                    <p>Ajoute la balise <code>&lt;table&gt;</code> avec <code>&lt;thead&gt;</code>,
+                        <code>&lt;tbody&gt;</code> et <code>&lt;tfoot&gt;</code>.
+                    </p>
+
+                    <div class="info-box info">
+                        <strong>💡 Structure d'un tableau</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><code>&lt;thead&gt;</code> = En-tête (titres des colonnes)</li>
+                            <li><code>&lt;tbody&gt;</code> = Corps (données)</li>
+                            <li><code>&lt;tfoot&gt;</code> = Pied de page (totaux, moyennes)</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-container">
+                        <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                        <div class="solution-content">
+                            <div class="code-block">
+                                <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;!-- En-tête ici --&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;!-- Données ici --&gt;
+    &lt;/tbody&gt;
+    
+    &lt;tfoot&gt;
+        &lt;!-- Moyennes ici --&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="3">
+                    <h4>Ajoute l'en-tête du tableau</h4>
+                    <p>Dans <code>&lt;thead&gt;</code>, crée une ligne avec les titres des colonnes.</p>
+
+                    <div class="solution-container">
+                        <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                        <div class="solution-content">
+                            <div class="code-block">
+                                <pre><code>&lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Nom&lt;/th&gt;
+        &lt;th&gt;Math&lt;/th&gt;
+        &lt;th&gt;Français&lt;/th&gt;
+        &lt;th&gt;Anglais&lt;/th&gt;
+        &lt;th&gt;Moyenne&lt;/th&gt;
+    &lt;/tr&gt;
+&lt;/thead&gt;</code></pre>
+                            </div>
+                            <div class="info-box success">
+                                <strong>✅ Balises importantes</strong>
+                                <p><code>&lt;tr&gt;</code> = Table Row (ligne)</p>
+                                <p><code>&lt;th&gt;</code> = Table Header (cellule d'en-tête)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="4">
+                    <h4>Ajoute les données des élèves</h4>
+                    <p>Dans <code>&lt;tbody&gt;</code>, ajoute les notes de 3 élèves.</p>
+
+                    <div class="solution-container">
+                        <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                        <div class="solution-content">
+                            <div class="code-block">
+                                <pre><code>&lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ahmed Ben Ali&lt;/td&gt;
+        &lt;td&gt;16&lt;/td&gt;
+        &lt;td&gt;14&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+        &lt;td&gt;Fatma Trabelsi&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+        &lt;td&gt;17&lt;/td&gt;
+        &lt;td&gt;16&lt;/td&gt;
+        &lt;td&gt;17&lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+        &lt;td&gt;Mohamed Sassi&lt;/td&gt;
+        &lt;td&gt;12&lt;/td&gt;
+        &lt;td&gt;13&lt;/td&gt;
+        &lt;td&gt;14&lt;/td&gt;
+        &lt;td&gt;13&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+                            </div>
+                            <div class="info-box info">
+                                <strong>💡 Balise &lt;td&gt;</strong>
+                                <p><code>&lt;td&gt;</code> = Table Data (cellule de données)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="5">
+                    <h4>Ajoute le pied de page avec les moyennes</h4>
+                    <p>Dans <code>&lt;tfoot&gt;</code>, affiche les moyennes de chaque matière.</p>
+
+                    <div class="solution-container">
+                        <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                        <div class="solution-content">
+                            <div class="code-block">
+                                <pre><code>&lt;tfoot&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Moyenne de classe&lt;/td&gt;
+        &lt;td&gt;15.3&lt;/td&gt;
+        &lt;td&gt;14.7&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tfoot&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="6">
+                    <h4>Stylise le tableau avec CSS</h4>
+                    <p>Ajoute du CSS dans la balise <code>&lt;style&gt;</code> pour rendre le tableau beau.</p>
+
+                    <div class="solution-container">
+                        <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                        <div class="solution-content">
+                            <div class="code-block css">
+                                <pre><code>body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+th:not(:first-child) {
+    text-align: center;
+}
+
+td {
+    padding: 0.875rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+td:not(:first-child) {
+    text-align: center;
+}
+
+/* Couleurs alternées */
+tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+tbody tr:hover {
+    background: #e0e7ff;
+}
+
+/* Colonne moyenne en gras */
+td:last-child {
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* Pied de page */
+tfoot {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+tfoot td {
+    padding: 1rem;
+    border-bottom: none;
+}
+
+tfoot td:not(:first-child) {
+    color: #667eea;
+}
+
+tfoot td:last-child {
+    font-size: 1.125rem;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="7">
+                    <h4>Code HTML complet</h4>
+                    <p>Voici le code complet du tableau de notes.</p>
+
+                    <div class="solution-container">
+                        <button class="solution-toggle" onclick="toggleSolution(this)">Afficher le code complet</button>
+                        <div class="solution-content">
+                            <div class="code-block">
+                                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Tableau de Notes&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        th:not(:first-child) {
+            text-align: center;
+        }
+
+        td {
+            padding: 0.875rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        td:not(:first-child) {
+            text-align: center;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tbody tr:hover {
+            background: #e0e7ff;
+        }
+
+        td:last-child {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        tfoot {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        tfoot td {
+            padding: 1rem;
+            border-bottom: none;
+        }
+
+        tfoot td:not(:first-child) {
+            color: #667eea;
+        }
+
+        tfoot td:last-child {
+            font-size: 1.125rem;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Tableau de Notes - 2ème Année&lt;/h1&gt;
+    
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Nom&lt;/th&gt;
+                &lt;th&gt;Math&lt;/th&gt;
+                &lt;th&gt;Français&lt;/th&gt;
+                &lt;th&gt;Anglais&lt;/th&gt;
+                &lt;th&gt;Moyenne&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Ahmed Ben Ali&lt;/td&gt;
+                &lt;td&gt;16&lt;/td&gt;
+                &lt;td&gt;14&lt;/td&gt;
+                &lt;td&gt;15&lt;/td&gt;
+                &lt;td&gt;15&lt;/td&gt;
+            &lt;/tr&gt;
+            
+            &lt;tr&gt;
+                &lt;td&gt;Fatma Trabelsi&lt;/td&gt;
+                &lt;td&gt;18&lt;/td&gt;
+                &lt;td&gt;17&lt;/td&gt;
+                &lt;td&gt;16&lt;/td&gt;
+                &lt;td&gt;17&lt;/td&gt;
+            &lt;/tr&gt;
+            
+            &lt;tr&gt;
+                &lt;td&gt;Mohamed Sassi&lt;/td&gt;
+                &lt;td&gt;12&lt;/td&gt;
+                &lt;td&gt;13&lt;/td&gt;
+                &lt;td&gt;14&lt;/td&gt;
+                &lt;td&gt;13&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+        
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Moyenne de classe&lt;/td&gt;
+                &lt;td&gt;15.3&lt;/td&gt;
+                &lt;td&gt;14.7&lt;/td&gt;
+                &lt;td&gt;15&lt;/td&gt;
+                &lt;td&gt;15&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>🎉 Excellent travail !</strong>
+            <p>Tu as créé un tableau de notes professionnel ! Tu as appris :</p>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ La structure d'un tableau (<code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>,
+                    <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>)
+                </li>
+                <li>✅ Les balises <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></li>
+                <li>✅ <code>border-collapse: collapse</code></li>
+                <li>✅ <code>:nth-child(even)</code> pour alterner les couleurs</li>
+                <li>✅ <code>:hover</code> pour l'effet au survol</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine étape :</strong> Atelier 4 - Carte de Visite Stylisée</p>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 9 : Liens et Iframes</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🔗 Atelier 9 : Liens et Iframes</h1>
+            <p class="subtitle">Crée des liens et intègre du contenu externe</p>
+        </div>
+
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Ce que tu vas créer</h2>
+            <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                Une page avec navigation et contenu intégré :
+            </p>
+            <ul>
+                <li>Liens vers d'autres pages</li>
+                <li>Liens vers des sections (ancres)</li>
+                <li>Liens qui ouvrent dans un nouvel onglet</li>
+                <li>Iframe pour intégrer du contenu externe</li>
+                <li>Intégration de vidéos YouTube</li>
+                <li>Intégration de Google Maps</li>
+            </ul>
+        </div>
+
+        <div class="demo-box">
+            <div class="demo-header">
+                <h4>👀 Aperçu : Types de liens</h4>
+                <span class="demo-badge">EXEMPLES</span>
+            </div>
+            <div class="demo-content">
+                <div style="display: grid; gap: 1rem;">
+                    <a href="#"
+                        style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 8px; text-align: center; transition: transform 0.2s;">
+                        🔗 Lien vers une page
+                    </a>
+                    <a href="#section"
+                        style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #f093fb, #f5576c); color: white; text-decoration: none; border-radius: 8px; text-align: center; transition: transform 0.2s;">
+                        ⚓ Lien vers une section
+                    </a>
+                    <a href="#" target="_blank"
+                        style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; text-decoration: none; border-radius: 8px; text-align: center; transition: transform 0.2s;">
+                        🌐 Lien nouvel onglet
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h3 class="activity-title">✍️ Partie 1 : Les Liens</h3>
+
+            <div class="activity-steps">
+                <div class="activity-step" data-step="1">
+                    <h4>Crée un lien simple</h4>
+                    <p>Un lien vers une autre page :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;a href="page2.html"&gt;Aller à la page 2&lt;/a&gt;</code></pre>
+                    </div>
+                    <div class="info-box info">
+                        <strong>💡 Attribut href</strong>
+                        <p><code>href</code> = "hypertext reference" = l'adresse de destination</p>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="2">
+                    <h4>Lien vers un site externe</h4>
+                    <p>Pour lier vers un site web :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;a href="https://www.google.com"&gt;Aller sur Google&lt;/a&gt;</code></pre>
+                    </div>
+                    <div class="info-box warning">
+                        <strong>⚠️ URL complète</strong>
+                        <p>N'oublie pas <code>https://</code> pour les sites externes !</p>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="3">
+                    <h4>Ouvrir dans un nouvel onglet</h4>
+                    <p>Utilise <code>target="_blank"</code> :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;a href="https://www.google.com" target="_blank"&gt;
+    Google (nouvel onglet)
+&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="4">
+                    <h4>Liens vers des sections (ancres)</h4>
+                    <p>Crée d'abord une section avec un <code>id</code> :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;section id="contact"&gt;
+    &lt;h2&gt;Contact&lt;/h2&gt;
+    &lt;p&gt;Contactez-nous ici...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                    </div>
+                    <p style="margin-top: 1rem;">Puis crée un lien vers cette section :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;a href="#contact"&gt;Aller à la section Contact&lt;/a&gt;</code></pre>
+                    </div>
+                    <div class="info-box success">
+                        <strong>✅ Le # est important !</strong>
+                        <p><code>#contact</code> fait référence à l'élément avec <code>id="contact"</code></p>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="5">
+                    <h4>Lien email</h4>
+                    <p>Pour ouvrir le client email :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;a href="mailto:contact@example.com"&gt;Envoyer un email&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="6">
+                    <h4>Stylise tes liens</h4>
+                    <p>Ajoute du CSS pour rendre les liens plus beaux :</p>
+                    <div class="code-block css">
+                        <pre><code>a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Lien visité */
+a:visited {
+    color: #9333ea;
+}
+
+/* Lien actif (en cliquant) */
+a:active {
+    color: #f59e0b;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <h3 class="activity-title">✍️ Partie 2 : Les Iframes</h3>
+
+            <div class="activity-steps">
+                <div class="activity-step" data-step="1">
+                    <h4>Qu'est-ce qu'un iframe ?</h4>
+                    <p>Un <code>&lt;iframe&gt;</code> permet d'intégrer une page web à l'intérieur d'une autre page.</p>
+                    <div class="info-box info">
+                        <strong>💡 Utilité</strong>
+                        <p>Parfait pour intégrer : vidéos YouTube, Google Maps, pages externes...</p>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="2">
+                    <h4>Iframe basique</h4>
+                    <p>Intègre une page locale :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;iframe src="page2.html" width="600" height="400"&gt;
+&lt;/iframe&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="3">
+                    <h4>Intégrer une vidéo YouTube</h4>
+                    <p>1. Va sur YouTube et clique sur "Partager" sous une vidéo</p>
+                    <p>2. Clique sur "Intégrer"</p>
+                    <p>3. Copie le code iframe fourni :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/VIDEO_ID"
+    frameborder="0" 
+    allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="4">
+                    <h4>Intégrer Google Maps</h4>
+                    <p>1. Va sur Google Maps</p>
+                    <p>2. Cherche un lieu</p>
+                    <p>3. Clique sur "Partager" puis "Intégrer une carte"</p>
+                    <p>4. Copie le code iframe :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;iframe 
+    src="https://www.google.com/maps/embed?pb=..."
+    width="600" 
+    height="450" 
+    style="border:0;" 
+    allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="5">
+                    <h4>Rendre l'iframe responsive</h4>
+                    <p>Pour que l'iframe s'adapte à l'écran :</p>
+                    <div class="code-block css">
+                        <pre><code>.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}</code></pre>
+                    </div>
+                    <p style="margin-top: 1rem;">Utilisation :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;div class="iframe-container"&gt;
+    &lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step" data-step="6">
+                    <h4>Projet pratique complet</h4>
+                    <p>Crée une page <code>liens-iframe.html</code> avec :</p>
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Liens et Iframes&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .nav-links {
+            background: #667eea;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        section {
+            margin: 50px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Ma Page avec Liens et Iframes&lt;/h1&gt;
+    
+    &lt;!-- Navigation --&gt;
+    &lt;nav class="nav-links"&gt;
+        &lt;a href="#accueil"&gt;Accueil&lt;/a&gt;
+        &lt;a href="#video"&gt;Vidéo&lt;/a&gt;
+        &lt;a href="#carte"&gt;Carte&lt;/a&gt;
+        &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+    
+    &lt;!-- Section Accueil --&gt;
+    &lt;section id="accueil"&gt;
+        &lt;h2&gt;🏠 Accueil&lt;/h2&gt;
+        &lt;p&gt;Bienvenue sur ma page !&lt;/p&gt;
+        &lt;p&gt;
+            &lt;a href="https://www.google.com" target="_blank"&gt;
+                Visiter Google
+            &lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Section Vidéo --&gt;
+    &lt;section id="video"&gt;
+        &lt;h2&gt;🎬 Ma Vidéo Préférée&lt;/h2&gt;
+        &lt;div class="iframe-container"&gt;
+            &lt;iframe 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                allowfullscreen&gt;
+            &lt;/iframe&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Section Carte --&gt;
+    &lt;section id="carte"&gt;
+        &lt;h2&gt;📍 Notre Localisation&lt;/h2&gt;
+        &lt;div class="iframe-container"&gt;
+            &lt;iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102511.!2d10.1815!3d36.8065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis!5e0!3m2!1sfr!2stn!4v1234567890"
+                allowfullscreen&gt;
+            &lt;/iframe&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Section Contact --&gt;
+    &lt;section id="contact"&gt;
+        &lt;h2&gt;📧 Contact&lt;/h2&gt;
+        &lt;p&gt;
+            &lt;a href="mailto:contact@example.com"&gt;
+                Envoyez-nous un email
+            &lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h3 class="challenge-title">🏆 Défis bonus</h3>
+
+            <div class="challenge-levels">
+                <div class="challenge-level easy">
+                    <h4>⭐ Défi 1 : Ajoute plus de sections</h4>
+                    <p>Crée 3 nouvelles sections avec des ancres et ajoute-les au menu de navigation</p>
+                </div>
+
+                <div class="challenge-level medium">
+                    <h4>⭐⭐ Défi 2 : Intègre ta vidéo préférée</h4>
+                    <p>Va sur YouTube, trouve ta vidéo préférée, et intègre-la dans ta page avec un iframe responsive
+                    </p>
+                </div>
+
+                <div class="challenge-level hard">
+                    <h4>⭐⭐⭐ Défi 3 : Crée un système d'onglets</h4>
+                    <p>Utilise des liens et des iframes pour créer un système d'onglets qui charge différentes pages :
+                    </p>
+                    <div class="code-block">
+                        <pre><code>&lt;nav&gt;
+    &lt;a href="page1.html" target="contenu"&gt;Onglet 1&lt;/a&gt;
+    &lt;a href="page2.html" target="contenu"&gt;Onglet 2&lt;/a&gt;
+    &lt;a href="page3.html" target="contenu"&gt;Onglet 3&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;iframe name="contenu" src="page1.html"&gt;&lt;/iframe&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>🎉 Excellent !</strong>
+            <p>Tu maîtrises maintenant les liens et iframes ! Tu as appris :</p>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ Créer des liens (<code>&lt;a href&gt;</code>)</li>
+                <li>✅ Liens vers des sections (ancres avec <code>#</code>)</li>
+                <li>✅ Ouvrir dans un nouvel onglet (<code>target="_blank"</code>)</li>
+                <li>✅ Intégrer du contenu avec <code>&lt;iframe&gt;</code></li>
+                <li>✅ Intégrer YouTube et Google Maps</li>
+                <li>✅ Rendre les iframes responsives</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

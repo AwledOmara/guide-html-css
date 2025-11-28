@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure d'une page HTML5</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🏗️ Structure d'une page HTML5</h1>
+            <p class="subtitle">Les balises sémantiques pour organiser ton contenu</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📖 Les balises sémantiques</h2>
+            <p>HTML5 introduit des balises <strong>sémantiques</strong> qui donnent du sens au contenu. Au lieu
+                d'utiliser des <code>&lt;div&gt;</code> partout, on utilise des balises qui décrivent leur contenu.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🏛️ Structure complète d'une page</h2>
+
+            <div class="code-block">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mon Site Web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Mon Site Web&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="#accueil"&gt;Accueil&lt;/a&gt;
+            &lt;a href="#apropos"&gt;À propos&lt;/a&gt;
+            &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Section principale&lt;/h2&gt;
+            &lt;article&gt;
+                &lt;h3&gt;Article 1&lt;/h3&gt;
+                &lt;p&gt;Contenu de l'article...&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;aside&gt;
+            &lt;h3&gt;Barre latérale&lt;/h3&gt;
+            &lt;p&gt;Contenu secondaire...&lt;/p&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2025 Mon Site Web&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-box">
+            <div class="demo-header">
+                <h4>👀 Visualisation de la structure</h4>
+                <span class="demo-badge">SCHÉMA</span>
+            </div>
+            <div class="demo-content">
+                <div style="border: 3px solid #667eea; border-radius: 12px; overflow: hidden;">
+                    <!-- Header -->
+                    <div
+                        style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1.5rem; text-align: center;">
+                        <strong>&lt;header&gt;</strong>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; opacity: 0.9;">En-tête du site (logo,
+                            navigation)</p>
+                    </div>
+
+                    <!-- Main -->
+                    <div style="display: flex; min-height: 200px;">
+                        <!-- Section -->
+                        <div style="flex: 2; background: #e0e7ff; padding: 1.5rem; border-right: 2px solid #667eea;">
+                            <strong>&lt;main&gt;</strong>
+                            <div style="background: #c7d2fe; padding: 1rem; margin-top: 0.5rem; border-radius: 8px;">
+                                <strong>&lt;section&gt;</strong>
+                                <div
+                                    style="background: #a5b4fc; padding: 0.75rem; margin-top: 0.5rem; border-radius: 6px;">
+                                    <strong>&lt;article&gt;</strong>
+                                    <p style="margin: 0.25rem 0 0 0; font-size: 0.75rem;">Contenu principal</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aside -->
+                        <div style="flex: 1; background: #fef3c7; padding: 1.5rem;">
+                            <strong>&lt;aside&gt;</strong>
+                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">Barre latérale</p>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div style="background: #1f2937; color: white; padding: 1.5rem; text-align: center;">
+                        <strong>&lt;footer&gt;</strong>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; opacity: 0.8;">Pied de page (copyright,
+                            liens)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📝 Description des balises</h2>
+
+            <div style="display: grid; gap: 1.5rem;">
+                <!-- Header -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #667eea; box-shadow: var(--shadow);">
+                    <h3
+                        style="color: #667eea; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <code>&lt;header&gt;</code>
+                    </h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">En-tête de la page ou d'une section.
+                        Contient généralement le logo, le titre et la navigation.</p>
+                    <div class="code-block">
+                        <pre><code>&lt;header&gt;
+    &lt;h1&gt;Titre du site&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;a href="#"&gt;Accueil&lt;/a&gt;
+        &lt;a href="#"&gt;Services&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Nav -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981; box-shadow: var(--shadow);">
+                    <h3
+                        style="color: #10b981; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <code>&lt;nav&gt;</code>
+                    </h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">Menu de navigation principal du site.</p>
+                    <div class="code-block">
+                        <pre><code>&lt;nav&gt;
+    &lt;a href="index.html"&gt;Accueil&lt;/a&gt;
+    &lt;a href="about.html"&gt;À propos&lt;/a&gt;
+    &lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Main -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f59e0b; box-shadow: var(--shadow);">
+                    <h3
+                        style="color: #f59e0b; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <code>&lt;main&gt;</code>
+                    </h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">Contenu principal de la page. <strong>Une
+                            seule balise &lt;main&gt; par page.</strong></p>
+                    <div class="code-block">
+                        <pre><code>&lt;main&gt;
+    &lt;h1&gt;Contenu principal&lt;/h1&gt;
+    &lt;p&gt;Le contenu le plus important de la page.&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Section -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #3b82f6; box-shadow: var(--shadow);">
+                    <h3
+                        style="color: #3b82f6; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <code>&lt;section&gt;</code>
+                    </h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">Section thématique du contenu. Chaque
+                        section devrait avoir un titre.</p>
+                    <div class="code-block">
+                        <pre><code>&lt;section&gt;
+    &lt;h2&gt;Nos services&lt;/h2&gt;
+    &lt;p&gt;Description des services...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Article -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #a855f7; box-shadow: var(--shadow);">
+                    <h3
+                        style="color: #a855f7; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <code>&lt;article&gt;</code>
+                    </h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">Contenu autonome et réutilisable (article
+                        de blog, commentaire, widget...).</p>
+                    <div class="code-block">
+                        <pre><code>&lt;article&gt;
+    &lt;h3&gt;Titre de l'article&lt;/h3&gt;
+    &lt;p&gt;Contenu de l'article...&lt;/p&gt;
+    &lt;footer&gt;Publié le 28/11/2025&lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Aside -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #ec4899; box-shadow: var(--shadow);">
+                    <h3
+                        style="color: #ec4899; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <code>&lt;aside&gt;</code>
+                    </h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">Contenu secondaire lié au contenu
+                        principal (barre latérale, publicité...).</p>
+                    <div class="code-block">
+                        <pre><code>&lt;aside&gt;
+    &lt;h3&gt;Articles récents&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Article 1&lt;/li&gt;
+        &lt;li&gt;Article 2&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #6b7280; box-shadow: var(--shadow);">
+                    <h3
+                        style="color: #6b7280; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <code>&lt;footer&gt;</code>
+                    </h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">Pied de page contenant les informations
+                        de copyright, liens légaux, etc.</p>
+                    <div class="code-block">
+                        <pre><code>&lt;footer&gt;
+    &lt;p&gt;&copy; 2025 Mon Site. Tous droits réservés.&lt;/p&gt;
+    &lt;a href="mentions.html"&gt;Mentions légales&lt;/a&gt;
+&lt;/footer&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>✅ Points clés à retenir</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>Utilise les balises sémantiques pour structurer ta page</li>
+                <li>Une seule balise <code>&lt;main&gt;</code> par page</li>
+                <li>Chaque <code>&lt;section&gt;</code> devrait avoir un titre</li>
+                <li>Les balises sémantiques améliorent le SEO et l'accessibilité</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

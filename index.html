@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliers HTML & CSS - Programme Tunisien</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>🎓 HTML & CSS</h1>
+                <p>Lycée H. Becha Mananouba</p>
+            </div>
+
+            <nav class="nav-menu">
+                <!-- Accueil -->
+                <div class="nav-section active">
+                    <h3>🏠 Cours</h3>
+                    <ul>
+                        <li><a href="pages/accueil.html" target="content" class="active">Bienvenue</a></li>
+                        <li>
+                            <a href="pages/cours-structure-page.html" target="content">Structure d'une page HTML</a>
+                        </li>
+
+                        <li><a href="pages/cours-input-text.html" target="content">Formulaires</a></li>
+
+                        <li><a href="pages/cours-css-base.html" target="content">Bases du CSS</a></li>
+                        <li><a href="pages/cours-css-animations.html" target="content">Animations & Transitions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 1 -->
+                <div class="nav-section">
+                    <h3>🎨 Atelier 1 : Ma Première Page</h3>
+                    <ul>
+                        <li><a href="pages/atelier1-ma-page.html" target="content">Créer ma page de présentation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 2 -->
+                <div class="nav-section">
+                    <h3>📝 Atelier 2 : Formulaire</h3>
+                    <ul>
+                        <li><a href="pages/atelier2-formulaire.html" target="content">Formulaire d'inscription</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 3 -->
+                <div class="nav-section">
+                    <h3>📊 Atelier 3 : Tableaux</h3>
+                    <ul>
+                        <li><a href="pages/atelier3-tableau.html" target="content">Tableau de notes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 4 -->
+                <div class="nav-section">
+                    <h3>🎨 Atelier 4 : CSS Couleurs</h3>
+                    <ul>
+                        <li><a href="pages/atelier4-carte.html" target="content">Carte de visite stylisée</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 5 -->
+                <div class="nav-section">
+                    <h3>🧭 Atelier 5 : Navigation</h3>
+                    <ul>
+                        <li><a href="pages/atelier5-menu.html" target="content">Menu de navigation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 6 -->
+                <div class="nav-section">
+                    <h3>📦 Atelier 6 : Flexbox</h3>
+                    <ul>
+                        <li><a href="pages/atelier6-galerie.html" target="content">Galerie de photos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 7 -->
+                <div class="nav-section">
+                    <h3>✨ Atelier 7 : Animations</h3>
+                    <ul>
+                        <li><a href="pages/atelier7-cartes.html" target="content">Cartes animées</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 8 -->
+                <div class="nav-section">
+                    <h3>🌐 Atelier 8 : Site Complet</h3>
+                    <ul>
+                        <li><a href="pages/atelier8-site.html" target="content">Mon premier site web</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 9 -->
+                <div class="nav-section">
+                    <h3>🔗 Atelier 9 : Liens & Iframes</h3>
+                    <ul>
+                        <li><a href="pages/atelier9-liens-iframe.html" target="content">Liens et intégration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Atelier 10 -->
+                <div class="nav-section">
+                    <h3>👤 Atelier 10 : Carte de Profil</h3>
+                    <ul>
+                        <li><a href="pages/atelier10-carte-profil.html" target="content">Créer une carte stylisée</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p class="progress-text"><span id="completed">0</span> / <span id="total">0</span> ateliers complétés
+                </p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <iframe name="content" src="pages/accueil.html"></iframe>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
