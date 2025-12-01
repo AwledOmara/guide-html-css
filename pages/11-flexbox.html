@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Styles spécifiques pour les démos Flexbox */
+        .flex-container {
+            display: flex;
+            background-color: #e0e7ff;
+            border: 2px dashed #6366f1;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            min-height: 100px;
+            /* Pour voir l'alignement vertical */
+        }
+
+        .flex-item {
+            background-color: #6366f1;
+            color: white;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 1.2rem;
+        }
+
+        .flex-item:nth-child(2) {
+            background-color: #8b5cf6;
+        }
+
+        .flex-item:nth-child(3) {
+            background-color: #d946ef;
+        }
+
+        .flex-item:nth-child(4) {
+            background-color: #ec4899;
+        }
+
+        .flex-item:nth-child(5) {
+            background-color: #f43f5e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🧘 CSS Flexbox</h1>
+            <p class="subtitle">La méthode moderne pour aligner vos éléments</p>
+        </div>
+
+        <!-- Section 1 : Introduction -->
+        <div class="section">
+            <h2 class="section-title">🤔 Pourquoi Flexbox ?</h2>
+            <p>Avant Flexbox, aligner des éléments côte à côte ou les centrer verticalement était un cauchemar (on
+                utilisait <code>float</code> ou des tableaux...).</p>
+            <p><strong>Flexbox</strong> (Flexible Box) est un super-pouvoir qui permet de :</p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Aligner des éléments en ligne ou en colonne.</li>
+                <li>Distribuer l'espace vide entre eux.</li>
+                <li>Centrer verticalement et horizontalement sans effort.</li>
+                <li>Gérer le redimensionnement automatique.</li>
+            </ul>
+
+            <div class="info-box info" style="margin-top: 1.5rem;">
+                <strong>👆 Concept Clé : Parent vs Enfants</strong>
+                <p>La magie opère en deux temps :</p>
+                <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>On transforme le <strong>Parent</strong> en conteneur flexible (<code>display: flex</code>).
+                    </li>
+                    <li>Les <strong>Enfants</strong> deviennent automatiquement des "éléments flexibles" qui obéissent
+                        aux règles du parent.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 2 : L'axe principal (Justify Content) -->
+        <div class="section">
+            <h2 class="section-title">↔️ L'axe principal (justify-content)</h2>
+            <p>Cette propriété gère l'alignement horizontal (si on est en ligne). C'est la plus utilisée !</p>
+
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+
+                <!-- Flex Start -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h3><code>justify-content: flex-start</code> (Défaut)</h3>
+                    <p>Tout est collé au début.</p>
+                    <div class="flex-container" style="justify-content: flex-start;">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+
+                <!-- Center -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h3><code>justify-content: center</code></h3>
+                    <p>Tout est centré au milieu.</p>
+                    <div class="flex-container" style="justify-content: center;">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+
+                <!-- Flex End -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h3><code>justify-content: flex-end</code></h3>
+                    <p>Tout est collé à la fin.</p>
+                    <div class="flex-container" style="justify-content: flex-end;">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+
+                <!-- Space Between -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981;">
+                    <h3 style="color: #10b981;"><code>justify-content: space-between</code> (Très utile !)</h3>
+                    <p>Le premier au début, le dernier à la fin, et l'espace restant est réparti équitablement entre les
+                        autres.</p>
+                    <div class="flex-container" style="justify-content: space-between;">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+
+                <!-- Space Around -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h3><code>justify-content: space-around</code></h3>
+                    <p>De l'espace égal autour de chaque élément.</p>
+                    <div class="flex-container" style="justify-content: space-around;">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 3 : L'axe secondaire (Align Items) -->
+        <div class="section">
+            <h2 class="section-title">↕️ L'axe secondaire (align-items)</h2>
+            <p>Cette propriété gère l'alignement vertical (si on est en ligne).</p>
+
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+
+                <!-- Stretch -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h3><code>align-items: stretch</code> (Défaut)</h3>
+                    <p>Les éléments s'étirent pour remplir toute la hauteur (sauf s'ils ont une hauteur définie).</p>
+                    <div class="flex-container" style="align-items: stretch; height: 150px;">
+                        <div class="flex-item" style="height: auto;">Auto</div>
+                        <div class="flex-item" style="height: 80px;">80px</div>
+                        <div class="flex-item" style="height: auto;">Auto</div>
+                    </div>
+                </div>
+
+                <!-- Center -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h3 style="color: #f59e0b;"><code>align-items: center</code> (Le Graal !)</h3>
+                    <p>Centre verticalement les éléments, quelle que soit leur hauteur.</p>
+                    <div class="flex-container" style="align-items: center; height: 150px;">
+                        <div class="flex-item" style="height: 40px;">1</div>
+                        <div class="flex-item" style="height: 80px;">2</div>
+                        <div class="flex-item" style="height: 60px;">3</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 4 : Direction et Wrap -->
+        <div class="section">
+            <h2 class="section-title">🔄 Direction et Retour à la ligne</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+
+                <!-- Flex Direction -->
+                <div>
+                    <h3><code>flex-direction</code></h3>
+                    <p>Change l'axe principal.</p>
+                    <div class="code-block">
+                        <pre><code>.colonne {
+    display: flex;
+    flex-direction: column; /* Empile verticalement */
+}</code></pre>
+                    </div>
+                    <div class="flex-container" style="flex-direction: column; width: 100px; margin-top: 1rem;">
+                        <div class="flex-item" style="width: 100%; margin: 2px 0;">1</div>
+                        <div class="flex-item" style="width: 100%; margin: 2px 0;">2</div>
+                    </div>
+                </div>
+
+                <!-- Flex Wrap -->
+                <div>
+                    <h3><code>flex-wrap</code></h3>
+                    <p>Autorise le retour à la ligne si manque de place.</p>
+                    <div class="code-block">
+                        <pre><code>.grille {
+    display: flex;
+    flex-wrap: wrap; /* Revient à la ligne */
+}</code></pre>
+                    </div>
+                    <div class="flex-container" style="flex-wrap: wrap; width: 180px; margin-top: 1rem;">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Exercice guidé -->
+        <div class="section">
+            <h2 class="section-title">👣 Exercice guidé : La Barre de Navigation</h2>
+            <p>Le cas d'usage n°1 de Flexbox : une navbar avec un logo à gauche et des liens à droite.</p>
+
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <h4>1. HTML</h4>
+                    <div class="code-block">
+                        <pre><code>&lt;nav class="navbar"&gt;
+    &lt;div class="logo"&gt;MonSite&lt;/div&gt;
+    &lt;ul class="menu"&gt;
+        &lt;li&gt;Accueil&lt;/li&gt;
+        &lt;li&gt;À propos&lt;/li&gt;
+        &lt;li&gt;Contact&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step">
+                    <h4>2. CSS</h4>
+                    <div class="code-block">
+                        <pre><code>.navbar {
+    display: flex;
+    justify-content: space-between; /* Écarte logo et menu */
+    align-items: center; /* Centre verticalement */
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+}
+
+.menu {
+    display: flex; /* Met les liens côte à côte */
+    gap: 20px; /* Espace entre les liens */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #333; color: white; border-radius: 8px;">
+                        <div style="font-weight: bold; font-size: 1.2rem;">MonSite</div>
+                        <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+                            <span>Accueil</span>
+                            <span>À propos</span>
+                            <span>Contact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge Final -->
+        <div class="section">
+            <h2 class="section-title">🏆 Challenge : Le Centrage Parfait</h2>
+
+            <div class="info-box warning">
+                <strong>Objectif</strong>
+                <p>Centrer parfaitement un texte (horizontalement ET verticalement) dans une boîte de 300px de haut.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Créez un conteneur <code>.hero-banner</code> de hauteur 300px et fond gris.</li>
+                    <li>Utilisez 3 lignes de Flexbox pour centrer le contenu.</li>
+                </ul>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content">
+                    <div
+                        style="height: 200px; background: #f3f4f6; display: flex; justify-content: center; align-items: center; border-radius: 8px; border: 2px solid #ddd;">
+                        <h2 style="background: #6366f1; color: white; padding: 20px; border-radius: 8px; margin: 0;">Je
+                            suis centré ! 🎯</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-container">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>.hero-banner {
+    height: 300px;
+    background-color: #f3f4f6;
+    
+    /* Les 3 lignes magiques */
+    display: flex;
+    justify-content: center; /* Horizontal */
+    align-items: center;     /* Vertical */
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>📝 Résumé Flexbox</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>display: flex</code> sur le parent active le mode Flexbox.</li>
+                <li><code>justify-content</code> gère l'axe principal (souvent horizontal).</li>
+                <li><code>align-items</code> gère l'axe secondaire (souvent vertical).</li>
+                <li><code>flex-direction: column</code> passe en mode colonne (vertical).</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Dernière étape :</strong> Donner vie à tout ça avec les
+                <strong>Animations CSS</strong> ! 🎬</p>
+        </div>
+
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

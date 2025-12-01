@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 5 : Formulaire de Contact</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📧 Atelier 5 : Formulaire de Contact</h1>
+            <p class="subtitle">Créer un formulaire de contact complet</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Utiliser différents types d'inputs (text, email, tel, textarea)</li>
+                <li>Ajouter des validations HTML5</li>
+                <li>Structurer un formulaire avec des fieldsets</li>
+                <li>Styliser les champs de formulaire</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un formulaire de contact avec les champs suivants :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Nom complet (requis, type text)</li>
+                    <li>Email (requis, type email)</li>
+                    <li>Téléphone (type tel)</li>
+                    <li>Sujet (liste déroulante avec 3 options)</li>
+                    <li>Message (textarea, requis, minimum 10 caractères)</li>
+                    <li>Bouton "Envoyer"</li>
+                    <li>Utilisez <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <form
+                    style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <fieldset
+                        style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Informations personnelles
+                        </legend>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom complet
+                                *</label>
+                            <input type="text" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email *</label>
+                            <input type="email" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Téléphone</label>
+                            <input type="tel"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+                    </fieldset>
+
+                    <fieldset
+                        style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Votre message</legend>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Sujet</label>
+                            <select
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                                <option>Question générale</option>
+                                <option>Support technique</option>
+                                <option>Demande de devis</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message *</label>
+                            <textarea required minlength="10" rows="5"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; resize: vertical;"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit"
+                        style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Envoyer
+                        le message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <div class="code-block">
+                    <pre><code>&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Informations personnelles&lt;/legend&gt;
+        
+        &lt;label for="nom"&gt;Nom complet *&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom" required&gt;
+        
+        &lt;label for="email"&gt;Email *&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+        
+        &lt;label for="tel"&gt;Téléphone&lt;/label&gt;
+        &lt;input type="tel" id="tel" name="tel"&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Votre message&lt;/legend&gt;
+        
+        &lt;label for="sujet"&gt;Sujet&lt;/label&gt;
+        &lt;select id="sujet" name="sujet"&gt;
+            &lt;option&gt;Question générale&lt;/option&gt;
+            &lt;option&gt;Support technique&lt;/option&gt;
+            &lt;option&gt;Demande de devis&lt;/option&gt;
+        &lt;/select&gt;
+        
+        &lt;label for="message"&gt;Message *&lt;/label&gt;
+        &lt;textarea id="message" name="message" required minlength="10" rows="5"&gt;&lt;/textarea&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;button type="submit"&gt;Envoyer le message&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>&lt;fieldset&gt;</code> groupe les champs liés</li>
+                <li><code>&lt;legend&gt;</code> donne un titre au groupe</li>
+                <li><code>minlength</code> définit le nombre minimum de caractères</li>
+                <li><code>resize: vertical</code> permet de redimensionner le textarea verticalement seulement</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

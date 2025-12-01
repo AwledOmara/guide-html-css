@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction au CSS</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🎨 Introduction au CSS</h1>
+            <p class="subtitle">Donner du style à vos pages web</p>
+        </div>
+
+        <!-- Section 1 : C'est quoi le CSS -->
+        <div class="section">
+            <h2 class="section-title">🎯 C'est quoi le CSS ?</h2>
+
+            <p><strong>CSS</strong> signifie <strong>Cascading Style Sheets</strong> (Feuilles de style en cascade).</p>
+            <p>C'est le langage qui permet de <strong>styliser</strong> vos pages HTML.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #e74c3c; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏗️</div>
+                    <h3 style="color: #e74c3c; margin-bottom: 0.5rem;">HTML</h3>
+                    <p style="font-size: 0.875rem; color: #666;">Structure et contenu</p>
+                </div>
+
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #3498db; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎨</div>
+                    <h3 style="color: #3498db; margin-bottom: 0.5rem;">CSS</h3>
+                    <p style="font-size: 0.875rem; color: #666;">Apparence et mise en forme</p>
+                </div>
+
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f39c12; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚡</div>
+                    <h3 style="color: #f39c12; margin-bottom: 0.5rem;">JavaScript</h3>
+                    <p style="font-size: 0.875rem; color: #666;">Interactivité et comportement</p>
+                </div>
+            </div>
+
+            <div class="info-box info" style="margin-top: 2rem;">
+                <strong>🏠 Analogie avec une maison</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>HTML</strong> = Les murs, les portes, les fenêtres (la structure)</li>
+                    <li><strong>CSS</strong> = La peinture, les meubles, la décoration (l'apparence)</li>
+                    <li><strong>JavaScript</strong> = L'électricité, la plomberie (les fonctionnalités)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2 : Avant/Après CSS -->
+        <div class="section">
+            <h2 class="section-title">👀 HTML sans CSS vs avec CSS</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <!-- Sans CSS -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">❌ Sans CSS (HTML brut)</p>
+                    <div class="demo-box">
+                        <div class="demo-content" style="background: white;">
+                            <div style="all: revert; font-family: 'Times New Roman', serif;">
+                                <h1 style="all: revert;">Mon Site Web</h1>
+                                <p style="all: revert;">Bienvenue sur mon site. Voici du texte sans style.</p>
+                                <button style="all: revert;">Cliquez ici</button>
+                            </div>
+                            <p style="margin-top: 1rem; font-size: 0.875rem; color: #666;">😕 Basique et peu attrayant
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avec CSS -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">✅ Avec CSS</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <div
+                                style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
+                                <h1 style="margin: 0 0 1rem 0; font-size: 2rem;">Mon Site Web</h1>
+                                <p style="margin: 0 0 1.5rem 0; opacity: 0.9;">Bienvenue sur mon site. Voici du texte
+                                    avec style.</p>
+                                <button
+                                    style="background: white; color: #667eea; border: none; padding: 0.75rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer;">Cliquez
+                                    ici</button>
+                            </div>
+                            <p style="margin-top: 1rem; font-size: 0.875rem; color: #666;">🎉 Moderne et professionnel
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 : Syntaxe CSS -->
+        <div class="section">
+            <h2 class="section-title">📝 Syntaxe CSS de base</h2>
+
+            <p>Une règle CSS est composée de 3 parties :</p>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+                <pre><code>sélecteur {
+    propriété: valeur;
+    propriété: valeur;
+}</code></pre>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                <div style="display: grid; gap: 1.5rem;">
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <div
+                            style="background: #667eea; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                            1</div>
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem 0; color: #667eea;">Sélecteur</h4>
+                            <p style="margin: 0; color: #666;">Indique <strong>quel élément</strong> HTML vous voulez
+                                styliser</p>
+                            <div class="code-block" style="margin-top: 0.5rem;">
+                                <pre><code>h1    /* Tous les titres h1 */
+p     /* Tous les paragraphes */</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <div
+                            style="background: #764ba2; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                            2</div>
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem 0; color: #764ba2;">Propriété</h4>
+                            <p style="margin: 0; color: #666;">Indique <strong>quelle caractéristique</strong> vous
+                                voulez modifier</p>
+                            <div class="code-block" style="margin-top: 0.5rem;">
+                                <pre><code>color        /* Couleur du texte */
+font-size    /* Taille du texte */
+background   /* Couleur de fond */</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <div
+                            style="background: #10b981; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                            3</div>
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem 0; color: #10b981;">Valeur</h4>
+                            <p style="margin: 0; color: #666;">Indique <strong>comment</strong> vous voulez la modifier
+                            </p>
+                            <div class="code-block" style="margin-top: 0.5rem;">
+                                <pre><code>red          /* Couleur rouge */
+20px         /* 20 pixels */
+#667eea      /* Code couleur hexadécimal */</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 2rem;">
+                <strong>⚠️ Points importants</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Chaque déclaration se termine par un <code>;</code> (point-virgule)</li>
+                    <li>Les accolades <code>{ }</code> entourent toutes les déclarations</li>
+                    <li>CSS ne tient pas compte des espaces et des retours à la ligne</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 4 : Premier exemple -->
+        <div class="section">
+            <h2 class="section-title">🎯 Premier exemple pratique</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <!-- Code -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code CSS</p>
+                    <div class="code-block">
+                        <pre><code>h1 {
+    color: blue;
+    font-size: 32px;
+    text-align: center;
+}</code></pre>
+                    </div>
+                    <div class="info-box success" style="margin-top: 1rem;">
+                        <strong>📖 Explication</strong>
+                        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                            <li>Cible tous les <code>&lt;h1&gt;</code></li>
+                            <li>Texte en bleu</li>
+                            <li>Taille de 32 pixels</li>
+                            <li>Centré</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Résultat -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <h1 style="color: blue; font-size: 32px; text-align: center; margin: 0;">Mon Titre Stylisé
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : 3 façons d'ajouter du CSS -->
+        <div class="section">
+            <h2 class="section-title">📌 Les 3 façons d'ajouter du CSS</h2>
+
+            <!-- CSS Externe -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">1️⃣ CSS Externe (Recommandé ✅)</h3>
+                <p>Créer un fichier <code>.css</code> séparé et le lier au HTML</p>
+
+                <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">📄 style.css</p>
+                        <div class="code-block">
+                            <pre><code>h1 {
+    color: blue;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">📄 index.html</p>
+                        <div class="code-block">
+                            <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box success" style="margin-top: 1rem;">
+                    <strong>✅ Avantages</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Code propre et organisé</li>
+                        <li>Un seul fichier CSS pour tout le site</li>
+                        <li>Facile à maintenir</li>
+                        <li>Le navigateur met le CSS en cache (plus rapide)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CSS Interne -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;">2️⃣ CSS Interne</h3>
+                <p>Écrire le CSS dans la balise <code>&lt;style&gt;</code> du HTML</p>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <pre><code>&lt;head&gt;
+    &lt;style&gt;
+        h1 {
+            color: blue;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+
+                <div class="info-box warning" style="margin-top: 1rem;">
+                    <strong>⚠️ Quand l'utiliser ?</strong>
+                    <p>Uniquement pour des styles spécifiques à une seule page</p>
+                </div>
+            </div>
+
+            <!-- CSS Inline -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #ef4444;">
+                <h3 style="color: #ef4444;">3️⃣ CSS Inline (En ligne)</h3>
+                <p>Écrire le CSS directement dans l'attribut <code>style</code> de la balise</p>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <pre><code>&lt;h1 style="color: blue; font-size: 32px;"&gt;Titre&lt;/h1&gt;</code></pre>
+                </div>
+
+                <div class="info-box warning" style="margin-top: 1rem;">
+                    <strong>❌ À éviter</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Code difficile à maintenir</li>
+                        <li>Répétition du code</li>
+                        <li>Mélange HTML et CSS</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem;"><strong>Quand l'utiliser ?</strong> Uniquement pour des tests rapides
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6 : Commentaires CSS -->
+        <div class="section">
+            <h2 class="section-title">💬 Commentaires en CSS</h2>
+
+            <p>Les commentaires permettent d'expliquer votre code. Ils ne sont pas affichés sur la page.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                    <div class="code-block">
+                        <pre><code>/* Ceci est un commentaire */
+
+/* 
+   Commentaire
+   sur plusieurs
+   lignes
+*/
+
+h1 {
+    color: blue; /* Texte en bleu */
+}</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="info-box info">
+                        <strong>💡 Syntaxe</strong>
+                        <p style="margin-top: 0.5rem;">Les commentaires CSS commencent par <code>/*</code> et se
+                            terminent par <code>*/</code></p>
+                    </div>
+
+                    <div class="info-box success" style="margin-top: 1rem;">
+                        <strong>✅ Utilisations</strong>
+                        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                            <li>Expliquer du code complexe</li>
+                            <li>Organiser le fichier CSS</li>
+                            <li>Désactiver temporairement du code</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7 : Propriétés de base -->
+        <div class="section">
+            <h2 class="section-title">🎨 Propriétés CSS de base</h2>
+
+            <p>Voici les propriétés les plus utilisées pour commencer :</p>
+
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                <!-- Couleurs -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h4 style="color: #667eea; margin-bottom: 1rem;">🎨 Couleurs</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div>
+                            <div class="code-block">
+                                <pre><code>color: red;              /* Texte */
+background-color: blue;  /* Fond */</code></pre>
+                            </div>
+                        </div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <p style="color: red; margin: 0;">Texte rouge</p>
+                                <p style="background-color: blue; color: white; padding: 0.5rem; margin: 0.5rem 0 0 0;">
+                                    Fond bleu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texte -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h4 style="color: #764ba2; margin-bottom: 1rem;">✍️ Texte</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div>
+                            <div class="code-block">
+                                <pre><code>font-size: 20px;         /* Taille */
+font-weight: bold;       /* Gras */
+text-align: center;      /* Alignement */
+text-decoration: underline; /* Souligner */</code></pre>
+                            </div>
+                        </div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <p style="font-size: 20px; margin: 0;">Texte 20px</p>
+                                <p style="font-weight: bold; margin: 0.5rem 0 0 0;">Texte gras</p>
+                                <p style="text-align: center; margin: 0.5rem 0 0 0;">Texte centré</p>
+                                <p style="text-decoration: underline; margin: 0.5rem 0 0 0;">Texte souligné</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Espacement -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h4 style="color: #10b981; margin-bottom: 1rem;">📏 Espacement</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div>
+                            <div class="code-block">
+                                <pre><code>margin: 20px;    /* Espace extérieur */
+padding: 20px;   /* Espace intérieur */</code></pre>
+                            </div>
+                        </div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div style="background: #e3f2fd; padding: 20px; margin: 20px 0;">
+                                    <div style="background: #667eea; color: white; padding: 10px; text-align: center;">
+                                        Padding = espace intérieur
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.875rem; color: #666; margin: 0;">Margin = espace extérieur (zone
+                                    bleue claire)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bordures -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                    <h4 style="color: #f59e0b; margin-bottom: 1rem;">🔲 Bordures</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div>
+                            <div class="code-block">
+                                <pre><code>border: 2px solid black;  /* Bordure */
+border-radius: 10px;      /* Coins arrondis */</code></pre>
+                            </div>
+                        </div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div style="border: 2px solid black; padding: 1rem; margin-bottom: 1rem;">
+                                    Avec bordure
+                                </div>
+                                <div style="border: 2px solid #667eea; border-radius: 10px; padding: 1rem;">
+                                    Avec coins arrondis
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8 : Exercice guidé pas à pas -->
+        <div class="section">
+            <h2 class="section-title">👣 Exercice guidé : Créer votre première page stylisée</h2>
+
+            <p>Suivez ces étapes pour créer une page HTML avec du CSS externe :</p>
+
+            <!-- Étape 1 -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #667eea;">
+                <h3 style="color: #667eea;">📝 Étape 1 : Créer le fichier HTML</h3>
+
+                <p style="margin-top: 1rem;">Créez un fichier <code>index.html</code> avec ce contenu :</p>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ma Première Page Stylisée&lt;/title&gt;
+    &lt;!-- On va lier le CSS ici à l'étape 3 --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
+    &lt;p&gt;Ceci est mon premier paragraphe.&lt;/p&gt;
+    &lt;button&gt;Cliquez ici&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <div class="info-box info" style="margin-top: 1rem;">
+                    <strong>💡 Résultat actuel</strong>
+                    <p>Si vous ouvrez ce fichier dans le navigateur, vous verrez du HTML brut sans style.</p>
+                </div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #764ba2;">
+                <h3 style="color: #764ba2;">🎨 Étape 2 : Créer le fichier CSS</h3>
+
+                <p style="margin-top: 1rem;">Dans le même dossier, créez un fichier <code>style.css</code> :</p>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <pre><code>/* ===== STYLES GÉNÉRAUX ===== */
+
+/* Réinitialiser les marges par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style du body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* ===== TITRE ===== */
+h1 {
+    color: #667eea;              /* Couleur violette */
+    text-align: center;          /* Centrer le texte */
+    font-size: 36px;             /* Taille 36 pixels */
+    margin-bottom: 20px;         /* Espace en bas */
+    text-transform: uppercase;   /* Tout en majuscules */
+}
+
+/* ===== PARAGRAPHE ===== */
+p {
+    color: #333;                 /* Gris foncé */
+    font-size: 18px;             /* Taille 18 pixels */
+    line-height: 1.6;            /* Hauteur de ligne (espacement) */
+    margin-bottom: 20px;         /* Espace en bas */
+    text-align: center;          /* Centrer le texte */
+}
+
+/* ===== BOUTON ===== */
+button {
+    background-color: #667eea;   /* Fond violet */
+    color: white;                /* Texte blanc */
+    padding: 15px 30px;          /* Espacement intérieur */
+    border: none;                /* Pas de bordure */
+    border-radius: 8px;          /* Coins arrondis */
+    font-size: 16px;             /* Taille du texte */
+    cursor: pointer;             /* Curseur en forme de main */
+    display: block;              /* Affichage en bloc */
+    margin: 0 auto;              /* Centrer le bouton */
+}
+
+/* Effet au survol du bouton */
+button:hover {
+    background-color: #5a67d8;   /* Violet plus foncé */
+    transform: scale(1.05);      /* Agrandir légèrement */
+}</code></pre>
+                </div>
+
+                <div class="info-box success" style="margin-top: 1rem;">
+                    <strong>📖 Explications des propriétés</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li><code>font-family</code> : Police de caractères</li>
+                        <li><code>background-color</code> : Couleur de fond</li>
+                        <li><code>text-align</code> : Alignement du texte (left, center, right)</li>
+                        <li><code>margin-bottom</code> : Marge en bas de l'élément</li>
+                        <li><code>line-height</code> : Espacement entre les lignes</li>
+                        <li><code>border-radius</code> : Arrondir les coins</li>
+                        <li><code>cursor</code> : Forme du curseur de la souris</li>
+                        <li><code>:hover</code> : Style au survol de la souris</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Étape 3 -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">🔗 Étape 3 : Lier le CSS au HTML</h3>
+
+                <p style="margin-top: 1rem;">Modifiez le <code>&lt;head&gt;</code> de votre fichier HTML pour ajouter
+                    cette ligne :</p>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ma Première Page Stylisée&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;  &lt;!-- ✅ AJOUTER CETTE LIGNE --&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+
+                <div class="info-box warning" style="margin-top: 1rem;">
+                    <strong>⚠️ Points importants</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>La balise <code>&lt;link&gt;</code> doit être dans le <code>&lt;head&gt;</code></li>
+                        <li><code>rel="stylesheet"</code> indique que c'est une feuille de style</li>
+                        <li><code>href="style.css"</code> est le chemin vers votre fichier CSS</li>
+                        <li>Si le CSS est dans un dossier, utilisez : <code>href="css/style.css"</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Étape 4 -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;">🎉 Étape 4 : Voir le résultat</h3>
+
+                <p style="margin-top: 1rem;">Ouvrez <code>index.html</code> dans votre navigateur. Vous devriez voir :
+                </p>
+
+                <div class="demo-box" style="margin-top: 1rem;">
+                    <div class="demo-header">
+                        <h4>👀 Résultat final</h4>
+                    </div>
+                    <div class="demo-content" style="background: #f5f5f5; padding: 20px;">
+                        <h1
+                            style="color: #667eea; text-align: center; font-size: 36px; margin-bottom: 20px; text-transform: uppercase;">
+                            BIENVENUE SUR MON SITE</h1>
+                        <p
+                            style="color: #333; font-size: 18px; line-height: 1.6; margin-bottom: 20px; text-align: center;">
+                            Ceci est mon premier paragraphe.</p>
+                        <button
+                            style="background-color: #667eea; color: white; padding: 15px 30px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; display: block; margin: 0 auto;">Cliquez
+                            ici</button>
+                    </div>
+                </div>
+
+                <div class="info-box success" style="margin-top: 1rem;">
+                    <strong>✅ Bravo !</strong>
+                    <p>Vous avez créé votre première page avec du CSS externe. Essayez de modifier les couleurs et les
+                        tailles dans le fichier CSS et actualisez la page pour voir les changements.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9 : Propriétés CSS détaillées -->
+        <div class="section">
+            <h2 class="section-title">📚 Guide des propriétés CSS essentielles</h2>
+
+            <p>Voici un guide détaillé des propriétés CSS les plus utilisées :</p>
+
+            <!-- Couleurs -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">🎨 Couleurs</h3>
+
+                <div style="display: grid; gap: 1rem;">
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>color</code> - Couleur du texte</h4>
+                        <div class="code-block">
+                            <pre><code>p {
+    color: red;           /* Nom de couleur */
+    color: #ff0000;       /* Code hexadécimal */
+    color: rgb(255, 0, 0); /* RGB */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <p style="color: red; margin: 0;">Texte en rouge</p>
+                                <p style="color: #667eea; margin: 0.5rem 0 0 0;">Texte en violet (#667eea)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>background-color</code> - Couleur de
+                            fond</h4>
+                        <div class="code-block">
+                            <pre><code>div {
+    background-color: lightblue;
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <div style="background-color: lightblue; padding: 1rem;">Fond bleu clair</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Texte -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3 style="color: #764ba2; margin-bottom: 1rem;">✍️ Mise en forme du texte</h3>
+
+                <div style="display: grid; gap: 1rem;">
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>font-size</code> - Taille du texte
+                        </h4>
+                        <div class="code-block">
+                            <pre><code>p {
+    font-size: 16px;      /* En pixels */
+    font-size: 1.5em;     /* Relatif au parent */
+    font-size: 1.5rem;    /* Relatif à la racine */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <p style="font-size: 12px; margin: 0;">Texte 12px</p>
+                                <p style="font-size: 16px; margin: 0.5rem 0 0 0;">Texte 16px</p>
+                                <p style="font-size: 24px; margin: 0.5rem 0 0 0;">Texte 24px</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>font-weight</code> - Épaisseur du
+                            texte</h4>
+                        <div class="code-block">
+                            <pre><code>p {
+    font-weight: normal;   /* Normal (400) */
+    font-weight: bold;     /* Gras (700) */
+    font-weight: 600;      /* Semi-gras */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <p style="font-weight: normal; margin: 0;">Texte normal</p>
+                                <p style="font-weight: 600; margin: 0.5rem 0 0 0;">Texte semi-gras (600)</p>
+                                <p style="font-weight: bold; margin: 0.5rem 0 0 0;">Texte gras</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>text-align</code> - Alignement du
+                            texte</h4>
+                        <div class="code-block">
+                            <pre><code>p {
+    text-align: left;      /* À gauche (défaut) */
+    text-align: center;    /* Centré */
+    text-align: right;     /* À droite */
+    text-align: justify;   /* Justifié */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <p style="text-align: left; margin: 0; background: #f0f0f0; padding: 0.5rem;">Texte à
+                                    gauche</p>
+                                <p
+                                    style="text-align: center; margin: 0.5rem 0 0 0; background: #f0f0f0; padding: 0.5rem;">
+                                    Texte centré</p>
+                                <p
+                                    style="text-align: right; margin: 0.5rem 0 0 0; background: #f0f0f0; padding: 0.5rem;">
+                                    Texte à droite</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>text-decoration</code> - Décoration du
+                            texte</h4>
+                        <div class="code-block">
+                            <pre><code>p {
+    text-decoration: none;       /* Aucune */
+    text-decoration: underline;  /* Souligné */
+    text-decoration: line-through; /* Barré */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <p style="text-decoration: underline; margin: 0;">Texte souligné</p>
+                                <p style="text-decoration: line-through; margin: 0.5rem 0 0 0;">Texte barré</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>text-transform</code> - Transformation
+                            du texte</h4>
+                        <div class="code-block">
+                            <pre><code>p {
+    text-transform: uppercase;    /* MAJUSCULES */
+    text-transform: lowercase;    /* minuscules */
+    text-transform: capitalize;   /* Première Lettre */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <p style="text-transform: uppercase; margin: 0;">texte en majuscules</p>
+                                <p style="text-transform: lowercase; margin: 0.5rem 0 0 0;">TEXTE EN MINUSCULES</p>
+                                <p style="text-transform: capitalize; margin: 0.5rem 0 0 0;">première lettre en
+                                    majuscule</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>line-height</code> - Hauteur de ligne
+                        </h4>
+                        <div class="code-block">
+                            <pre><code>p {
+    line-height: 1.5;      /* 1.5 fois la taille du texte */
+    line-height: 24px;     /* Hauteur fixe */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <p style="line-height: 1; margin: 0; background: #f0f0f0; padding: 0.5rem;">Ligne
+                                    1<br>Ligne 2 (line-height: 1)</p>
+                                <p style="line-height: 2; margin: 0.5rem 0 0 0; background: #f0f0f0; padding: 0.5rem;">
+                                    Ligne 1<br>Ligne 2 (line-height: 2)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espacement -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3 style="color: #10b981; margin-bottom: 1rem;">📏 Espacement (Margin & Padding)</h3>
+
+                <div class="info-box info" style="margin-bottom: 1rem;">
+                    <strong>💡 Différence importante</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li><code>margin</code> : Espace <strong>extérieur</strong> (entre les éléments)</li>
+                        <li><code>padding</code> : Espace <strong>intérieur</strong> (entre le contenu et la bordure)
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="display: grid; gap: 1rem;">
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>margin</code> - Marge extérieure</h4>
+                        <div class="code-block">
+                            <pre><code>div {
+    margin: 20px;                  /* Tous les côtés */
+    margin: 10px 20px;             /* Haut/Bas  Gauche/Droite */
+    margin: 10px 20px 30px 40px;   /* Haut Droite Bas Gauche */
+    
+    margin-top: 10px;              /* Haut uniquement */
+    margin-right: 20px;            /* Droite uniquement */
+    margin-bottom: 30px;           /* Bas uniquement */
+    margin-left: 40px;             /* Gauche uniquement */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <div style="background: #e3f2fd; padding: 10px;">
+                                    <div style="background: #667eea; color: white; padding: 10px; margin: 20px;">
+                                        Élément avec margin: 20px
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.875rem; color: #666; margin: 0.5rem 0 0 0;">Zone bleue claire =
+                                    margin</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>padding</code> - Espacement intérieur
+                        </h4>
+                        <div class="code-block">
+                            <pre><code>div {
+    padding: 20px;                 /* Tous les côtés */
+    padding: 10px 20px;            /* Haut/Bas  Gauche/Droite */
+    padding: 10px 20px 30px 40px;  /* Haut Droite Bas Gauche */
+    
+    padding-top: 10px;             /* Haut uniquement */
+    padding-right: 20px;           /* Droite uniquement */
+    padding-bottom: 30px;          /* Bas uniquement */
+    padding-left: 40px;            /* Gauche uniquement */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <div style="background: #667eea; color: white; padding: 30px;">
+                                    Élément avec padding: 30px
+                                </div>
+                                <p style="font-size: 0.875rem; color: #666; margin: 0.5rem 0 0 0;">L'espace violet
+                                    autour du texte = padding</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bordures -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px;">
+                <h3 style="color: #f59e0b; margin-bottom: 1rem;">🔲 Bordures</h3>
+
+                <div style="display: grid; gap: 1rem;">
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>border</code> - Bordure complète</h4>
+                        <div class="code-block">
+                            <pre><code>div {
+    border: 2px solid black;       /* Épaisseur Style Couleur */
+    border: 3px dashed red;        /* Bordure en pointillés */
+    border: 1px dotted blue;       /* Bordure en points */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content">
+                                <div style="border: 2px solid black; padding: 1rem; margin-bottom: 1rem;">Bordure solide
+                                </div>
+                                <div style="border: 3px dashed red; padding: 1rem; margin-bottom: 1rem;">Bordure en
+                                    pointillés</div>
+                                <div style="border: 1px dotted blue; padding: 1rem;">Bordure en points</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;"><code>border-radius</code> - Coins arrondis
+                        </h4>
+                        <div class="code-block">
+                            <pre><code>div {
+    border-radius: 10px;           /* Tous les coins */
+    border-radius: 50%;            /* Cercle parfait */
+    border-radius: 10px 20px;      /* Haut-gauche/Bas-droite  Haut-droite/Bas-gauche */
+}</code></pre>
+                        </div>
+                        <div class="demo-box" style="margin-top: 0.5rem;">
+                            <div class="demo-content" style="display: flex; gap: 1rem;">
+                                <div
+                                    style="border: 2px solid #667eea; padding: 1rem; border-radius: 10px; flex: 1; text-align: center;">
+                                    10px</div>
+                                <div
+                                    style="border: 2px solid #667eea; padding: 1rem; border-radius: 20px; flex: 1; text-align: center;">
+                                    20px</div>
+                                <div
+                                    style="border: 2px solid #667eea; padding: 1rem; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    50%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercice pratique -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercice pratique</h2>
+
+            <div class="info-box warning">
+                <strong>🎯 À toi de jouer !</strong>
+                <p>Crée un fichier <code>style.css</code> et stylise cette page HTML :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Le titre h1 en bleu, centré, taille 36px</li>
+                    <li>Les paragraphes avec une taille de 18px</li>
+                    <li>Le bouton avec un fond vert, texte blanc, padding de 15px, coins arrondis de 8px</li>
+                </ul>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content">
+                    <h1 style="color: blue; text-align: center; font-size: 36px; margin: 0 0 1rem 0;">Bienvenue sur mon
+                        site</h1>
+                    <p style="font-size: 18px; margin: 0 0 1rem 0;">Ceci est un paragraphe de texte stylisé avec CSS.
+                    </p>
+                    <button
+                        style="background: green; color: white; padding: 15px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">Cliquez
+                        ici</button>
+                </div>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">📄 style.css</p>
+                    <div class="code-block">
+                        <pre><code>h1 {
+    color: blue;
+    text-align: center;
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+}
+
+button {
+    background-color: green;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}</code></pre>
+                    </div>
+
+                    <p style="font-weight: 600; margin: 1.5rem 0 0.5rem 0;">📄 index.html</p>
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mon Site&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
+    &lt;p&gt;Ceci est un paragraphe de texte stylisé avec CSS.&lt;/p&gt;
+    &lt;button&gt;Cliquez ici&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="info-box success">
+            <strong>📝 Résumé de la leçon</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ CSS = Cascading Style Sheets (feuilles de style)</li>
+                <li>✅ Syntaxe : <code>sélecteur { propriété: valeur; }</code></li>
+                <li>✅ 3 façons d'ajouter du CSS : externe (recommandé), interne, inline</li>
+                <li>✅ Commentaires : <code>/* commentaire */</code></li>
+                <li>✅ Propriétés de base : color, font-size, margin, padding, border</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine leçon :</strong> Les sélecteurs CSS 🎯</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

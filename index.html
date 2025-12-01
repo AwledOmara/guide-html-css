@@ -4,116 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ateliers HTML & CSS - Programme Tunisien</title>
+    <title>Guide Complet HTML & CSS - 12 Semaines</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
+        <!-- Bouton menu mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h1>🎓 HTML & CSS</h1>
-                <p>Lycée H. Becha Mananouba</p>
+                <h1>📚 HTML & CSS</h1>
+                <p>Programme 12 Semaines</p>
+                <p class="subtitle">Lycée H. Becha Mananouba (v.1.0.0)</p>
             </div>
 
             <nav class="nav-menu">
-                <!-- Accueil -->
+                <!-- Module 0 : Introduction -->
                 <div class="nav-section active">
-                    <h3>🏠 Cours</h3>
+                    <h3>🌐 Module 1: Intro</h3>
                     <ul>
-                        <li><a href="pages/accueil.html" target="content" class="active">Bienvenue</a></li>
-                        <li>
-                            <a href="pages/cours-structure-page.html" target="content">Structure d'une page HTML</a>
+                        <li><a href="pages/00-introduction-web.html" target="content">C'est quoi le Web ?</a></li>
+                        <li><a href="pages/01-structure-html.html" target="content">Structure d'une page HTML</a></li>
+                    </ul>
+                </div>
+
+                <!-- Module 1 : HTML Fondamental -->
+                <div class="nav-section">
+                    <h3>📝 Module 1 : HTML</h3>
+                    <ul>
+                        <li><a href="pages/02-balises-texte.html" target="content">Balises de texte</a></li>
+                        <li><a href="pages/03-listes-liens.html" target="content">Listes et liens</a></li>
+                        <li><a href="pages/04-images-multimedia.html" target="content">Images et multimédia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 : Tableaux et Formulaires -->
+                <div class="nav-section">
+                    <h3>📊 Module 2 : Tableaux & Formulaires</h3>
+                    <ul>
+                        <li><a href="pages/05-tableaux.html" target="content">Les tableaux</a></li>
+                        <li><a href="pages/06-formulaires.html" target="content">Les formulaires</a></li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 : Introduction CSS -->
+                <div class="nav-section">
+                    <h3>🎨 Module 3 : Introduction CSS</h3>
+                    <ul>
+                        <li><a href="pages/07-intro-css.html" target="content">Qu'est-ce que le CSS ?</a></li>
+                        <li><a href="pages/08-selecteurs-css.html" target="content">Sélecteurs CSS</a></li>
+                        <li><a href="pages/09-boite-modele.html" target="content">Le modèle de boîte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 : Mise en page -->
+                <div class="nav-section">
+                    <h3>📐 Module 4 : Mise en page</h3>
+                    <ul>
+                        <li><a href="pages/10-mise-en-page.html" target="content">Mise en page (Layout)</a></li>
+                        <li><a href="pages/11-flexbox.html" target="content">Flexbox</a></li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 : Animations -->
+                <div class="nav-section">
+                    <h3>✨ Module 5 : Animations</h3>
+                    <ul>
+                        <li><a href="pages/12-animations.html" target="content">Animations et Effets</a></li>
+                    </ul>
+                </div>
+
+                <!-- Ateliers Pratiques -->
+                <div class="nav-section">
+                    <h3>🛠️ Ateliers Pratiques</h3>
+                    <ul>
+                        <li><a href="ateliers/atelier-01-ma-page.html" target="content">Ma Première Page</a></li>
+                        <li><a href="ateliers/atelier-02-tableau.html" target="content">Tableau de Notes</a></li>
+                        <li><a href="ateliers/atelier-03-formulaire.html" target="content">Formulaire d'Inscription</a>
                         </li>
-
-                        <li><a href="pages/cours-input-text.html" target="content">Formulaires</a></li>
-
-                        <li><a href="pages/cours-css-base.html" target="content">Bases du CSS</a></li>
-                        <li><a href="pages/cours-css-animations.html" target="content">Animations & Transitions</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 1 -->
-                <div class="nav-section">
-                    <h3>🎨 Atelier 1 : Ma Première Page</h3>
-                    <ul>
-                        <li><a href="pages/atelier1-ma-page.html" target="content">Créer ma page de présentation</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 2 -->
-                <div class="nav-section">
-                    <h3>📝 Atelier 2 : Formulaire</h3>
-                    <ul>
-                        <li><a href="pages/atelier2-formulaire.html" target="content">Formulaire d'inscription</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 3 -->
-                <div class="nav-section">
-                    <h3>📊 Atelier 3 : Tableaux</h3>
-                    <ul>
-                        <li><a href="pages/atelier3-tableau.html" target="content">Tableau de notes</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 4 -->
-                <div class="nav-section">
-                    <h3>🎨 Atelier 4 : CSS Couleurs</h3>
-                    <ul>
-                        <li><a href="pages/atelier4-carte.html" target="content">Carte de visite stylisée</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 5 -->
-                <div class="nav-section">
-                    <h3>🧭 Atelier 5 : Navigation</h3>
-                    <ul>
-                        <li><a href="pages/atelier5-menu.html" target="content">Menu de navigation</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 6 -->
-                <div class="nav-section">
-                    <h3>📦 Atelier 6 : Flexbox</h3>
-                    <ul>
-                        <li><a href="pages/atelier6-galerie.html" target="content">Galerie de photos</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 7 -->
-                <div class="nav-section">
-                    <h3>✨ Atelier 7 : Animations</h3>
-                    <ul>
-                        <li><a href="pages/atelier7-cartes.html" target="content">Cartes animées</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 8 -->
-                <div class="nav-section">
-                    <h3>🌐 Atelier 8 : Site Complet</h3>
-                    <ul>
-                        <li><a href="pages/atelier8-site.html" target="content">Mon premier site web</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 9 -->
-                <div class="nav-section">
-                    <h3>🔗 Atelier 9 : Liens & Iframes</h3>
-                    <ul>
-                        <li><a href="pages/atelier9-liens-iframe.html" target="content">Liens et intégration</a></li>
-                    </ul>
-                </div>
-
-                <!-- Atelier 10 -->
-                <div class="nav-section">
-                    <h3>👤 Atelier 10 : Carte de Profil</h3>
-                    <ul>
-                        <li><a href="pages/atelier10-carte-profil.html" target="content">Créer une carte stylisée</a>
-                        </li>
+                        <li><a href="ateliers/atelier-04-carte-produit.html" target="content">Carte de Produit</a></li>
+                        <li><a href="ateliers/atelier-05-formulaire-candidature.html" target="content">Formulaire de
+                                Candidature</a></li>
+                        <li><a href="ateliers/atelier-06-formulaire-commande.html" target="content">Formulaire de
+                                Commande</a></li>
+                        <li><a href="ateliers/atelier-07-formulaire-sondage.html" target="content">Formulaire de
+                                Sondage</a></li>
+                        <li><a href="ateliers/atelier-08-formulaire-reservation.html" target="content">Formulaire de
+                                Réservation</a></li>
+                        <li><a href="ateliers/atelier-09-animations.html" target="content">Animations CSS</a></li>
+                        <li><a href="ateliers/atelier-10-carte-profil.html" target="content">Carte de Profil</a></li>
+                        <li><a href="ateliers/atelier-11-formulaire-connexion.html" target="content">Formulaire de
+                                Connexion</a></li>
+                        <li><a href="ateliers/atelier-12-recherche.html" target="content">Barre de Recherche</a></li>
                     </ul>
                 </div>
             </nav>
@@ -122,14 +112,15 @@
                 <div class="progress">
                     <div class="progress-bar" id="progressBar"></div>
                 </div>
-                <p class="progress-text"><span id="completed">0</span> / <span id="total">0</span> ateliers complétés
+                <p class="progress-text">
+                    <span id="completed">0</span> / <span id="total">0</span> leçons complétées
                 </p>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <iframe name="content" src="pages/accueil.html"></iframe>
+            <iframe name="content" src="pages/00-introduction-web.html"></iframe>
         </main>
     </div>
 

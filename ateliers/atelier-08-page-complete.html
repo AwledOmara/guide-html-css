@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 8 : Page Complète</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🚀 Atelier 8 : Page Complète</h1>
+            <p class="subtitle">Projet final - Créer une landing page complète</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Combiner toutes les compétences HTML/CSS apprises</li>
+                <li>Créer une page web complète et professionnelle</li>
+                <li>Structurer le contenu de manière sémantique</li>
+                <li>Appliquer un design moderne et cohérent</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez une landing page complète pour une application mobile avec les sections suivantes :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>Header :</strong> Logo + Menu de navigation sticky</li>
+                    <li><strong>Hero Section :</strong> Titre accrocheur + Description + Bouton CTA</li>
+                    <li><strong>Features :</strong> 3 cartes présentant les fonctionnalités</li>
+                    <li><strong>Footer :</strong> Copyright et liens sociaux</li>
+                    <li>Design cohérent avec palette de couleurs</li>
+                    <li>Responsive sur mobile et desktop</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <div style="background: #f8f9fa; border-radius: 12px; overflow: hidden;">
+                    <!-- Header -->
+                    <nav
+                        style="background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #667eea;">MyApp</div>
+                        <div style="display: flex; gap: 2rem;">
+                            <a href="#" style="color: #1a1a1a; text-decoration: none;">Accueil</a>
+                            <a href="#" style="color: #1a1a1a; text-decoration: none;">Features</a>
+                            <a href="#" style="color: #1a1a1a; text-decoration: none;">Contact</a>
+                        </div>
+                    </nav>
+
+                    <!-- Hero -->
+                    <div
+                        style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 4rem 2rem; text-align: center; color: white;">
+                        <h1 style="margin: 0 0 1rem 0; font-size: 2.5rem;">Bienvenue sur MyApp</h1>
+                        <p style="margin: 0 0 2rem 0; font-size: 1.25rem; opacity: 0.9;">L'application qui simplifie
+                            votre quotidien</p>
+                        <button
+                            style="padding: 1rem 2rem; background: white; color: #667eea; border: none; border-radius: 25px; font-size: 1.125rem; font-weight: 600; cursor: pointer;">Télécharger
+                            maintenant</button>
+                    </div>
+
+                    <!-- Features -->
+                    <div style="padding: 3rem 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                        <div
+                            style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                            <h3 style="margin: 0 0 0.5rem 0; color: #1a1a1a;">Rapide</h3>
+                            <p style="margin: 0; color: #6c757d;">Performance optimale</p>
+                        </div>
+                        <div
+                            style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                            <h3 style="margin: 0 0 0.5rem 0; color: #1a1a1a;">Sécurisé</h3>
+                            <p style="margin: 0; color: #6c757d;">Vos données protégées</p>
+                        </div>
+                        <div
+                            style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">💡</div>
+                            <h3 style="margin: 0 0 0.5rem 0; color: #1a1a1a;">Intuitif</h3>
+                            <p style="margin: 0; color: #6c757d;">Interface simple</p>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <footer style="background: #1a1a1a; color: white; padding: 2rem; text-align: center;">
+                        <p style="margin: 0;">© 2024 MyApp - Tous droits réservés</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <h4 style="margin-bottom: 1rem;">HTML</h4>
+                <div class="code-block">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;MyApp - Landing Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Header --&gt;
+    &lt;header class="header"&gt;
+        &lt;div class="logo"&gt;MyApp&lt;/div&gt;
+        &lt;nav&gt;
+            &lt;a href="#"&gt;Accueil&lt;/a&gt;
+            &lt;a href="#features"&gt;Features&lt;/a&gt;
+            &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;!-- Hero Section --&gt;
+    &lt;section class="hero"&gt;
+        &lt;h1&gt;Bienvenue sur MyApp&lt;/h1&gt;
+        &lt;p&gt;L'application qui simplifie votre quotidien&lt;/p&gt;
+        &lt;button class="cta-button"&gt;Télécharger maintenant&lt;/button&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Features --&gt;
+    &lt;section id="features" class="features"&gt;
+        &lt;div class="feature-card"&gt;
+            &lt;div class="icon"&gt;⚡&lt;/div&gt;
+            &lt;h3&gt;Rapide&lt;/h3&gt;
+            &lt;p&gt;Performance optimale&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="feature-card"&gt;
+            &lt;div class="icon"&gt;🔒&lt;/div&gt;
+            &lt;h3&gt;Sécurisé&lt;/h3&gt;
+            &lt;p&gt;Vos données protégées&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="feature-card"&gt;
+            &lt;div class="icon"&gt;💡&lt;/div&gt;
+            &lt;h3&gt;Intuitif&lt;/h3&gt;
+            &lt;p&gt;Interface simple&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Footer --&gt;
+    &lt;footer&gt;
+        &lt;p&gt;© 2024 MyApp - Tous droits réservés&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem 0;">CSS</h4>
+                <div class="code-block css">
+                    <pre><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.header nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.header nav a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header nav a:hover {
+    color: #667eea;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 6rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* Features */
+.features {
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.feature-card p {
+    color: #6c757d;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Commencez par la structure HTML avant le CSS</li>
+                <li>Utilisez des sections sémantiques (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>,
+                    <code>&lt;footer&gt;</code>)</li>
+                <li>Testez le responsive dès le début</li>
+                <li>Gardez une palette de couleurs cohérente</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

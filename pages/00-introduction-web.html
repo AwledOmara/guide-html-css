@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction au Web</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🌐 C'est quoi le Web ?</h1>
+            <p class="subtitle">Comprendre les bases d'Internet et du développement web</p>
+        </div>
+
+        <!-- Section 1 : Internet vs Web -->
+        <div class="section">
+            <h2 class="section-title">🌍 Internet et le Web : Quelle différence ?</h2>
+
+            <div class="info-box info">
+                <strong>💡 À retenir</strong>
+                <p><strong>Internet</strong> = Le réseau mondial d'ordinateurs connectés entre eux</p>
+                <p><strong>Le Web</strong> = Un service qui utilise Internet pour afficher des pages web</p>
+            </div>
+
+            <h3>Internet : Le réseau des réseaux</h3>
+            <p>
+                <strong>Internet</strong> est un immense réseau qui connecte des millions d'ordinateurs dans le monde
+                entier.
+                C'est comme un système de routes qui permet aux données de voyager d'un ordinateur à un autre.
+            </p>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>📊 Analogie simple</h4>
+                </div>
+                <div class="demo-content">
+                    <p style="font-size: 1.1rem;">
+                        🏙️ <strong>Internet</strong> = Le réseau routier (routes, autoroutes)<br>
+                        🚗 <strong>Le Web</strong> = Les voitures qui circulent sur ces routes<br>
+                        📧 <strong>Email</strong> = Un autre type de véhicule (camion de livraison)
+                    </p>
+                </div>
+            </div>
+
+            <h3>Le Web (World Wide Web)</h3>
+            <p>
+                Le <strong>Web</strong> est l'ensemble des pages web accessibles via Internet.
+                Chaque page web a une adresse unique appelée <strong>URL</strong> (Uniform Resource Locator).
+            </p>
+
+            <div class="code-block">
+                <pre><code>Exemple d'URL :
+https://www.exemple.com/page.html
+
+https://     → Protocole sécurisé
+www          → Sous-domaine
+exemple.com  → Nom de domaine
+/page.html   → Chemin vers la page</code></pre>
+            </div>
+        </div>
+
+        <!-- Section 2 : Comment fonctionne le Web -->
+        <div class="section">
+            <h2 class="section-title">⚙️ Comment fonctionne le Web ?</h2>
+
+            <h3>Le modèle Client-Serveur</h3>
+            <p>Le Web fonctionne selon un modèle simple :</p>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>🔄 Le cycle d'une requête web</h4>
+                </div>
+                <div class="demo-content" style="background: #f8f9fa; padding: 2rem; border-radius: 8px;">
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 600px; margin: 0 auto;">
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #667eea;">
+                            <strong>1️⃣ Client (Navigateur)</strong>
+                            <p style="margin: 0.5rem 0 0 0;">Tu tapes une adresse dans ton navigateur (Chrome,
+                                Firefox...)</p>
+                        </div>
+
+                        <div style="text-align: center; font-size: 2rem;">⬇️</div>
+
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #764ba2;">
+                            <strong>2️⃣ Requête HTTP</strong>
+                            <p style="margin: 0.5rem 0 0 0;">Le navigateur envoie une demande au serveur</p>
+                        </div>
+
+                        <div style="text-align: center; font-size: 2rem;">⬇️</div>
+
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #10b981;">
+                            <strong>3️⃣ Serveur</strong>
+                            <p style="margin: 0.5rem 0 0 0;">L'ordinateur qui héberge le site web reçoit la demande</p>
+                        </div>
+
+                        <div style="text-align: center; font-size: 2rem;">⬇️</div>
+
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                            <strong>4️⃣ Réponse</strong>
+                            <p style="margin: 0.5rem 0 0 0;">Le serveur renvoie les fichiers HTML, CSS, images...</p>
+                        </div>
+
+                        <div style="text-align: center; font-size: 2rem;">⬇️</div>
+
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #667eea;">
+                            <strong>5️⃣ Affichage</strong>
+                            <p style="margin: 0.5rem 0 0 0;">Ton navigateur affiche la page web</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 : Les langages du Web -->
+        <div class="section">
+            <h2 class="section-title">💻 Les langages du Web</h2>
+
+            <p>Pour créer un site web, on utilise principalement 3 langages qui travaillent ensemble :</p>
+
+            <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+                <!-- HTML -->
+                <div
+                    style="background: linear-gradient(135deg, rgba(227, 79, 38, 0.1), rgba(227, 79, 38, 0.05)); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #E34F26;">
+                    <h3 style="color: #E34F26; margin-bottom: 1rem;">📄 HTML (HyperText Markup Language)</h3>
+                    <p><strong>Rôle :</strong> La structure et le contenu de la page</p>
+                    <p><strong>Analogie :</strong> Le squelette et les organes d'un corps humain</p>
+                    <div class="code-block" style="margin-top: 1rem;">
+                        <pre><code>&lt;h1&gt;Titre de ma page&lt;/h1&gt;
+&lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- CSS -->
+                <div
+                    style="background: linear-gradient(135deg, rgba(21, 114, 182, 0.1), rgba(21, 114, 182, 0.05)); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #1572B6;">
+                    <h3 style="color: #1572B6; margin-bottom: 1rem;">🎨 CSS (Cascading Style Sheets)</h3>
+                    <p><strong>Rôle :</strong> L'apparence et la mise en page</p>
+                    <p><strong>Analogie :</strong> Les vêtements, le maquillage, la coiffure</p>
+                    <div class="code-block css" style="margin-top: 1rem;">
+                        <pre><code>h1 {
+    color: blue;
+    font-size: 32px;
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div
+                    style="background: linear-gradient(135deg, rgba(240, 219, 79, 0.1), rgba(240, 219, 79, 0.05)); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #F0DB4F;">
+                    <h3 style="color: #d4a017; margin-bottom: 1rem;">⚡ JavaScript</h3>
+                    <p><strong>Rôle :</strong> L'interactivité et le comportement</p>
+                    <p><strong>Analogie :</strong> Les mouvements, les réactions, l'intelligence</p>
+                    <div class="code-block js" style="margin-top: 1rem;">
+                        <pre><code>button.onclick = function() {
+    alert("Bonjour !");
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box success" style="margin-top: 2rem;">
+                <strong>🎯 Dans ce cours</strong>
+                <p>Nous allons nous concentrer sur <strong>HTML</strong> et <strong>CSS</strong>, les deux langages
+                    fondamentaux pour créer des sites web.</p>
+            </div>
+        </div>
+
+        <!-- Section 4 : Pourquoi apprendre HTML et CSS -->
+        <div class="section">
+            <h2 class="section-title">🚀 Pourquoi apprendre HTML et CSS ?</h2>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                <div class="info-box info">
+                    <strong>✅ Créer tes propres sites web</strong>
+                    <p>Portfolio personnel, blog, site pour un projet scolaire...</p>
+                </div>
+
+                <div class="info-box info">
+                    <strong>✅ Comprendre comment fonctionnent les sites que tu visites</strong>
+                    <p>Découvrir la "cuisine" derrière les pages web</p>
+                </div>
+
+                <div class="info-box info">
+                    <strong>✅ Base pour d'autres technologies</strong>
+                    <p>HTML/CSS sont la fondation pour apprendre JavaScript, React, etc.</p>
+                </div>
+
+                <div class="info-box info">
+                    <strong>✅ Compétence recherchée</strong>
+                    <p>Le développement web est un domaine en forte demande</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Outils nécessaires -->
+        <div class="section">
+            <h2 class="section-title">🛠️ Les outils dont tu as besoin</h2>
+
+            <h3>1. Un éditeur de code</h3>
+            <p>Pour écrire ton code HTML et CSS, tu as besoin d'un éditeur de texte spécialisé :</p>
+
+            <div style="display: grid; gap: 1rem; margin: 1.5rem 0;">
+                <div style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #007ACC;">
+                    <strong>💙 Visual Studio Code (VS Code)</strong> - Recommandé
+                    <p style="margin: 0.5rem 0 0 0;">Gratuit, puissant, avec beaucoup d'extensions utiles</p>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #ddd;">
+                    <strong>Autres options :</strong> Sublime Text, Notepad++, Atom
+                </div>
+            </div>
+
+            <h3>2. Un navigateur web</h3>
+            <p>Pour tester et voir le résultat de ton code :</p>
+            <ul style="margin-left: 2rem;">
+                <li>Google Chrome (recommandé pour le développement)</li>
+                <li>Mozilla Firefox</li>
+                <li>Microsoft Edge</li>
+            </ul>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>💡 Astuce</strong>
+                <p>Utilise les <strong>Outils de développement</strong> du navigateur (F12) pour inspecter et déboguer
+                    ton code !</p>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="info-box success">
+            <strong>📝 Résumé de la leçon</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ Internet = réseau mondial, Web = pages accessibles via Internet</li>
+                <li>✅ Le Web fonctionne avec un modèle client-serveur</li>
+                <li>✅ HTML = structure, CSS = apparence, JavaScript = interactivité</li>
+                <li>✅ Tu as besoin d'un éditeur de code et d'un navigateur</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine leçon :</strong> Structure d'une page HTML 📄</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 6 : Galerie d'Images</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🖼️ Atelier 6 : Galerie d'Images</h1>
+            <p class="subtitle">Créer une grille d'images responsive</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Créer une grille d'images avec CSS Grid</li>
+                <li>Utiliser les balises <code>&lt;figure&gt;</code> et <code>&lt;figcaption&gt;</code></li>
+                <li>Appliquer des effets au survol (zoom, opacité)</li>
+                <li>Rendre la galerie responsive</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez une galerie de 6 images organisée en grille avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>6 images (utilisez des placeholders colorés avec des emojis)</li>
+                    <li>Chaque image doit avoir une légende (<code>&lt;figcaption&gt;</code>)</li>
+                    <li>Grille de 3 colonnes sur desktop</li>
+                    <li>Effet de zoom au survol (<code>transform: scale()</code>)</li>
+                    <li>Bordures arrondies et ombres</li>
+                    <li>Espacement uniforme entre les images</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                    <figure
+                        style="margin: 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform 0.3s;"
+                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">🏔️
+                        </div>
+                        <figcaption style="padding: 1rem; text-align: center; color: #6c757d;">Montagne</figcaption>
+                    </figure>
+
+                    <figure
+                        style="margin: 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform 0.3s;"
+                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">🏖️
+                        </div>
+                        <figcaption style="padding: 1rem; text-align: center; color: #6c757d;">Plage</figcaption>
+                    </figure>
+
+                    <figure
+                        style="margin: 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #f59e0b, #d97706); display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform 0.3s;"
+                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">🏙️
+                        </div>
+                        <figcaption style="padding: 1rem; text-align: center; color: #6c757d;">Ville</figcaption>
+                    </figure>
+
+                    <figure
+                        style="margin: 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #ef4444, #dc2626); display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform 0.3s;"
+                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">🌲
+                        </div>
+                        <figcaption style="padding: 1rem; text-align: center; color: #6c757d;">Forêt</figcaption>
+                    </figure>
+
+                    <figure
+                        style="margin: 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #3b82f6, #2563eb); display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform 0.3s;"
+                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">🏜️
+                        </div>
+                        <figcaption style="padding: 1rem; text-align: center; color: #6c757d;">Désert</figcaption>
+                    </figure>
+
+                    <figure
+                        style="margin: 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform 0.3s;"
+                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">🌊
+                        </div>
+                        <figcaption style="padding: 1rem; text-align: center; color: #6c757d;">Océan</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <h4 style="margin-bottom: 1rem;">HTML</h4>
+                <div class="code-block">
+                    <pre><code>&lt;div class="galerie"&gt;
+    &lt;figure&gt;
+        &lt;div class="image-placeholder"&gt;🏔️&lt;/div&gt;
+        &lt;figcaption&gt;Montagne&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;div class="image-placeholder"&gt;🏖️&lt;/div&gt;
+        &lt;figcaption&gt;Plage&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;div class="image-placeholder"&gt;🏙️&lt;/div&gt;
+        &lt;figcaption&gt;Ville&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;div class="image-placeholder"&gt;🌲&lt;/div&gt;
+        &lt;figcaption&gt;Forêt&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;div class="image-placeholder"&gt;🏜️&lt;/div&gt;
+        &lt;figcaption&gt;Désert&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;div class="image-placeholder"&gt;🌊&lt;/div&gt;
+        &lt;figcaption&gt;Océan&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem 0;">CSS</h4>
+                <div class="code-block css">
+                    <pre><code>.galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.galerie figure {
+    margin: 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galerie figure:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: transform 0.3s;
+}
+
+.galerie figure:hover .image-placeholder {
+    transform: scale(1.1);
+}
+
+figcaption {
+    padding: 1rem;
+    text-align: center;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .galerie {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .galerie {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>grid-template-columns: repeat(3, 1fr)</code> crée 3 colonnes égales</li>
+                <li><code>overflow: hidden</code> empêche l'image zoomée de dépasser</li>
+                <li>Utilisez <code>@media</code> pour adapter la grille sur mobile</li>
+                <li>L'effet de zoom au survol attire l'attention de l'utilisateur</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

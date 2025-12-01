@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 8 : Formulaire de Réservation</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📅 Atelier 8 : Formulaire de Réservation</h1>
+            <p class="subtitle">Créer un formulaire de réservation avec dates et heures</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Utiliser <code>&lt;input type="date"&gt;</code> pour les dates</li>
+                <li>Utiliser <code>&lt;input type="time"&gt;</code> pour les heures</li>
+                <li>Utiliser <code>&lt;input type="color"&gt;</code> pour les couleurs</li>
+                <li>Créer un formulaire de réservation complet</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un formulaire de réservation de restaurant avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Nom complet (requis)</li>
+                    <li>Email (requis)</li>
+                    <li>Téléphone (requis)</li>
+                    <li>Date de réservation (type date, requis)</li>
+                    <li>Heure de réservation (type time, requis)</li>
+                    <li>Nombre de personnes (type number, min 1, max 10)</li>
+                    <li>Préférences (liste déroulante : Terrasse, Intérieur, Près de la fenêtre)</li>
+                    <li>Demandes spéciales (textarea)</li>
+                    <li>Bouton "Réserver"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <form
+                    style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; color: #667eea; margin-bottom: 1rem;">🍽️ Réservation de Table</h2>
+                    <p style="text-align: center; color: #6c757d; margin-bottom: 2rem;">Réservez votre table en quelques
+                        clics</p>
+
+                    <fieldset
+                        style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Vos informations</legend>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom complet
+                                *</label>
+                            <input type="text" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email *</label>
+                            <input type="email" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Téléphone *</label>
+                            <input type="tel" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+                    </fieldset>
+
+                    <fieldset
+                        style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Détails de la réservation
+                        </legend>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Date *</label>
+                            <input type="date" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Heure *</label>
+                            <input type="time" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nombre de personnes
+                                *</label>
+                            <input type="number" min="1" max="10" value="2" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Préférence de
+                                placement</label>
+                            <select
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                                <option>Pas de préférence</option>
+                                <option>Terrasse</option>
+                                <option>Intérieur</option>
+                                <option>Près de la fenêtre</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Demandes
+                            spéciales</label>
+                        <textarea rows="3"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; resize: vertical;"
+                            placeholder="Allergies, anniversaire, etc."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Confirmer
+                        la réservation</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <div class="code-block">
+                    <pre><code>&lt;form&gt;
+    &lt;h2&gt;🍽️ Réservation de Table&lt;/h2&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Vos informations&lt;/legend&gt;
+        
+        &lt;label for="nom"&gt;Nom complet *&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom" required&gt;
+        
+        &lt;label for="email"&gt;Email *&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+        
+        &lt;label for="tel"&gt;Téléphone *&lt;/label&gt;
+        &lt;input type="tel" id="tel" name="tel" required&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Détails de la réservation&lt;/legend&gt;
+        
+        &lt;label for="date"&gt;Date *&lt;/label&gt;
+        &lt;input type="date" id="date" name="date" required&gt;
+        
+        &lt;label for="heure"&gt;Heure *&lt;/label&gt;
+        &lt;input type="time" id="heure" name="heure" required&gt;
+        
+        &lt;label for="personnes"&gt;Nombre de personnes *&lt;/label&gt;
+        &lt;input type="number" id="personnes" name="personnes" min="1" max="10" value="2" required&gt;
+        
+        &lt;label for="placement"&gt;Préférence de placement&lt;/label&gt;
+        &lt;select id="placement" name="placement"&gt;
+            &lt;option&gt;Pas de préférence&lt;/option&gt;
+            &lt;option&gt;Terrasse&lt;/option&gt;
+            &lt;option&gt;Intérieur&lt;/option&gt;
+            &lt;option&gt;Près de la fenêtre&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;label for="demandes"&gt;Demandes spéciales&lt;/label&gt;
+    &lt;textarea id="demandes" name="demandes" rows="3"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Confirmer la réservation&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>type="date"</code> affiche un sélecteur de date</li>
+                <li><code>type="time"</code> affiche un sélecteur d'heure</li>
+                <li>Ces inputs ont une validation automatique du format</li>
+                <li>Groupez les champs liés avec <code>&lt;fieldset&gt;</code></li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

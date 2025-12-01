@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Tableaux HTML</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📊 Les Tableaux HTML</h1>
+            <p class="subtitle">Organiser des données en lignes et colonnes</p>
+        </div>
+
+        <!-- Section 1 : Structure de base -->
+        <div class="section">
+            <h2 class="section-title">🏗️ Structure de base d'un tableau</h2>
+
+            <p>Un tableau HTML est composé de plusieurs balises imbriquées :</p>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                <ul style="margin-left: 1.5rem;">
+                    <li><code>&lt;table&gt;</code> - Conteneur principal du tableau</li>
+                    <li><code>&lt;tr&gt;</code> (Table Row) - Ligne du tableau</li>
+                    <li><code>&lt;td&gt;</code> (Table Data) - Cellule de données</li>
+                    <li><code>&lt;th&gt;</code> (Table Header) - Cellule d'en-tête (en gras)</li>
+                </ul>
+            </div>
+
+            <div class="code-block">
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Nom&lt;/th&gt;
+        &lt;th&gt;Âge&lt;/th&gt;
+        &lt;th&gt;Ville&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ahmed&lt;/td&gt;
+        &lt;td&gt;17&lt;/td&gt;
+        &lt;td&gt;Tunis&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Fatma&lt;/td&gt;
+        &lt;td&gt;16&lt;/td&gt;
+        &lt;td&gt;Sousse&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>👀 Résultat</h4>
+                </div>
+                <div class="demo-content">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Nom</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Âge</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Ville</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Ahmed</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">17</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Tunis</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Fatma</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">16</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Sousse</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="info-box info">
+                <strong>💡 Logique de construction</strong>
+                <p>Un tableau se construit <strong>ligne par ligne</strong> :</p>
+                <ol style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Créer une ligne (<code>&lt;tr&gt;</code>)</li>
+                    <li>Ajouter des cellules dans cette ligne (<code>&lt;td&gt;</code> ou <code>&lt;th&gt;</code>)</li>
+                    <li>Passer à la ligne suivante</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 2 : Structure sémantique -->
+        <div class="section">
+            <h2 class="section-title">📚 Structure sémantique (thead, tbody, tfoot)</h2>
+
+            <p>Pour mieux organiser un tableau, on peut le diviser en 3 parties :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;table&gt;
+    &lt;thead&gt;  &lt;!-- En-tête du tableau --&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Produit&lt;/th&gt;
+            &lt;th&gt;Prix&lt;/th&gt;
+            &lt;th&gt;Quantité&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;  &lt;!-- Corps du tableau --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Ordinateur&lt;/td&gt;
+            &lt;td&gt;2000 DT&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Souris&lt;/td&gt;
+            &lt;td&gt;30 DT&lt;/td&gt;
+            &lt;td&gt;20&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    
+    &lt;tfoot&gt;  &lt;!-- Pied du tableau --&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2"&gt;Total&lt;/td&gt;
+            &lt;td&gt;25 articles&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <div class="info-box success">
+                <strong>✅ Avantages de la structure sémantique</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Meilleure accessibilité (lecteurs d'écran)</li>
+                    <li>Plus facile à styliser avec CSS</li>
+                    <li>Code plus lisible et organisé</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3 : COLSPAN -->
+        <div class="section">
+            <h2 class="section-title">↔️ Colspan - Fusionner des colonnes</h2>
+
+            <p><code>colspan</code> permet à une cellule de s'étendre sur <strong>plusieurs colonnes</strong> :</p>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>🎯 Exemple visuel</h4>
+                </div>
+                <div class="demo-content">
+                    <div style="display: grid; gap: 2rem;">
+                        <!-- Tableau normal -->
+                        <div>
+                            <p><strong>Sans colspan :</strong></p>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem;">
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">
+                                        Cellule 1</td>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">
+                                        Cellule 2</td>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">
+                                        Cellule 3</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Tableau avec colspan -->
+                        <div>
+                            <p><strong>Avec colspan="2" :</strong></p>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem;">
+                                <tr>
+                                    <td colspan="2"
+                                        style="padding: 0.75rem; border: 2px solid #10b981; background: #d1fae5; text-align: center; font-weight: bold;">
+                                        Cellule fusionnée (2 colonnes)</td>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">
+                                        Cellule 3</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Tableau avec colspan 3 -->
+                        <div>
+                            <p><strong>Avec colspan="3" :</strong></p>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem;">
+                                <tr>
+                                    <td colspan="3"
+                                        style="padding: 0.75rem; border: 2px solid #f59e0b; background: #fef3c7; text-align: center; font-weight: bold;">
+                                        Cellule fusionnée (3 colonnes)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td colspan="2"&gt;Cette cellule prend 2 colonnes&lt;/td&gt;
+        &lt;td&gt;Cellule normale&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cellule 1&lt;/td&gt;
+        &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;td&gt;Cellule 3&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ Attention au nombre de cellules</strong>
+                <p>Chaque ligne doit avoir le même nombre total de colonnes !</p>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>&lt;!-- ✅ Correct : 3 colonnes par ligne --&gt;
+&lt;tr&gt;
+    &lt;td colspan="2"&gt;2 colonnes&lt;/td&gt;
+    &lt;td&gt;1 colonne&lt;/td&gt;  &lt;!-- Total = 3 --&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;2&lt;/td&gt;
+    &lt;td&gt;3&lt;/td&gt;  &lt;!-- Total = 3 --&gt;
+&lt;/tr&gt;
+
+&lt;!-- ❌ Incorrect : nombre différent --&gt;
+&lt;tr&gt;
+    &lt;td colspan="2"&gt;2 colonnes&lt;/td&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;1&lt;/td&gt;  &lt;!-- Total = 4 ❌ --&gt;
+&lt;/tr&gt;</code></pre>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Exemple pratique : Emploi du temps</h3>
+
+            <div class="demo-box">
+                <div class="demo-content">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Heure</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Lundi</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Mardi</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Mercredi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; font-weight: bold;">8h-10h</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #e3f2fd;">Maths</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #f3e5f5;">Français</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #e8f5e9;">Sciences</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; font-weight: bold;">10h-12h</td>
+                                <td colspan="3"
+                                    style="padding: 0.75rem; border: 1px solid #ddd; background: #fff3e0; text-align: center; font-weight: bold;">
+                                    Pause déjeuner</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; font-weight: bold;">14h-16h</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #fce4ec;">Anglais</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #e0f2f1;">Sport</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #e3f2fd;">Maths</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Voir le code de l'emploi du
+                    temps</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Heure&lt;/th&gt;
+            &lt;th&gt;Lundi&lt;/th&gt;
+            &lt;th&gt;Mardi&lt;/th&gt;
+            &lt;th&gt;Mercredi&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;8h-10h&lt;/td&gt;
+            &lt;td&gt;Maths&lt;/td&gt;
+            &lt;td&gt;Français&lt;/td&gt;
+            &lt;td&gt;Sciences&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;10h-12h&lt;/td&gt;
+            &lt;td colspan="3"&gt;Pause déjeuner&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;14h-16h&lt;/td&gt;
+            &lt;td&gt;Anglais&lt;/td&gt;
+            &lt;td&gt;Sport&lt;/td&gt;
+            &lt;td&gt;Maths&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 : ROWSPAN -->
+        <div class="section">
+            <h2 class="section-title">↕️ Rowspan - Fusionner des lignes</h2>
+
+            <p><code>rowspan</code> permet à une cellule de s'étendre sur <strong>plusieurs lignes</strong> :</p>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>🎯 Exemple visuel</h4>
+                </div>
+                <div class="demo-content">
+                    <div style="display: grid; gap: 2rem;">
+                        <!-- Tableau normal -->
+                        <div>
+                            <p><strong>Sans rowspan :</strong></p>
+                            <table style="border-collapse: collapse; margin-top: 0.5rem;">
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">Ligne
+                                        1</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">Ligne
+                                        2</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">Ligne
+                                        3</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Tableau avec rowspan -->
+                        <div>
+                            <p><strong>Avec rowspan="2" :</strong></p>
+                            <table style="border-collapse: collapse; margin-top: 0.5rem;">
+                                <tr>
+                                    <td rowspan="2"
+                                        style="padding: 0.75rem; border: 2px solid #10b981; background: #d1fae5; font-weight: bold; vertical-align: middle;">
+                                        Cellule fusionnée<br>(2 lignes)</td>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">Ligne
+                                        1</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">Ligne
+                                        2</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">
+                                        Cellule normale</td>
+                                    <td style="padding: 0.75rem; border: 2px solid #667eea; background: #e8eaf6;">Ligne
+                                        3</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Cette cellule prend 2 lignes&lt;/td&gt;
+        &lt;td&gt;Ligne 1, Colonne 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;!-- Pas de première cellule ici, elle est fusionnée ! --&gt;
+        &lt;td&gt;Ligne 2, Colonne 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ Attention</strong>
+                <p>Quand une cellule utilise <code>rowspan</code>, les lignes suivantes ont <strong>une cellule de
+                        moins</strong> !</p>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Exemple pratique : Bulletin de notes</h3>
+
+            <div class="demo-box">
+                <div class="demo-content">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Matière</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Trimestre</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3"
+                                    style="padding: 0.75rem; border: 1px solid #ddd; background: #e3f2fd; font-weight: bold; vertical-align: middle;">
+                                    Mathématiques</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">Trimestre 1</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">15/20</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">Trimestre 2</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">17/20</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">Trimestre 3</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">16/20</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3"
+                                    style="padding: 0.75rem; border: 1px solid #ddd; background: #f3e5f5; font-weight: bold; vertical-align: middle;">
+                                    Français</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">Trimestre 1</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">14/20</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">Trimestre 2</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">15/20</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">Trimestre 3</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd;">16/20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Voir le code du bulletin</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Matière&lt;/th&gt;
+            &lt;th&gt;Trimestre&lt;/th&gt;
+            &lt;th&gt;Note&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="3"&gt;Mathématiques&lt;/td&gt;
+            &lt;td&gt;Trimestre 1&lt;/td&gt;
+            &lt;td&gt;15/20&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Trimestre 2&lt;/td&gt;
+            &lt;td&gt;17/20&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Trimestre 3&lt;/td&gt;
+            &lt;td&gt;16/20&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="3"&gt;Français&lt;/td&gt;
+            &lt;td&gt;Trimestre 1&lt;/td&gt;
+            &lt;td&gt;14/20&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Trimestre 2&lt;/td&gt;
+            &lt;td&gt;15/20&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Trimestre 3&lt;/td&gt;
+            &lt;td&gt;16/20&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Combiner colspan et rowspan -->
+        <div class="section">
+            <h2 class="section-title">🎯 Combiner colspan et rowspan</h2>
+
+            <p>On peut utiliser <code>colspan</code> et <code>rowspan</code> ensemble pour créer des tableaux complexes
+                :</p>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>📊 Exemple : Tableau de planning</h4>
+                </div>
+                <div class="demo-content">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Jour</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Matin</th>
+                                <th style="padding: 0.75rem; border: 1px solid #ddd;">Après-midi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2"
+                                    style="padding: 0.75rem; border: 1px solid #ddd; background: #e3f2fd; font-weight: bold; vertical-align: middle;">
+                                    Lundi</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #fff3e0;">Cours</td>
+                                <td style="padding: 0.75rem; border: 1px solid #ddd; background: #e8f5e9;">TP</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"
+                                    style="padding: 0.75rem; border: 1px solid #ddd; background: #fce4ec; text-align: center;">
+                                    Réunion d'équipe</td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="padding: 0.75rem; border: 1px solid #ddd; background: #e3f2fd; font-weight: bold;">
+                                    Mardi</td>
+                                <td colspan="2"
+                                    style="padding: 0.75rem; border: 1px solid #ddd; background: #f3e5f5; text-align: center;">
+                                    Projet personnel</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Voir le code</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Jour&lt;/th&gt;
+            &lt;th&gt;Matin&lt;/th&gt;
+            &lt;th&gt;Après-midi&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;Lundi&lt;/td&gt;
+            &lt;td&gt;Cours&lt;/td&gt;
+            &lt;td&gt;TP&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;!-- Pas de cellule "Jour" ici (rowspan) --&gt;
+            &lt;td colspan="2"&gt;Réunion d'équipe&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Mardi&lt;/td&gt;
+            &lt;td colspan="2"&gt;Projet personnel&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercices pratiques -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercices pratiques</h2>
+
+            <!-- Exercice 1 -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #667eea;">
+                <h3 style="color: #667eea;">Exercice 1 : Tableau simple avec colspan</h3>
+                <div class="info-box warning">
+                    <strong>🎯 Objectif</strong>
+                    <p>Reproduis ce tableau de menu de restaurant :</p>
+                </div>
+
+                <div class="demo-box" style="margin-top: 1rem;">
+                    <div class="demo-header">
+                        <h4>👀 Résultat attendu</h4>
+                    </div>
+                    <div class="demo-content">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Plat</th>
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Prix</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"
+                                        style="padding: 0.75rem; border: 1px solid #ddd; font-weight: bold; background: #f0f0f0; text-align: center;">
+                                        Entrées</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Salade tunisienne</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">5 DT</td>
+                                </tr>
+                                <tr style="background: #f8f9fa;">
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Brik à l'œuf</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">4 DT</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"
+                                        style="padding: 0.75rem; border: 1px solid #ddd; font-weight: bold; background: #f0f0f0; text-align: center;">
+                                        Plats principaux</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Couscous</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">12 DT</td>
+                                </tr>
+                                <tr style="background: #f8f9fa;">
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Tajine</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">15 DT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="info-box info" style="margin-top: 1rem;">
+                    <strong>💡 Indices</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Les lignes "Entrées" et "Plats principaux" utilisent <code>colspan="2"</code></li>
+                        <li>N'oublie pas <code>&lt;thead&gt;</code> et <code>&lt;tbody&gt;</code></li>
+                    </ul>
+                </div>
+
+                <div class="solution-container" style="margin-top: 1rem;">
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                    <div class="solution-content">
+                        <div class="code-block">
+                            <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Plat&lt;/th&gt;
+            &lt;th&gt;Prix&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2" style="font-weight: bold; background: #f0f0f0;"&gt;Entrées&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Salade tunisienne&lt;/td&gt;
+            &lt;td&gt;5 DT&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Brik à l'œuf&lt;/td&gt;
+            &lt;td&gt;4 DT&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2" style="font-weight: bold; background: #f0f0f0;"&gt;Plats principaux&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Couscous&lt;/td&gt;
+            &lt;td&gt;12 DT&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Tajine&lt;/td&gt;
+            &lt;td&gt;15 DT&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercice 2 -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #764ba2;">
+                <h3 style="color: #764ba2;">Exercice 2 : Tableau avec rowspan</h3>
+                <div class="info-box warning">
+                    <strong>🎯 Objectif</strong>
+                    <p>Reproduis ce tableau de contacts :</p>
+                </div>
+
+                <div class="demo-box" style="margin-top: 1rem;">
+                    <div class="demo-header">
+                        <h4>👀 Résultat attendu</h4>
+                    </div>
+                    <div class="demo-content">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Nom</th>
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Type</th>
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Valeur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2"
+                                        style="padding: 0.75rem; border: 1px solid #ddd; background: #e3f2fd; font-weight: bold; vertical-align: middle;">
+                                        Ahmed</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Email</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">ahmed@exemple.com</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Téléphone</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">+216 12 345 678</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2"
+                                        style="padding: 0.75rem; border: 1px solid #ddd; background: #f3e5f5; font-weight: bold; vertical-align: middle;">
+                                        Fatma</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Email</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">fatma@exemple.com</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Téléphone</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">+216 98 765 432</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="info-box info" style="margin-top: 1rem;">
+                    <strong>💡 Indices</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Les noms utilisent <code>rowspan="2"</code></li>
+                        <li>Attention : la 2ème ligne de chaque personne n'a que 2 cellules (pas de nom)</li>
+                    </ul>
+                </div>
+
+                <div class="solution-container" style="margin-top: 1rem;">
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                    <div class="solution-content">
+                        <div class="code-block">
+                            <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Nom&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+            &lt;th&gt;Valeur&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;Ahmed&lt;/td&gt;
+            &lt;td&gt;Email&lt;/td&gt;
+            &lt;td&gt;ahmed@exemple.com&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Téléphone&lt;/td&gt;
+            &lt;td&gt;+216 12 345 678&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;Fatma&lt;/td&gt;
+            &lt;td&gt;Email&lt;/td&gt;
+            &lt;td&gt;fatma@exemple.com&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Téléphone&lt;/td&gt;
+            &lt;td&gt;+216 98 765 432&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercice 3 -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">Exercice 3 : Tableau complexe (colspan + rowspan)</h3>
+                <div class="info-box warning">
+                    <strong>🎯 Objectif (Défi !)</strong>
+                    <p>Reproduis ce tableau d'horaires de cinéma :</p>
+                </div>
+
+                <div class="demo-box" style="margin-top: 1rem;">
+                    <div class="demo-header">
+                        <h4>👀 Résultat attendu</h4>
+                    </div>
+                    <div class="demo-content">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Film</th>
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Samedi</th>
+                                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Dimanche</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2"
+                                        style="padding: 0.75rem; border: 1px solid #ddd; background: #e3f2fd; font-weight: bold; vertical-align: middle;">
+                                        Avatar 3</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd; background: #fff3e0;">14h00
+                                    </td>
+                                    <td rowspan="2"
+                                        style="padding: 0.75rem; border: 1px solid #ddd; background: #e8f5e9; vertical-align: middle;">
+                                        20h00</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd; background: #fff3e0;">18h00
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 0.75rem; border: 1px solid #ddd; background: #f3e5f5; font-weight: bold;">
+                                        Dune 3</td>
+                                    <td colspan="2"
+                                        style="padding: 0.75rem; border: 1px solid #ddd; background: #fce4ec; text-align: center;">
+                                        Séance unique : 21h00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="info-box info" style="margin-top: 1rem;">
+                    <strong>💡 Indices</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>"Avatar 3" utilise <code>rowspan="2"</code> (2 séances le samedi)</li>
+                        <li>"20h00" (dimanche) utilise aussi <code>rowspan="2"</code></li>
+                        <li>"Séance unique" utilise <code>colspan="2"</code></li>
+                        <li>Compte bien les cellules de chaque ligne !</li>
+                    </ul>
+                </div>
+
+                <div class="solution-container" style="margin-top: 1rem;">
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                    <div class="solution-content">
+                        <div class="code-block">
+                            <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Film&lt;/th&gt;
+            &lt;th&gt;Samedi&lt;/th&gt;
+            &lt;th&gt;Dimanche&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;Avatar 3&lt;/td&gt;
+            &lt;td&gt;14h00&lt;/td&gt;
+            &lt;td rowspan="2"&gt;20h00&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;!-- Pas de cellule "Film" ni "Dimanche" (rowspan) --&gt;
+            &lt;td&gt;18h00&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Dune 3&lt;/td&gt;
+            &lt;td colspan="2" style="text-align: center;"&gt;Séance unique : 21h00&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="info-box success">
+            <strong>📝 Résumé de la leçon</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ Structure : <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>,
+                    <code>&lt;th&gt;</code>
+                </li>
+                <li>✅ Organisation : <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>
+                </li>
+                <li>✅ <code>colspan="n"</code> : fusionne n colonnes horizontalement</li>
+                <li>✅ <code>rowspan="n"</code> : fusionne n lignes verticalement</li>
+                <li>✅ On peut combiner colspan et rowspan</li>
+                <li>✅ Attention au nombre total de cellules par ligne !</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine leçon :</strong> Les formulaires 📝</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

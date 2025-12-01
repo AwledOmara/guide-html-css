@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 5 : Formulaire de Candidature</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>💼 Atelier 5 : Formulaire de Candidature</h1>
+            <p class="subtitle">Créer un formulaire de candidature avec upload de fichier</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Utiliser <code>&lt;input type="file"&gt;</code> pour uploader des fichiers</li>
+                <li>Structurer un formulaire avec <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code></li>
+                <li>Combiner différents types d'inputs dans un formulaire professionnel</li>
+                <li>Créer un formulaire de candidature réaliste</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un formulaire de candidature pour un poste avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Fieldset "Informations personnelles" : Nom, Prénom, Email, Téléphone</li>
+                    <li>Fieldset "Candidature" : Poste visé (select), CV (file), Lettre de motivation (textarea)</li>
+                    <li>Case à cocher "J'accepte les conditions"</li>
+                    <li>Bouton "Envoyer ma candidature"</li>
+                    <li>Tous les champs sont requis sauf le téléphone</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <form
+                    style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; color: #667eea; margin: 0 0 2rem 0;">💼 Postuler à une offre</h2>
+
+                    <fieldset
+                        style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Informations personnelles
+                        </legend>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom *</label>
+                            <input type="text" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Prénom *</label>
+                            <input type="text" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email *</label>
+                            <input type="email" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Téléphone</label>
+                            <input type="tel"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+                    </fieldset>
+
+                    <fieldset
+                        style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Candidature</legend>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Poste visé *</label>
+                            <select required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                                <option value="">Choisissez un poste...</option>
+                                <option>Développeur Web</option>
+                                <option>Designer UI/UX</option>
+                                <option>Chef de projet</option>
+                                <option>Marketing Digital</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">CV (PDF) *</label>
+                            <input type="file" accept=".pdf" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Lettre de motivation
+                                *</label>
+                            <textarea required rows="5"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; resize: vertical;"
+                                placeholder="Expliquez pourquoi vous êtes le candidat idéal..."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" required style="margin-right: 0.5rem;">
+                            J'accepte les conditions générales et la politique de confidentialité *
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                        style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Envoyer
+                        ma candidature</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <div class="code-block">
+                    <pre><code>&lt;form enctype="multipart/form-data"&gt;
+    &lt;h2&gt;💼 Postuler à une offre&lt;/h2&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Informations personnelles&lt;/legend&gt;
+        
+        &lt;label for="nom"&gt;Nom *&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom" required&gt;
+        
+        &lt;label for="prenom"&gt;Prénom *&lt;/label&gt;
+        &lt;input type="text" id="prenom" name="prenom" required&gt;
+        
+        &lt;label for="email"&gt;Email *&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+        
+        &lt;label for="tel"&gt;Téléphone&lt;/label&gt;
+        &lt;input type="tel" id="tel" name="tel"&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Candidature&lt;/legend&gt;
+        
+        &lt;label for="poste"&gt;Poste visé *&lt;/label&gt;
+        &lt;select id="poste" name="poste" required&gt;
+            &lt;option value=""&gt;Choisissez un poste...&lt;/option&gt;
+            &lt;option&gt;Développeur Web&lt;/option&gt;
+            &lt;option&gt;Designer UI/UX&lt;/option&gt;
+            &lt;option&gt;Chef de projet&lt;/option&gt;
+            &lt;option&gt;Marketing Digital&lt;/option&gt;
+        &lt;/select&gt;
+        
+        &lt;label for="cv"&gt;CV (PDF) *&lt;/label&gt;
+        &lt;input type="file" id="cv" name="cv" accept=".pdf" required&gt;
+        
+        &lt;label for="lettre"&gt;Lettre de motivation *&lt;/label&gt;
+        &lt;textarea id="lettre" name="lettre" required rows="5"&gt;&lt;/textarea&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;label&gt;
+        &lt;input type="checkbox" name="conditions" required&gt;
+        J'accepte les conditions générales *
+    &lt;/label&gt;
+    
+    &lt;button type="submit"&gt;Envoyer ma candidature&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>type="file"</code> permet d'uploader des fichiers</li>
+                <li><code>accept=".pdf"</code> limite les types de fichiers acceptés</li>
+                <li><code>enctype="multipart/form-data"</code> est nécessaire pour envoyer des fichiers (à ajouter sur
+                    le &lt;form&gt;)</li>
+                <li><code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code> organisent visuellement le formulaire
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

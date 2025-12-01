@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Sélecteurs CSS</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🎯 Les Sélecteurs CSS</h1>
+            <p class="subtitle">Cibler précisément les éléments à styliser</p>
+        </div>
+
+        <!-- Section 1 : Introduction -->
+        <div class="section">
+            <h2 class="section-title">🤔 Qu'est-ce qu'un sélecteur ?</h2>
+
+            <p>Pour appliquer du style à un élément HTML, il faut d'abord pouvoir le <strong>désigner</strong> (le
+                sélectionner). C'est le rôle du sélecteur.</p>
+
+            <div class="info-box info" style="margin-top: 1.5rem;">
+                <strong>👆 Analogie</strong>
+                <p>Imaginez que vous voulez peindre un mur dans une maison :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>Sélecteur de balise</strong> : "Peins <em>tous les murs</em> en blanc."</li>
+                    <li><strong>Sélecteur de classe</strong> : "Peins <em>les murs de la cuisine</em> en jaune."</li>
+                    <li><strong>Sélecteur d'ID</strong> : "Peins <em>le mur derrière la télé</em> en rouge."</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2 : Les 3 sélecteurs de base -->
+        <div class="section">
+            <h2 class="section-title">1️⃣ Les 3 sélecteurs indispensables</h2>
+
+            <!-- 1. Sélecteur de balise -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #3498db;">
+                <h3 style="color: #3498db;">A. Sélecteur de balise (Type)</h3>
+                <p>Cible <strong>toutes</strong> les balises d'un certain type.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code CSS</p>
+                        <div class="code-block">
+                            <pre><code>p {
+    color: blue;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <p style="color: blue; margin-bottom: 0.5rem;">Premier paragraphe (bleu)</p>
+                                <p style="color: blue; margin-bottom: 0;">Deuxième paragraphe (bleu)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Sélecteur de classe -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #e67e22;">
+                <h3 style="color: #e67e22;">B. Sélecteur de classe (.)</h3>
+                <p>Cible les éléments qui ont un attribut <code>class</code> spécifique. C'est le sélecteur <strong>le
+                        plus utilisé</strong> !</p>
+                <p>On utilise un <strong>point (.)</strong> suivi du nom de la classe.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>/* CSS */
+.important {
+    color: red;
+    font-weight: bold;
+}
+
+/* HTML */
+&lt;p class="important"&gt;Attention !&lt;/p&gt;
+&lt;p&gt;Texte normal.&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <p style="color: red; font-weight: bold; margin-bottom: 0.5rem;">Attention !</p>
+                                <p style="margin-bottom: 0;">Texte normal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Sélecteur d'ID -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #9b59b6;">
+                <h3 style="color: #9b59b6;">C. Sélecteur d'ID (#)</h3>
+                <p>Cible <strong>un seul</strong> élément unique qui a cet ID.</p>
+                <p>On utilise un <strong>dièse (#)</strong> suivi du nom de l'ID.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>/* CSS */
+#logo {
+    font-size: 24px;
+    background: black;
+    color: white;
+}
+
+/* HTML */
+&lt;div id="logo"&gt;Mon Logo&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div
+                                    style="font-size: 24px; background: black; color: white; padding: 10px; display: inline-block;">
+                                    Mon Logo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box warning" style="margin-top: 1rem;">
+                    <strong>⚠️ Règle d'or</strong>
+                    <p>Un ID doit être <strong>unique</strong> sur la page. Ne donnez jamais le même ID à deux éléments
+                        différents.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 : Le sélecteur universel -->
+        <div class="section">
+            <h2 class="section-title">2️⃣ Le sélecteur universel (*)</h2>
+
+            <p>Le symbole <code>*</code> sélectionne <strong>tous</strong> les éléments de la page.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                <div>
+                    <div class="code-block">
+                        <pre><code>* {
+    font-family: Arial;
+    color: #333;
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <div class="info-box success">
+                        <strong>✅ Utilité principale</strong>
+                        <p>Il est souvent utilisé au début du fichier CSS pour "réinitialiser" les marges :</p>
+                        <pre
+                            style="background: rgba(0,0,0,0.05); padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem;"><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 : Combinaisons -->
+        <div class="section">
+            <h2 class="section-title">3️⃣ Combiner les sélecteurs</h2>
+
+            <!-- Groupement -->
+            <div style="margin-bottom: 2rem;">
+                <h3>A. Groupement (,)</h3>
+                <p>Pour appliquer le même style à plusieurs éléments, séparez-les par une virgule.</p>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <pre><code>h1, h2, p {
+    font-family: 'Helvetica', sans-serif;
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Descendant -->
+            <div>
+                <h3>B. Descendant (espace)</h3>
+                <p>Pour cibler un élément qui est <strong>à l'intérieur</strong> d'un autre.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>/* Les liens DANS la navigation */
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Les liens normaux */
+a {
+    color: blue;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div class="nav" style="background: #333; padding: 10px; margin-bottom: 10px;">
+                                    <a href="#" style="color: white; text-decoration: none;">Lien menu (blanc)</a>
+                                </div>
+                                <a href="#" style="color: blue;">Lien normal (bleu)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Pseudo-classes -->
+        <div class="section">
+            <h2 class="section-title">✨ Les pseudo-classes (Interactivité)</h2>
+            <p>Elles permettent de cibler un élément selon son <strong>état</strong>.</p>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #e91e63;">
+                <h3 style="color: #e91e63;">:hover (Au survol)</h3>
+                <p>S'active quand la souris passe sur l'élément.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="code-block">
+                            <pre><code>button {
+    background: blue;
+    color: white;
+    transition: 0.3s; /* Animation fluide */
+}
+
+button:hover {
+    background: darkblue;
+    transform: scale(1.1);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="demo-box">
+                            <div class="demo-content" style="text-align: center;">
+                                <button class="demo-btn">Passez la souris ici !</button>
+                                <style>
+                                    .demo-btn {
+                                        background: #3498db;
+                                        color: white;
+                                        border: none;
+                                        padding: 10px 20px;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                        font-size: 16px;
+                                        transition: 0.3s;
+                                    }
+
+                                    .demo-btn:hover {
+                                        background: #2980b9;
+                                        transform: scale(1.1);
+                                    }
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6 : Exercice guidé -->
+        <div class="section">
+            <h2 class="section-title">👣 Exercice guidé : Styliser une carte produit</h2>
+
+            <p>Nous allons créer une "carte produit" en utilisant des classes.</p>
+
+            <!-- Étape 1 -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3>📝 Étape 1 : Le HTML avec des classes</h3>
+                <p>On utilise des classes pour définir le rôle de chaque élément.</p>
+                <div class="code-block">
+                    <pre><code>&lt;div class="card"&gt;
+    &lt;h3 class="card-title"&gt;Vélo de course&lt;/h3&gt;
+    &lt;p class="card-price"&gt;599 €&lt;/p&gt;
+    &lt;button class="card-btn"&gt;Acheter&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3>🎨 Étape 2 : Le CSS</h3>
+                <div class="code-block">
+                    <pre><code>/* Le conteneur */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Le titre */
+.card-title {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Le prix */
+.card-price {
+    color: #e67e22; /* Orange */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Le bouton */
+.card-btn {
+    background: #27ae60; /* Vert */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Effet survol bouton */
+.card-btn:hover {
+    background: #219150;
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Résultat -->
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>👀 Résultat final</h4>
+                </div>
+                <div class="demo-content" style="display: flex; justify-content: center;">
+                    <div
+                        style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; width: 250px; text-align: center; font-family: Arial, sans-serif; background: white;">
+                        <h3 style="color: #333; margin: 0 0 10px 0;">Vélo de course</h3>
+                        <p style="color: #e67e22; font-size: 24px; font-weight: bold; margin: 0 0 20px 0;">599 €</p>
+                        <button
+                            style="background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-size: 16px;"
+                            onmouseover="this.style.background='#219150'"
+                            onmouseout="this.style.background='#27ae60'">Acheter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7 : Exercice final -->
+        <div class="section">
+            <h2 class="section-title">🏆 Challenge : Les feux tricolores</h2>
+
+            <div class="info-box warning">
+                <strong>Objectif</strong>
+                <p>Créez 3 cercles (divs) qui ressemblent à un feu tricolore.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Créez 3 divs avec une classe commune <code>.feu</code> (pour la forme ronde).</li>
+                    <li>Ajoutez un ID unique à chacun : <code>#rouge</code>, <code>#orange</code>, <code>#vert</code>.
+                    </li>
+                    <li>En CSS, <code>.feu</code> doit donner une taille de 50px et être rond (border-radius: 50%).</li>
+                    <li>Utilisez les IDs pour donner la bonne couleur de fond à chaque feu.</li>
+                </ul>
+            </div>
+             <div class="demo-box" style="margin-top: 1rem;">
+                        <div class="demo-content"
+                            style="display: flex; gap: 1rem; justify-content: center; background: #333; padding: 20px; border-radius: 10px; width: fit-content; margin: 0 auto;">
+                            <div
+                                style="width: 50px; height: 50px; border-radius: 50%; background-color: red; border: 2px solid #000;">
+                            </div>
+                            <div
+                                style="width: 50px; height: 50px; border-radius: 50%; background-color: orange; border: 2px solid #000;">
+                            </div>
+                            <div
+                                style="width: 50px; height: 50px; border-radius: 50%; background-color: green; border: 2px solid #000;">
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <p style="font-weight: 600;">HTML</p>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="feu" id="rouge"&gt;&lt;/div&gt;
+&lt;div class="feu" id="orange"&gt;&lt;/div&gt;
+&lt;div class="feu" id="vert"&gt;&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-weight: 600;">CSS</p>
+                            <div class="code-block">
+                                <pre><code>.feu {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Rond */
+    margin: 10px;
+    border: 2px solid #333;
+}
+
+#rouge { background-color: red; }
+#orange { background-color: orange; }
+#vert { background-color: green; }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>📝 Résumé</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>balise</code> : Cible toutes les balises de ce type.</li>
+                <li><code>.classe</code> : Cible plusieurs éléments (très flexible).</li>
+                <li><code>#id</code> : Cible un élément unique.</li>
+                <li><code>*</code> : Cible tout.</li>
+                <li><code>:hover</code> : Cible au survol de la souris.</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine étape :</strong> Comprendre le modèle de boîte (marges et
+                bordures) ! 📦</p>
+        </div>
+
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

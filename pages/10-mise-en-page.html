@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise en page CSS</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Styles pour les démos de cette page */
+        .demo-block {
+            background: #667eea;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid white;
+        }
+
+        .demo-inline {
+            background: #fcd34d;
+            color: #333;
+            padding: 5px;
+            border: 1px solid #d97706;
+        }
+
+        .demo-inline-block {
+            background: #10b981;
+            color: white;
+            padding: 20px;
+            width: 100px;
+            margin: 5px;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📐 La Mise en page (Layout)</h1>
+            <p class="subtitle">Contrôler le positionnement des éléments</p>
+        </div>
+
+        <!-- Section 1 : Le flux normal -->
+        <div class="section">
+            <h2 class="section-title">🌊 Le flux normal (Block vs Inline)</h2>
+
+            <p>Par défaut, les éléments HTML se comportent de deux manières :</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <!-- Block -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #667eea;">🧱 Block (Bloc)</h3>
+                    <p>Prend <strong>toute la largeur</strong> disponible et commence sur une <strong>nouvelle
+                            ligne</strong>.</p>
+                    <p style="font-size: 0.9rem; color: #666;">Exemples : <code>&lt;div&gt;</code>,
+                        <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;section&gt;</code></p>
+
+                    <div class="demo-box" style="margin-top: 1rem;">
+                        <div class="demo-content">
+                            <div class="demo-block">Bloc 1</div>
+                            <div class="demo-block">Bloc 2</div>
+                            <div class="demo-block">Bloc 3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inline -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h3 style="color: #f59e0b;">📝 Inline (En ligne)</h3>
+                    <p>Prend <strong>juste la largeur nécessaire</strong> et reste sur la <strong>même ligne</strong>.
+                    </p>
+                    <p style="font-size: 0.9rem; color: #666;">Exemples : <code>&lt;span&gt;</code>,
+                        <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;img&gt;</code></p>
+
+                    <div class="demo-box" style="margin-top: 1rem;">
+                        <div class="demo-content">
+                            Texte normal <span class="demo-inline">Inline 1</span>
+                            <span class="demo-inline">Inline 2</span> suite du texte.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 : La propriété Display -->
+        <div class="section">
+            <h2 class="section-title">📺 La propriété Display</h2>
+
+            <p>Vous pouvez changer le comportement par défaut d'un élément avec <code>display</code>.</p>
+
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                <!-- Inline-Block -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981;">
+                    <h3 style="color: #10b981;">✨ display: inline-block</h3>
+                    <p>Le meilleur des deux mondes !</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                        <li>Comme <strong>Inline</strong> : Reste sur la même ligne.</li>
+                        <li>Comme <strong>Block</strong> : Accepte une largeur (width), hauteur (height), marges et
+                            paddings.</li>
+                    </ul>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                            <div class="code-block">
+                                <pre><code>.boite {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}</code></pre>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                            <div class="demo-box">
+                                <div class="demo-content">
+                                    <div class="demo-inline-block">1</div>
+                                    <div class="demo-inline-block">2</div>
+                                    <div class="demo-inline-block">3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- None -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #ef4444;">
+                    <h3 style="color: #ef4444;">👻 display: none</h3>
+                    <p>L'élément disparaît complètement de la page (comme s'il n'existait pas).</p>
+
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>.cache {
+    display: none;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 : Positionnement -->
+        <div class="section">
+            <h2 class="section-title">📍 La propriété Position</h2>
+
+            <p>Permet de placer un élément précisément, parfois même par-dessus les autres.</p>
+
+            <div style="display: grid; gap: 2rem; margin-top: 1.5rem;">
+
+                <!-- Relative -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                    <div>
+                        <h3 style="color: #3b82f6;">1. Relative</h3>
+                        <p>Décalé par rapport à sa <strong>position normale</strong>.</p>
+                        <div class="code-block">
+                            <pre><code>.element {
+    position: relative;
+    top: 20px;  /* Descend de 20px */
+    left: 30px; /* Décale de 30px à droite */
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content" style="height: 100px;">
+                            <div style="border: 2px dashed #ccc; width: 60px; height: 60px; position: absolute;"></div>
+                            <div
+                                style="width: 60px; height: 60px; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; position: relative; top: 20px; left: 30px; opacity: 0.9;">
+                                Décalé</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Absolute -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                    <div>
+                        <h3 style="color: #ef4444;">2. Absolute</h3>
+                        <p>Positionné par rapport à son <strong>parent positionné</strong> le plus proche (sinon la
+                            page).</p>
+                        <p>Il sort du flux normal (les autres éléments l'ignorent).</p>
+                        <div class="code-block">
+                            <pre><code>.parent { position: relative; }
+
+.enfant {
+    position: absolute;
+    top: 0;
+    right: 0; /* Collé en haut à droite */
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <div
+                                style="width: 100%; height: 100px; background: #eee; position: relative; border: 2px solid #999;">
+                                <span
+                                    style="position: absolute; top: 5px; left: 5px; color: #666; font-size: 12px;">Parent
+                                    (relative)</span>
+                                <div
+                                    style="width: 60px; height: 60px; background: #ef4444; color: white; display: flex; align-items: center; justify-content: center; position: absolute; top: 0; right: 0;">
+                                    Enfant</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fixed -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                    <div>
+                        <h3 style="color: #8b5cf6;">3. Fixed</h3>
+                        <p>Collé à la <strong>fenêtre du navigateur</strong>. Reste fixe même quand on scrolle.</p>
+                        <div class="code-block">
+                            <pre><code>.bouton-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content" style="height: 100px; overflow: hidden; position: relative;">
+                            <p style="color: #999;">(Imaginez que c'est la fenêtre)</p>
+                            <div
+                                style="position: absolute; bottom: 10px; right: 10px; background: #8b5cf6; color: white; padding: 10px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
+                                💬 Chat</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sticky -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                    <div>
+                        <h3 style="color: #f59e0b;">4. Sticky</h3>
+                        <p>Se comporte comme <code>relative</code> jusqu'à ce qu'on scrolle, puis devient
+                            <code>fixed</code> (collé).</p>
+                        <div class="code-block">
+                            <pre><code>.menu {
+    position: sticky;
+    top: 0; /* Colle au plafond */
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content" style="height: 100px; overflow-y: scroll; border: 1px solid #ddd;">
+                            <p>Contenu avant...</p>
+                            <div style="background: #f59e0b; color: white; padding: 5px; position: sticky; top: 0;">Menu
+                                Sticky</div>
+                            <p>Contenu après...<br>Scrollez pour voir !<br>Encore du texte...<br>Toujours plus...</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 4 : Z-Index -->
+        <div class="section">
+            <h2 class="section-title">🥞 Z-Index (L'ordre des couches)</h2>
+
+            <p>Quand des éléments se superposent (avec <code>position</code>), <code>z-index</code> décide qui est
+                au-dessus.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                <div>
+                    <div class="code-block">
+                        <pre><code>.bleu {
+    position: absolute;
+    z-index: 1; /* Derrière */
+}
+
+.rouge {
+    position: absolute;
+    z-index: 2; /* Devant */
+}</code></pre>
+                    </div>
+                    <div class="info-box info" style="margin-top: 1rem;">
+                        <strong>⚠️ Important</strong>
+                        <p><code>z-index</code> ne fonctionne que sur les éléments positionnés (relative, absolute,
+                            fixed, sticky).</p>
+                    </div>
+                </div>
+
+                <div class="demo-box">
+                    <div class="demo-content" style="height: 120px; position: relative;">
+                        <div
+                            style="width: 80px; height: 80px; background: #3b82f6; position: absolute; top: 20px; left: 20px; z-index: 1; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white;">
+                            1</div>
+                        <div
+                            style="width: 80px; height: 80px; background: #ef4444; position: absolute; top: 40px; left: 40px; z-index: 2; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white;">
+                            2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercice guidé -->
+        <div class="section">
+            <h2 class="section-title">👣 Exercice guidé : Créer une bannière "Hero"</h2>
+
+            <p>Nous allons créer une bannière avec une image de fond et du texte centré par-dessus.</p>
+            <p>C'est le cas d'utilisation classique de <code>position: relative</code> (parent) +
+                <code>position: absolute</code> (enfant).</p>
+
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <h4>1. Structure HTML</h4>
+                    <div class="code-block">
+                        <pre><code>&lt;div class="hero"&gt;
+    &lt;img src="../images/placeholder.jpg" alt="Paysage" class="hero-img"&gt;
+    &lt;div class="hero-text"&gt;
+        &lt;h1&gt;Bienvenue&lt;/h1&gt;
+        &lt;p&gt;Découvrez notre univers&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step">
+                    <h4>2. CSS Magique</h4>
+                    <div class="code-block">
+                        <pre><code>.hero {
+    position: relative; /* Le référentiel */
+    width: 100%;
+    height: 300px;
+    overflow: hidden; /* Cache ce qui dépasse */
+    border-radius: 12px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit sans déformer */
+}
+
+.hero-text {
+    position: absolute; /* Sort du flux */
+    top: 50%;           /* Centre vertical */
+    left: 50%;          /* Centre horizontal */
+    transform: translate(-50%, -50%); /* Ajustement fin du centrage */
+    
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    padding: 20px;
+    border-radius: 8px;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content">
+                    <div
+                        style="position: relative; width: 100%; height: 250px; overflow: hidden; border-radius: 12px; background: #333;">
+                        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Paysage" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                        <div
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px; min-width: 200px;">
+                            <h1 style="margin: 0 0 10px 0; font-size: 24px;">Bienvenue</h1>
+                            <p style="margin: 0;">Découvrez notre univers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge Final -->
+        <div class="section">
+            <h2 class="section-title">🏆 Challenge : Le Badge de Notification</h2>
+
+            <div class="info-box warning">
+                <strong>Objectif</strong>
+                <p>Créez une icône (carré ou image) avec un petit badge rond rouge dans le coin supérieur droit (comme
+                    sur Facebook ou les apps).</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Créez un conteneur <code>.icon-wrapper</code> (relative).</li>
+                    <li>Mettez une icône ou un carré dedans.</li>
+                    <li>Créez un <code>.badge</code> (absolute) avec le chiffre "3".</li>
+                    <li>Positionnez le badge en haut à droite (top: -5px, right: -5px).</li>
+                </ul>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>/* HTML */
+&lt;div class="icon-wrapper"&gt;
+    🔔
+    &lt;span class="badge"&gt;3&lt;/span&gt;
+&lt;/div&gt;
+
+/* CSS */
+.icon-wrapper {
+    position: relative;
+    font-size: 40px;
+    display: inline-block;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}</code></pre>
+                    </div>
+
+                    <div class="demo-box" style="margin-top: 1rem;">
+                        <div class="demo-content" style="text-align: center;">
+                            <div style="position: relative; font-size: 40px; display: inline-block;">
+                                🔔
+                                <span
+                                    style="position: absolute; top: 0; right: 0; background: red; color: white; font-size: 12px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white;">3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>📝 Résumé</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>display: block</code> (empilé) vs <code>inline</code> (côte à côte).</li>
+                <li><code>position: relative</code> sert souvent de repère pour les enfants.</li>
+                <li><code>position: absolute</code> permet de superposer des éléments.</li>
+                <li><code>position: fixed/sticky</code> pour les éléments qui restent visibles.</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine étape :</strong> La révolution de la mise en page :
+                <strong>Flexbox</strong> ! 🚀</p>
+        </div>
+
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

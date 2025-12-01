@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 12 : Barre de Recherche</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🔍 Atelier 12 : Barre de Recherche</h1>
+            <p class="subtitle">Créer un formulaire de recherche pour un site web</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Créer un formulaire de recherche simple</li>
+                <li>Utiliser <code>&lt;input type="search"&gt;</code></li>
+                <li>Ajouter des filtres de recherche</li>
+                <li>Styliser une barre de recherche moderne</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un formulaire de recherche pour un site de e-commerce avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Champ de recherche (type search, placeholder "Rechercher un produit...")</li>
+                    <li>Liste déroulante "Catégorie" (Toutes, Électronique, Vêtements, Livres)</li>
+                    <li>Fourchette de prix avec 2 champs number (Prix min, Prix max)</li>
+                    <li>Bouton "Rechercher" avec icône 🔍</li>
+                    <li>Design horizontal et moderne</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <form
+                    style="max-width: 900px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; color: #667eea; margin: 0 0 1.5rem 0;">🔍 Recherche de Produits</h2>
+
+                    <!-- Barre de recherche principale -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Rechercher</label>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="search" placeholder="Rechercher un produit..."
+                                style="flex: 1; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem;">
+                            <button type="submit"
+                                style="padding: 0.75rem 2rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">🔍
+                                Rechercher</button>
+                        </div>
+                    </div>
+
+                    <!-- Filtres -->
+                    <fieldset style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+                        <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Filtres</legend>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9375rem;">Catégorie</label>
+                                <select
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                                    <option>Toutes les catégories</option>
+                                    <option>Électronique</option>
+                                    <option>Vêtements</option>
+                                    <option>Livres</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9375rem;">Prix
+                                    minimum (DT)</label>
+                                <input type="number" min="0" placeholder="0"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                            </div>
+
+                            <div>
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9375rem;">Prix
+                                    maximum (DT)</label>
+                                <input type="number" min="0" placeholder="1000"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <div class="code-block">
+                    <pre><code>&lt;form&gt;
+    &lt;h2&gt;🔍 Recherche de Produits&lt;/h2&gt;
+    
+    &lt;!-- Barre de recherche --&gt;
+    &lt;label for="recherche"&gt;Rechercher&lt;/label&gt;
+    &lt;input type="search" id="recherche" name="q" placeholder="Rechercher un produit..."&gt;
+    &lt;button type="submit"&gt;🔍 Rechercher&lt;/button&gt;
+    
+    &lt;!-- Filtres --&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Filtres&lt;/legend&gt;
+        
+        &lt;label for="categorie"&gt;Catégorie&lt;/label&gt;
+        &lt;select id="categorie" name="categorie"&gt;
+            &lt;option&gt;Toutes les catégories&lt;/option&gt;
+            &lt;option&gt;Électronique&lt;/option&gt;
+            &lt;option&gt;Vêtements&lt;/option&gt;
+            &lt;option&gt;Livres&lt;/option&gt;
+        &lt;/select&gt;
+        
+        &lt;label for="prix-min"&gt;Prix minimum (DT)&lt;/label&gt;
+        &lt;input type="number" id="prix-min" name="prix_min" min="0" placeholder="0"&gt;
+        
+        &lt;label for="prix-max"&gt;Prix maximum (DT)&lt;/label&gt;
+        &lt;input type="number" id="prix-max" name="prix_max" min="0" placeholder="1000"&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>type="search"</code> affiche une icône de suppression dans certains navigateurs</li>
+                <li>L'attribut <code>name="q"</code> est une convention pour les champs de recherche</li>
+                <li>Utilisez <code>placeholder</code> pour guider l'utilisateur</li>
+                <li>Les filtres aident à affiner les résultats de recherche</li>
+            </ul>
+        </div>
+
+        <div class="info-box info" style="margin-top: 1.5rem;">
+            <strong>🎉 Félicitations !</strong>
+            <p>Vous avez terminé tous les ateliers sur les formulaires ! Vous maîtrisez maintenant tous les types de
+                champs et savez créer des formulaires complets et fonctionnels.</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

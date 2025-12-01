@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 6 : Formulaire de Commande</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🛒 Atelier 6 : Formulaire de Commande</h1>
+            <p class="subtitle">Créer un formulaire de commande avec cases à cocher et boutons radio</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Utiliser les boutons radio (<code>&lt;input type="radio"&gt;</code>)</li>
+                <li>Utiliser les cases à cocher (<code>&lt;input type="checkbox"&gt;</code>)</li>
+                <li>Grouper les options avec <code>name</code></li>
+                <li>Créer un formulaire de commande réaliste</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un formulaire de commande de pizza avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Nom du client (requis)</li>
+                    <li>Taille de pizza (radio : Petite, Moyenne, Grande)</li>
+                    <li>Ingrédients supplémentaires (checkbox : Fromage, Olives, Champignons, Pepperoni)</li>
+                    <li>Instructions spéciales (textarea)</li>
+                    <li>Livraison ou à emporter (radio)</li>
+                    <li>Bouton "Commander"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <form
+                    style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem;">🍕 Commande de Pizza</h2>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom *</label>
+                        <input type="text" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.75rem; font-weight: 500;">Taille *</label>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="radio" id="petite" name="taille" value="petite" style="margin-right: 0.5rem;">
+                            <label for="petite">Petite (20cm)</label>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="radio" id="moyenne" name="taille" value="moyenne" checked
+                                style="margin-right: 0.5rem;">
+                            <label for="moyenne">Moyenne (30cm)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="grande" name="taille" value="grande" style="margin-right: 0.5rem;">
+                            <label for="grande">Grande (40cm)</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.75rem; font-weight: 500;">Ingrédients
+                            supplémentaires</label>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="checkbox" id="fromage" name="ingredients" value="fromage"
+                                style="margin-right: 0.5rem;">
+                            <label for="fromage">Fromage extra (+2 DT)</label>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="checkbox" id="olives" name="ingredients" value="olives"
+                                style="margin-right: 0.5rem;">
+                            <label for="olives">Olives (+1.5 DT)</label>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="checkbox" id="champignons" name="ingredients" value="champignons"
+                                style="margin-right: 0.5rem;">
+                            <label for="champignons">Champignons (+1.5 DT)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="pepperoni" name="ingredients" value="pepperoni"
+                                style="margin-right: 0.5rem;">
+                            <label for="pepperoni">Pepperoni (+3 DT)</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.75rem; font-weight: 500;">Mode de récupération
+                            *</label>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="radio" id="livraison" name="mode" value="livraison" checked
+                                style="margin-right: 0.5rem;">
+                            <label for="livraison">Livraison à domicile</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="emporter" name="mode" value="emporter"
+                                style="margin-right: 0.5rem;">
+                            <label for="emporter">À emporter</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Instructions
+                            spéciales</label>
+                        <textarea rows="3"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; resize: vertical;"
+                            placeholder="Ex: Sans oignons, bien cuite..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Commander
+                        maintenant</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <div class="code-block">
+                    <pre><code>&lt;form&gt;
+    &lt;h2&gt;🍕 Commande de Pizza&lt;/h2&gt;
+    
+    &lt;label for="nom"&gt;Nom *&lt;/label&gt;
+    &lt;input type="text" id="nom" name="nom" required&gt;
+    
+    &lt;label&gt;Taille *&lt;/label&gt;
+    &lt;input type="radio" id="petite" name="taille" value="petite"&gt;
+    &lt;label for="petite"&gt;Petite (20cm)&lt;/label&gt;
+    
+    &lt;input type="radio" id="moyenne" name="taille" value="moyenne" checked&gt;
+    &lt;label for="moyenne"&gt;Moyenne (30cm)&lt;/label&gt;
+    
+    &lt;input type="radio" id="grande" name="taille" value="grande"&gt;
+    &lt;label for="grande"&gt;Grande (40cm)&lt;/label&gt;
+    
+    &lt;label&gt;Ingrédients supplémentaires&lt;/label&gt;
+    &lt;input type="checkbox" id="fromage" name="ingredients" value="fromage"&gt;
+    &lt;label for="fromage"&gt;Fromage extra (+2 DT)&lt;/label&gt;
+    
+    &lt;input type="checkbox" id="olives" name="ingredients" value="olives"&gt;
+    &lt;label for="olives"&gt;Olives (+1.5 DT)&lt;/label&gt;
+    
+    &lt;input type="checkbox" id="champignons" name="ingredients" value="champignons"&gt;
+    &lt;label for="champignons"&gt;Champignons (+1.5 DT)&lt;/label&gt;
+    
+    &lt;input type="checkbox" id="pepperoni" name="ingredients" value="pepperoni"&gt;
+    &lt;label for="pepperoni"&gt;Pepperoni (+3 DT)&lt;/label&gt;
+    
+    &lt;label&gt;Mode de récupération *&lt;/label&gt;
+    &lt;input type="radio" id="livraison" name="mode" value="livraison" checked&gt;
+    &lt;label for="livraison"&gt;Livraison à domicile&lt;/label&gt;
+    
+    &lt;input type="radio" id="emporter" name="mode" value="emporter"&gt;
+    &lt;label for="emporter"&gt;À emporter&lt;/label&gt;
+    
+    &lt;label for="instructions"&gt;Instructions spéciales&lt;/label&gt;
+    &lt;textarea id="instructions" name="instructions" rows="3"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Commander maintenant&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Les boutons radio avec le même <code>name</code> sont mutuellement exclusifs</li>
+                <li>Les checkboxes permettent de sélectionner plusieurs options</li>
+                <li><code>checked</code> définit l'option sélectionnée par défaut</li>
+                <li>Associez toujours un <code>&lt;label&gt;</code> à chaque input pour l'accessibilité</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

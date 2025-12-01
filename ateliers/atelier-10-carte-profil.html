@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 10 : Carte de Profil Complète</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>👤 Atelier 10 : Carte de Profil Complète</h1>
+            <p class="subtitle">Projet final - Créer une carte de profil professionnelle</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Combiner toutes les techniques CSS apprises</li>
+                <li>Créer un design moderne et professionnel</li>
+                <li>Utiliser position, transform, filter et animations</li>
+                <li>Appliquer le modèle de boîte de manière avancée</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez une carte de profil professionnelle avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Une bannière en haut (dégradé coloré)</li>
+                    <li>Une photo de profil centrée qui chevauche la bannière</li>
+                    <li>Nom, titre professionnel et localisation</li>
+                    <li>Section "À propos" avec description</li>
+                    <li>3 statistiques (Projets, Followers, Following)</li>
+                    <li>Bouton "Suivre" avec effet hover</li>
+                    <li>Ombres, bordures arrondies et animations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content" style="display: flex; justify-content: center; padding: 2rem;">
+                <div
+                    style="width: 400px; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+                    <!-- Bannière -->
+                    <div
+                        style="height: 120px; background: linear-gradient(135deg, #667eea, #764ba2); position: relative;">
+                    </div>
+
+                    <!-- Photo de profil -->
+                    <div style="margin-top: -60px; text-align: center; position: relative; z-index: 10;">
+                        <div
+                            style="width: 120px; height: 120px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 50%; margin: 0 auto; border: 5px solid white; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                            👨‍💼</div>
+                    </div>
+
+                    <!-- Informations -->
+                    <div style="padding: 1.5rem 2rem;">
+                        <h2 style="margin: 0 0 0.25rem 0; text-align: center; color: #1a1a1a; font-size: 1.5rem;">Ahmed
+                            Ben Ali</h2>
+                        <p style="margin: 0 0 0.5rem 0; text-align: center; color: #667eea; font-weight: 600;">
+                            Développeur Full Stack</p>
+                        <p style="margin: 0 0 1.5rem 0; text-align: center; color: #6c757d; font-size: 0.875rem;">📍
+                            Tunis, Tunisie</p>
+
+                        <!-- À propos -->
+                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            <h3 style="margin: 0 0 0.5rem 0; color: #1a1a1a; font-size: 1rem;">À propos</h3>
+                            <p style="margin: 0; color: #6c757d; font-size: 0.9375rem; line-height: 1.5;">Passionné par
+                                le développement web et les technologies modernes. Spécialisé en React et Node.js.</p>
+                        </div>
+
+                        <!-- Statistiques -->
+                        <div
+                            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #667eea;">42</div>
+                                <div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Projets
+                                </div>
+                            </div>
+                            <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">1.2K</div>
+                                <div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Followers
+                                </div>
+                            </div>
+                            <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #f59e0b;">345</div>
+                                <div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Following
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bouton -->
+                        <button
+                            style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;"
+                            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(102, 126, 234, 0.4)'"
+                            onmouseout="this.style.transform=''; this.style.boxShadow=''">Suivre</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <h4 style="margin-bottom: 1rem;">HTML</h4>
+                <div class="code-block">
+                    <pre><code>&lt;div class="carte-profil"&gt;
+    &lt;!-- Bannière --&gt;
+    &lt;div class="banniere"&gt;&lt;/div&gt;
+    
+    &lt;!-- Photo de profil --&gt;
+    &lt;div class="photo-container"&gt;
+        &lt;div class="photo"&gt;👨‍💼&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Informations --&gt;
+    &lt;div class="infos"&gt;
+        &lt;h2&gt;Ahmed Ben Ali&lt;/h2&gt;
+        &lt;p class="titre"&gt;Développeur Full Stack&lt;/p&gt;
+        &lt;p class="localisation"&gt;📍 Tunis, Tunisie&lt;/p&gt;
+        
+        &lt;!-- À propos --&gt;
+        &lt;div class="a-propos"&gt;
+            &lt;h3&gt;À propos&lt;/h3&gt;
+            &lt;p&gt;Passionné par le développement web et les technologies modernes. Spécialisé en React et Node.js.&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Statistiques --&gt;
+        &lt;div class="stats"&gt;
+            &lt;div class="stat"&gt;
+                &lt;div class="nombre"&gt;42&lt;/div&gt;
+                &lt;div class="label"&gt;Projets&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="stat"&gt;
+                &lt;div class="nombre"&gt;1.2K&lt;/div&gt;
+                &lt;div class="label"&gt;Followers&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="stat"&gt;
+                &lt;div class="nombre"&gt;345&lt;/div&gt;
+                &lt;div class="label"&gt;Following&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Bouton --&gt;
+        &lt;button class="btn-suivre"&gt;Suivre&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem 0;">CSS</h4>
+                <div class="code-block css">
+                    <pre><code>.carte-profil {
+    width: 400px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.banniere {
+    height: 120px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    position: relative;
+}
+
+.photo-container {
+    margin-top: -60px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.photo {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.infos {
+    padding: 1.5rem 2rem;
+}
+
+.infos h2 {
+    margin: 0 0 0.25rem 0;
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+}
+
+.titre {
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.localisation {
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.a-propos {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.a-propos h3 {
+    margin: 0 0 0.5rem 0;
+    color: #1a1a1a;
+    font-size: 1rem;
+}
+
+.a-propos p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.nombre {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.label {
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-transform: uppercase;
+}
+
+.btn-suivre {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-suivre:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Utilisez <code>margin-top</code> négatif pour chevaucher la photo sur la bannière</li>
+                <li><code>z-index</code> assure que la photo reste au-dessus</li>
+                <li>Les dégradés CSS créent des effets visuels modernes</li>
+                <li>Combinez plusieurs propriétés pour un design riche</li>
+            </ul>
+        </div>
+
+        <div class="info-box info" style="margin-top: 1.5rem;">
+            <strong>🎉 Félicitations !</strong>
+            <p>Vous avez terminé tous les ateliers ! Vous maîtrisez maintenant HTML et CSS. Continuez à pratiquer et à
+                créer vos propres projets !</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

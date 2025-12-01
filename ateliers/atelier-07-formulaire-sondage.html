@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 7 : Formulaire de Sondage</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📊 Atelier 7 : Formulaire de Sondage</h1>
+            <p class="subtitle">Créer un formulaire de sondage avec différents types de champs</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Utiliser <code>&lt;input type="range"&gt;</code> pour les curseurs</li>
+                <li>Utiliser <code>&lt;input type="number"&gt;</code> pour les nombres</li>
+                <li>Combiner plusieurs types d'inputs dans un formulaire</li>
+                <li>Créer un formulaire de satisfaction client</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un formulaire de satisfaction client avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Nom du client (requis)</li>
+                    <li>Âge (type number, min 18, max 100)</li>
+                    <li>Note de satisfaction (curseur de 1 à 5)</li>
+                    <li>Recommanderiez-vous notre service ? (radio : Oui / Non)</li>
+                    <li>Aspects appréciés (checkbox : Prix, Qualité, Service, Rapidité)</li>
+                    <li>Commentaires (textarea)</li>
+                    <li>Bouton "Soumettre le sondage"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <form
+                    style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; color: #667eea; margin-bottom: 1rem;">Sondage de Satisfaction</h2>
+                    <p style="text-align: center; color: #6c757d; margin-bottom: 2rem;">Votre avis compte pour nous !
+                    </p>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom *</label>
+                        <input type="text" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Âge</label>
+                        <input type="number" min="18" max="100" value="25"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Note de satisfaction
+                            (1-5)</label>
+                        <input type="range" min="1" max="5" value="3" style="width: 100%;">
+                       
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.75rem; font-weight: 500;">Recommanderiez-vous
+                            notre service ? *</label>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="radio" id="oui" name="recommandation" value="oui" checked
+                                style="margin-right: 0.5rem;">
+                            <label for="oui">Oui, certainement</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="non" name="recommandation" value="non"
+                                style="margin-right: 0.5rem;">
+                            <label for="non">Non, pas vraiment</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.75rem; font-weight: 500;">Qu'avez-vous apprécié
+                            ?</label>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="checkbox" id="prix" name="aspects" value="prix" style="margin-right: 0.5rem;">
+                            <label for="prix">Prix compétitifs</label>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="checkbox" id="qualite" name="aspects" value="qualite"
+                                style="margin-right: 0.5rem;">
+                            <label for="qualite">Qualité du service</label>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <input type="checkbox" id="service" name="aspects" value="service"
+                                style="margin-right: 0.5rem;">
+                            <label for="service">Service client</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="rapidite" name="aspects" value="rapidite"
+                                style="margin-right: 0.5rem;">
+                            <label for="rapidite">Rapidité</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Commentaires</label>
+                        <textarea rows="4"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; resize: vertical;"
+                            placeholder="Partagez votre expérience..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Soumettre
+                        le sondage</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <div class="code-block">
+                    <pre><code>&lt;form&gt;
+    &lt;h2&gt;Sondage de Satisfaction&lt;/h2&gt;
+    &lt;p&gt;Votre avis compte pour nous !&lt;/p&gt;
+    
+    &lt;label for="nom"&gt;Nom *&lt;/label&gt;
+    &lt;input type="text" id="nom" name="nom" required&gt;
+    
+    &lt;label for="age"&gt;Âge&lt;/label&gt;
+    &lt;input type="number" id="age" name="age" min="18" max="100" value="25"&gt;
+    
+    &lt;label for="satisfaction"&gt;Note de satisfaction (1-5)&lt;/label&gt;
+    &lt;input type="range" id="satisfaction" name="satisfaction" min="1" max="5" value="3"&gt;
+    
+    &lt;label&gt;Recommanderiez-vous notre service ? *&lt;/label&gt;
+    &lt;input type="radio" id="oui" name="recommandation" value="oui" checked&gt;
+    &lt;label for="oui"&gt;Oui, certainement&lt;/label&gt;
+    
+    &lt;input type="radio" id="non" name="recommandation" value="non"&gt;
+    &lt;label for="non"&gt;Non, pas vraiment&lt;/label&gt;
+    
+    &lt;label&gt;Qu'avez-vous apprécié ?&lt;/label&gt;
+    &lt;input type="checkbox" id="prix" name="aspects" value="prix"&gt;
+    &lt;label for="prix"&gt;Prix compétitifs&lt;/label&gt;
+    
+    &lt;input type="checkbox" id="qualite" name="aspects" value="qualite"&gt;
+    &lt;label for="qualite"&gt;Qualité du service&lt;/label&gt;
+    
+    &lt;input type="checkbox" id="service" name="aspects" value="service"&gt;
+    &lt;label for="service"&gt;Service client&lt;/label&gt;
+    
+    &lt;input type="checkbox" id="rapidite" name="aspects" value="rapidite"&gt;
+    &lt;label for="rapidite"&gt;Rapidité&lt;/label&gt;
+    
+    &lt;label for="commentaires"&gt;Commentaires&lt;/label&gt;
+    &lt;textarea id="commentaires" name="commentaires" rows="4"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Soumettre le sondage&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>type="range"</code> crée un curseur pour sélectionner une valeur</li>
+                <li><code>type="number"</code> accepte uniquement des nombres</li>
+                <li><code>min</code> et <code>max</code> définissent les limites</li>
+                <li><code>value</code> définit la valeur par défaut</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

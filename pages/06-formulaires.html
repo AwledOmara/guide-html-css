@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Formulaires HTML</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📝 Les Formulaires HTML</h1>
+            <p class="subtitle">Collecter des données utilisateur</p>
+        </div>
+
+        <!-- Section 1 : Introduction -->
+        <div class="section">
+            <h2 class="section-title">🎯 C'est quoi un formulaire ?</h2>
+
+            <p>Un <strong>formulaire</strong> permet aux utilisateurs d'envoyer des informations à un site web :</p>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                <div class="info-box info">
+                    <strong>📧 Exemples d'utilisation</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Inscription / Connexion</li>
+                        <li>Formulaire de contact</li>
+                        <li>Recherche sur un site</li>
+                        <li>Commande en ligne</li>
+                        <li>Sondage / Questionnaire</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Structure de base</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                <!-- Code -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code HTML</p>
+                    <div class="code-block">
+                        <pre><code>&lt;form&gt;
+    &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+    &lt;input type="text" id="nom" name="nom"&gt;
+    
+    &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Aperçu -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <form onsubmit="event.preventDefault(); alert('Formulaire envoyé !');"
+                                style="display: grid; gap: 1rem;">
+                                <div>
+                                    <label for="demo-nom-1"
+                                        style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom :</label>
+                                    <input type="text" id="demo-nom-1" name="nom"
+                                        style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                </div>
+                                <button type="submit"
+                                    style="padding: 0.75rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Envoyer</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>⚠️ Composants essentiels</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><code>&lt;form&gt;</code> - Conteneur du formulaire</li>
+                    <li><code>&lt;label&gt;</code> - Étiquette du champ</li>
+                    <li><code>&lt;input&gt;</code> - Champ de saisie</li>
+                    <li><code>&lt;button&gt;</code> - Bouton d'envoi</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2 : La balise form -->
+        <div class="section">
+            <h2 class="section-title">📦 La balise &lt;form&gt;</h2>
+
+            <p>La balise <code>&lt;form&gt;</code> encadre tous les éléments du formulaire :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;form action="/traitement.php" method="POST"&gt;
+    &lt;!-- Champs du formulaire ici --&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Attributs importants</h3>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea;">
+                    <strong>action</strong> - URL où envoyer les données
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;form action="/contact.php"&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #764ba2;">
+                    <strong>method</strong> - Méthode d'envoi (GET ou POST)
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;form method="POST"&gt;  &lt;!-- Recommandé pour les formulaires --&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box info" style="margin-top: 1rem;">
+                <strong>💡 GET vs POST</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>GET</strong> : Données visibles dans l'URL (pour la recherche)</li>
+                    <li><strong>POST</strong> : Données cachées (pour les formulaires sensibles)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3 : Label et Input -->
+        <div class="section">
+            <h2 class="section-title">🏷️ Label et Input - Le duo essentiel</h2>
+
+            <p>Chaque champ doit avoir un <code>&lt;label&gt;</code> associé :</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <!-- Code -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                    <div class="code-block">
+                        <pre><code>&lt;label for="email"&gt;Email :&lt;/label&gt;
+&lt;input type="email" id="email" name="email"&gt;</code></pre>
+                    </div>
+                    <div class="info-box success" style="margin-top: 1rem;">
+                        <strong>✅ Règle d'or</strong>
+                        <p style="margin-top: 0.5rem;">Le <code>for</code> du label = <code>id</code> de l'input</p>
+                    </div>
+                </div>
+
+                <!-- Aperçu -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <label for="demo-email-1"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email :</label>
+                            <input type="email" id="demo-email-1" name="email" placeholder="votre@email.com"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">💡 Cliquez sur le texte
+                                "Email :" pour activer le champ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>⚠️ Pourquoi associer label et input ?</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>♿ <strong>Accessibilité</strong> : Les lecteurs d'écran lisent le label</li>
+                    <li>🖱️ <strong>Meilleure UX</strong> : Cliquer sur le label active le champ</li>
+                    <li>📱 <strong>Mobile</strong> : Zone cliquable plus grande</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 4 : Types d'input texte -->
+        <div class="section">
+            <h2 class="section-title">✏️ Les inputs de type texte</h2>
+
+            <!-- Input text -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #667eea;">
+                <h3 style="color: #667eea;">1️⃣ type="text" - Texte simple</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;label for="nom"&gt;Nom :&lt;/label&gt;
+&lt;input type="text" 
+       id="nom" 
+       name="nom" 
+       placeholder="Votre nom"
+       required&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <label for="demo-text"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom :</label>
+                                <input type="text" id="demo-text" placeholder="Votre nom" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box info" style="margin-top: 1rem;">
+                    <strong>📌 Attributs utiles</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li><code>placeholder</code> - Texte d'aide</li>
+                        <li><code>required</code> - Champ obligatoire</li>
+                        <li><code>maxlength="50"</code> - Maximum 50 caractères</li>
+                        <li><code>minlength="3"</code> - Minimum 3 caractères</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Input email -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #764ba2;">
+                <h3 style="color: #764ba2;">2️⃣ type="email" - Adresse email</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;label for="email"&gt;Email :&lt;/label&gt;
+&lt;input type="email" 
+       id="email" 
+       name="email" 
+       placeholder="votre@email.com"
+       required&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <label for="demo-email-2"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email :</label>
+                                <input type="email" id="demo-email-2" placeholder="votre@email.com" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">✅ Validation
+                                    automatique du format email</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input password -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">3️⃣ type="password" - Mot de passe</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;label for="mdp"&gt;Mot de passe :&lt;/label&gt;
+&lt;input type="password" 
+       id="mdp" 
+       name="mdp" 
+       minlength="8"
+       required&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <label for="demo-password"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Mot de passe
+                                    :</label>
+                                <input type="password" id="demo-password" minlength="8" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">🔒 Caractères masqués
+                                    (min. 8)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input tel -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;">4️⃣ type="tel" - Téléphone</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;label for="tel"&gt;Téléphone :&lt;/label&gt;
+&lt;input type="tel" 
+       id="tel" 
+       name="tel" 
+       pattern="[0-9]{8}"
+       placeholder="12345678"&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <label for="demo-tel"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Téléphone :</label>
+                                <input type="tel" id="demo-tel" pattern="[0-9]{8}" placeholder="12345678"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">📱 Clavier numérique
+                                    sur mobile</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Attributs des inputs -->
+        <div class="section">
+            <h2 class="section-title">⚙️ Les attributs des inputs</h2>
+
+            <p>Les attributs permettent de contrôler le comportement et la validation des champs :</p>
+
+            <!-- Required -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #ef4444;">
+                <h3 style="color: #ef4444;">1️⃣ required - Champ obligatoire</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;label for="nom"&gt;Nom :&lt;/label&gt;
+&lt;input type="text" 
+       id="nom" 
+       name="nom" 
+       required&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <form onsubmit="event.preventDefault(); alert('Formulaire valide !');"
+                                    style="display: grid; gap: 1rem;">
+                                    <div>
+                                        <label for="demo-required"
+                                            style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom
+                                            :</label>
+                                        <input type="text" id="demo-required" required
+                                            style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                    </div>
+                                    <button type="submit"
+                                        style="padding: 0.75rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Tester</button>
+                                    <p style="font-size: 0.875rem; color: #666;">💡 Essayez de soumettre sans remplir le
+                                        champ</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #667eea;">
+                <h3 style="color: #667eea;">2️⃣ placeholder - Texte d'aide</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;input type="email" 
+       placeholder="exemple@email.com"&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <input type="email" placeholder="exemple@email.com"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">💡 Le texte disparaît
+                                    quand on tape</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disabled -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #9ca3af;">
+                <h3 style="color: #9ca3af;">3️⃣ disabled - Champ désactivé</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;input type="text" 
+       value="Non modifiable" 
+       disabled&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <input type="text" value="Non modifiable" disabled
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">🚫 Impossible de
+                                    cliquer ou modifier</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Readonly -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;">4️⃣ readonly - Lecture seule</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;input type="text" 
+       value="Lecture seule" 
+       readonly&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <input type="text" value="Lecture seule" readonly
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; background: #f9fafb;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">👁️ On peut
+                                    sélectionner mais pas modifier</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box info" style="margin-top: 1rem;">
+                    <strong>💡 disabled vs readonly</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li><code>disabled</code> : Champ grisé, valeur NON envoyée au serveur</li>
+                        <li><code>readonly</code> : Champ normal, valeur envoyée au serveur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">5️⃣ value - Valeur par défaut</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;input type="text" 
+       value="Ahmed Ben Ali"&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <input type="text" value="Ahmed Ben Ali"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">✏️ Valeur pré-remplie
+                                    (modifiable)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Min, Max, Step -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #764ba2;">
+                <h3 style="color: #764ba2;">6️⃣ min, max, step - Pour les nombres</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;label for="age"&gt;Âge :&lt;/label&gt;
+&lt;input type="number" 
+       id="age" 
+       min="16" 
+       max="100" 
+       step="1"&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <label for="demo-age"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Âge :</label>
+                                <input type="number" id="demo-age" min="16" max="100" step="1"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">🔢 Entre 16 et 100, par
+                                    pas de 1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maxlength, Minlength -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #ec4899;">
+                <h3 style="color: #ec4899;">7️⃣ maxlength, minlength - Longueur du texte</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;input type="text" 
+       minlength="3" 
+       maxlength="20" 
+       placeholder="3 à 20 caractères"&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <input type="text" minlength="3" maxlength="20" placeholder="3 à 20 caractères"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">📏 Impossible de taper
+                                    plus de 20 caractères</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pattern -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #8b5cf6;">
+                <h3 style="color: #8b5cf6;">8️⃣ pattern - Format personnalisé</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;!-- Code postal tunisien (4 chiffres) --&gt;
+&lt;input type="text" 
+       pattern="[0-9]{4}" 
+       placeholder="1234"
+       title="4 chiffres requis"&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <form onsubmit="event.preventDefault(); alert('Code postal valide !');">
+                                    <input type="text" pattern="[0-9]{4}" placeholder="1234" title="4 chiffres requis"
+                                        style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; margin-bottom: 0.5rem;">
+                                    <button type="submit"
+                                        style="padding: 0.5rem 1rem; background: #8b5cf6; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Valider</button>
+                                </form>
+                                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #666;">🔍 Essayez avec des
+                                    lettres ou 3 chiffres</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box success" style="margin-top: 1rem;">
+                    <strong>✅ Exemples de patterns utiles</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li><code>[0-9]{8}</code> - Exactement 8 chiffres (téléphone TN)</li>
+                        <li><code>[A-Z]{2}[0-9]{6}</code> - 2 lettres + 6 chiffres</li>
+                        <li><code>[a-z]+</code> - Que des lettres minuscules</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Autofocus -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #06b6d4;">
+                <h3 style="color: #06b6d4;">9️⃣ autofocus - Focus automatique</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;input type="text" 
+       placeholder="Rechercher..." 
+       autofocus&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <p style="font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;">💡 Le curseur se
+                                    place automatiquement dans le champ au chargement de la page</p>
+                                <div class="code-block">
+                                    <pre><code>&lt;!-- Un seul autofocus par page ! --&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autocomplete -->
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #14b8a6;">
+                <h3 style="color: #14b8a6;">🔟 autocomplete - Suggestions automatiques</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>&lt;!-- Activer --&gt;
+&lt;input type="email" autocomplete="email"&gt;
+
+&lt;!-- Désactiver --&gt;
+&lt;input type="text" autocomplete="off"&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Valeurs utiles</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <ul style="margin-left: 1.5rem; font-size: 0.875rem;">
+                                    <li><code>name</code> - Nom complet</li>
+                                    <li><code>email</code> - Email</li>
+                                    <li><code>tel</code> - Téléphone</li>
+                                    <li><code>street-address</code> - Adresse</li>
+                                    <li><code>postal-code</code> - Code postal</li>
+                                    <li><code>off</code> - Désactiver</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5bis : Exercice sur les attributs -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercice : Maîtriser les attributs</h2>
+
+            <div class="info-box warning">
+                <strong>🎯 Objectif</strong>
+                <p>Crée un formulaire d'inscription avec les contraintes suivantes :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Nom d'utilisateur : 4 à 15 caractères, obligatoire</li>
+                    <li>Email : format email, obligatoire</li>
+                    <li>Âge : entre 16 et 100, obligatoire</li>
+                    <li>Code postal : exactement 4 chiffres, pattern</li>
+                    <li>Téléphone : 8 chiffres, pattern, placeholder "12345678"</li>
+                </ul>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content">
+                    <form onsubmit="event.preventDefault(); alert('Inscription validée ! ✅');"
+                        style="display: grid; gap: 1rem; max-width: 500px;">
+                        <div>
+                            <label for="ex-username"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom d'utilisateur
+                                :</label>
+                            <input type="text" id="ex-username" minlength="4" maxlength="15" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            <p style="font-size: 0.75rem; color: #666; margin-top: 0.25rem;">4 à 15 caractères</p>
+                        </div>
+
+                        <div>
+                            <label for="ex-email-attr"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email :</label>
+                            <input type="email" id="ex-email-attr" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="ex-age-attr"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Âge :</label>
+                            <input type="number" id="ex-age-attr" min="16" max="100" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="ex-postal" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Code
+                                postal :</label>
+                            <input type="text" id="ex-postal" pattern="[0-9]{4}" placeholder="1234"
+                                title="4 chiffres requis"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="ex-tel-attr"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Téléphone :</label>
+                            <input type="tel" id="ex-tel-attr" pattern="[0-9]{8}" placeholder="12345678"
+                                title="8 chiffres requis"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <button type="submit"
+                            style="padding: 0.875rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;form&gt;
+    &lt;label for="username"&gt;Nom d'utilisateur :&lt;/label&gt;
+    &lt;input type="text" 
+           id="username" 
+           name="username" 
+           minlength="4" 
+           maxlength="15" 
+           required&gt;
+
+    &lt;label for="email"&gt;Email :&lt;/label&gt;
+    &lt;input type="email" 
+           id="email" 
+           name="email" 
+           required&gt;
+
+    &lt;label for="age"&gt;Âge :&lt;/label&gt;
+    &lt;input type="number" 
+           id="age" 
+           name="age" 
+           min="16" 
+           max="100" 
+           required&gt;
+
+    &lt;label for="postal"&gt;Code postal :&lt;/label&gt;
+    &lt;input type="text" 
+           id="postal" 
+           name="postal" 
+           pattern="[0-9]{4}" 
+           placeholder="1234"
+           title="4 chiffres requis"&gt;
+
+    &lt;label for="tel"&gt;Téléphone :&lt;/label&gt;
+    &lt;input type="tel" 
+           id="tel" 
+           name="tel" 
+           pattern="[0-9]{8}" 
+           placeholder="12345678"
+           title="8 chiffres requis"&gt;
+
+    &lt;button type="submit"&gt;S'inscrire&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6 : Textarea -->
+        <div class="section">
+            <h2 class="section-title">📄 Textarea - Texte multi-lignes</h2>
+
+            <p>Pour saisir un texte long (message, commentaire...) :</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                    <div class="code-block">
+                        <pre><code>&lt;label for="message"&gt;Message :&lt;/label&gt;
+&lt;textarea id="message" 
+          name="message" 
+          rows="5" 
+          placeholder="Votre message..."
+          required&gt;&lt;/textarea&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <label for="demo-textarea"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message :</label>
+                            <textarea id="demo-textarea" rows="5" placeholder="Votre message..." required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box info" style="margin-top: 1rem;">
+                <strong>💡 Attribut rows</strong>
+                <p><code>rows="5"</code> définit le nombre de lignes visibles (hauteur du champ)</p>
+            </div>
+        </div>
+
+        <!-- Section 6 : Select -->
+        <div class="section">
+            <h2 class="section-title">📋 Select - Liste déroulante</h2>
+
+            <p>Pour choisir parmi plusieurs options :</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                    <div class="code-block">
+                        <pre><code>&lt;label for="ville"&gt;Ville :&lt;/label&gt;
+&lt;select id="ville" name="ville" required&gt;
+    &lt;option value=""&gt;Choisissez...&lt;/option&gt;
+    &lt;option value="tunis"&gt;Tunis&lt;/option&gt;
+    &lt;option value="sousse"&gt;Sousse&lt;/option&gt;
+    &lt;option value="sfax"&gt;Sfax&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <label for="demo-select"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Ville :</label>
+                            <select id="demo-select" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+                                <option value="">Choisissez...</option>
+                                <option value="tunis">Tunis</option>
+                                <option value="sousse">Sousse</option>
+                                <option value="sfax">Sfax</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 1rem;">
+                <strong>⚠️ Première option vide</strong>
+                <p>Toujours mettre une première option vide pour forcer l'utilisateur à faire un choix</p>
+            </div>
+        </div>
+
+        <!-- Section 7 : Radio et Checkbox -->
+        <div class="section">
+            <h2 class="section-title">☑️ Radio et Checkbox - Choix multiples</h2>
+
+            <!-- Radio -->
+            <h3>Radio buttons - Choix unique</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                    <div class="code-block">
+                        <pre><code>&lt;p&gt;Genre :&lt;/p&gt;
+&lt;label&gt;
+    &lt;input type="radio" name="genre" value="homme"&gt;
+    Homme
+&lt;/label&gt;
+&lt;label&gt;
+    &lt;input type="radio" name="genre" value="femme"&gt;
+    Femme
+&lt;/label&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <p style="font-weight: 500; margin-bottom: 0.5rem;">Genre :</p>
+                            <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                <input type="radio" name="demo-genre" value="homme" style="margin-right: 0.5rem;">
+                                Homme
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="radio" name="demo-genre" value="femme" style="margin-right: 0.5rem;">
+                                Femme
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box info" style="margin-top: 1rem;">
+                <strong>💡 Même name pour les radios</strong>
+                <p>Tous les radio buttons d'un même groupe doivent avoir le même <code>name</code></p>
+            </div>
+
+            <!-- Checkbox -->
+            <h3 style="margin-top: 2rem;">Checkboxes - Choix multiples</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                    <div class="code-block">
+                        <pre><code>&lt;p&gt;Langages connus :&lt;/p&gt;
+&lt;label&gt;
+    &lt;input type="checkbox" name="lang[]" value="html"&gt;
+    HTML
+&lt;/label&gt;
+&lt;label&gt;
+    &lt;input type="checkbox" name="lang[]" value="css"&gt;
+    CSS
+&lt;/label&gt;
+&lt;label&gt;
+    &lt;input type="checkbox" name="lang[]" value="js"&gt;
+    JavaScript
+&lt;/label&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <p style="font-weight: 500; margin-bottom: 0.5rem;">Langages connus :</p>
+                            <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" name="demo-lang[]" value="html" style="margin-right: 0.5rem;">
+                                HTML
+                            </label>
+                            <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" name="demo-lang[]" value="css" style="margin-right: 0.5rem;">
+                                CSS
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" name="demo-lang[]" value="js" style="margin-right: 0.5rem;">
+                                JavaScript
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8 : Boutons -->
+        <div class="section">
+            <h2 class="section-title">🔘 Les boutons</h2>
+
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+                <!-- Submit -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #667eea;">
+                    <h4 style="color: #667eea;">type="submit" - Envoyer le formulaire</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                        <div class="code-block">
+                            <pre><code>&lt;button type="submit"&gt;Envoyer&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <button type="submit"
+                                    style="padding: 0.75rem 2rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Envoyer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #ef4444;">
+                    <h4 style="color: #ef4444;">type="reset" - Réinitialiser</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                        <div class="code-block">
+                            <pre><code>&lt;button type="reset"&gt;Réinitialiser&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <button type="reset"
+                                    style="padding: 0.75rem 2rem; background: #ef4444; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981;">
+                    <h4 style="color: #10b981;">type="button" - Bouton personnalisé</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                        <div class="code-block">
+                            <pre><code>&lt;button type="button" onclick="alert('Clic!')"&gt;
+    Cliquez-moi
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <button type="button" onclick="alert('Bouton cliqué !')"
+                                    style="padding: 0.75rem 2rem; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Cliquez-moi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9 : Exemple complet -->
+        <div class="section">
+            <h2 class="section-title">🎯 Exemple complet : Formulaire d'inscription</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code HTML complet</p>
+                    <div class="code-block">
+                        <pre><code>&lt;form action="/inscription" method="POST"&gt;
+    &lt;label for="nom"&gt;Nom complet :&lt;/label&gt;
+    &lt;input type="text" id="nom" name="nom" required&gt;
+
+    &lt;label for="email"&gt;Email :&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+
+    &lt;label for="mdp"&gt;Mot de passe :&lt;/label&gt;
+    &lt;input type="password" id="mdp" name="mdp" minlength="8" required&gt;
+
+    &lt;label for="ville"&gt;Ville :&lt;/label&gt;
+    &lt;select id="ville" name="ville" required&gt;
+        &lt;option value=""&gt;Choisissez...&lt;/option&gt;
+        &lt;option value="tunis"&gt;Tunis&lt;/option&gt;
+        &lt;option value="sousse"&gt;Sousse&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label&gt;
+        &lt;input type="checkbox" name="cgu" required&gt;
+        J'accepte les CGU
+    &lt;/label&gt;
+
+    &lt;button type="submit"&gt;S'inscrire&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat interactif</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <form onsubmit="event.preventDefault(); alert('Inscription réussie ! ✅');"
+                                style="display: grid; gap: 1rem;">
+                                <div>
+                                    <label for="form-nom"
+                                        style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom complet
+                                        :</label>
+                                    <input type="text" id="form-nom" required
+                                        style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                </div>
+
+                                <div>
+                                    <label for="form-email"
+                                        style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email :</label>
+                                    <input type="email" id="form-email" required
+                                        style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                </div>
+
+                                <div>
+                                    <label for="form-mdp"
+                                        style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Mot de passe
+                                        :</label>
+                                    <input type="password" id="form-mdp" minlength="8" required
+                                        style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                </div>
+
+                                <div>
+                                    <label for="form-ville"
+                                        style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Ville :</label>
+                                    <select id="form-ville" required
+                                        style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                        <option value="">Choisissez...</option>
+                                        <option value="tunis">Tunis</option>
+                                        <option value="sousse">Sousse</option>
+                                    </select>
+                                </div>
+
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" required style="margin-right: 0.5rem;">
+                                    J'accepte les CGU
+                                </label>
+
+                                <button type="submit"
+                                    style="padding: 0.875rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">S'inscrire</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section : Fieldset et Legend -->
+        <div class="section">
+            <h2 class="section-title">📦 Grouper les champs : &lt;fieldset&gt; et &lt;legend&gt;</h2>
+
+            <p>Les balises <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code> permettent de <strong>grouper
+                    visuellement</strong> des champs liés dans un formulaire.</p>
+
+            <div class="info-box info" style="margin-top: 1.5rem;">
+                <strong>🎯 Pourquoi grouper les champs ?</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>Organisation :</strong> Séparer les différentes sections d'un formulaire</li>
+                    <li><strong>Lisibilité :</strong> Faciliter la compréhension pour l'utilisateur</li>
+                    <li><strong>Accessibilité :</strong> Aider les lecteurs d'écran à comprendre la structure</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Syntaxe</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                <!-- Code -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code HTML</p>
+                    <div class="code-block">
+                        <pre><code>&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Informations personnelles&lt;/legend&gt;
+        
+        &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom"&gt;
+        
+        &lt;label for="prenom"&gt;Prénom :&lt;/label&gt;
+        &lt;input type="text" id="prenom" name="prenom"&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Contact&lt;/legend&gt;
+        
+        &lt;label for="email"&gt;Email :&lt;/label&gt;
+        &lt;input type="email" id="email" name="email"&gt;
+        
+        &lt;label for="tel"&gt;Téléphone :&lt;/label&gt;
+        &lt;input type="tel" id="tel" name="tel"&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Aperçu -->
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <form onsubmit="event.preventDefault();" style="display: grid; gap: 1.5rem;">
+                                <fieldset style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+                                    <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Informations
+                                        personnelles</legend>
+
+                                    <div style="margin-bottom: 1rem;">
+                                        <label for="fs-nom"
+                                            style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom
+                                            :</label>
+                                        <input type="text" id="fs-nom"
+                                            style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                                    </div>
+
+                                    <div>
+                                        <label for="fs-prenom"
+                                            style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Prénom
+                                            :</label>
+                                        <input type="text" id="fs-prenom"
+                                            style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                                    </div>
+                                </fieldset>
+
+                                <fieldset style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+                                    <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Contact
+                                    </legend>
+
+                                    <div style="margin-bottom: 1rem;">
+                                        <label for="fs-email"
+                                            style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email
+                                            :</label>
+                                        <input type="email" id="fs-email"
+                                            style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                                    </div>
+
+                                    <div>
+                                        <label for="fs-tel"
+                                            style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Téléphone
+                                            :</label>
+                                        <input type="tel" id="fs-tel"
+                                            style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>📌 Points clés</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><code>&lt;fieldset&gt;</code> crée une bordure autour du groupe de champs</li>
+                    <li><code>&lt;legend&gt;</code> affiche un titre pour le groupe (doit être le premier élément du
+                        fieldset)</li>
+                    <li>Utilisez-les pour les formulaires longs avec plusieurs sections</li>
+                    <li>Vous pouvez styliser le fieldset et la legend avec CSS</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Exemple complet : Formulaire de réservation</h3>
+
+            <div class="demo-box" style="margin-top: 1rem;">
+                <div class="demo-header">
+                    <h4>👀 Formulaire avec plusieurs fieldsets</h4>
+                </div>
+                <div class="demo-content">
+                    <form onsubmit="event.preventDefault(); alert('Réservation envoyée !');"
+                        style="max-width: 600px; margin: 0 auto; display: grid; gap: 1.5rem;">
+                        <h2 style="text-align: center; color: #667eea; margin: 0;">Réservation de restaurant</h2>
+
+                        <fieldset style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+                            <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Vos informations
+                            </legend>
+
+                            <div style="margin-bottom: 1rem;">
+                                <label for="res-nom"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom complet
+                                    *</label>
+                                <input type="text" id="res-nom" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                            </div>
+
+                            <div>
+                                <label for="res-email"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email *</label>
+                                <input type="email" id="res-email" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                            </div>
+                        </fieldset>
+
+                        <fieldset style="border: 2px solid #e9ecef; border-radius: 8px; padding: 1.5rem;">
+                            <legend style="padding: 0 0.5rem; color: #667eea; font-weight: 600;">Détails de la
+                                réservation</legend>
+
+                            <div style="margin-bottom: 1rem;">
+                                <label for="res-date"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Date *</label>
+                                <input type="date" id="res-date" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                            </div>
+
+                            <div style="margin-bottom: 1rem;">
+                                <label for="res-heure"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Heure *</label>
+                                <input type="time" id="res-heure" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                            </div>
+
+                            <div>
+                                <label for="res-personnes"
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nombre de personnes
+                                    *</label>
+                                <input type="number" id="res-personnes" min="1" max="10" value="2" required
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
+                            </div>
+                        </fieldset>
+
+                        <button type="submit"
+                            style="padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Confirmer
+                            la réservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercice pratique -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercice pratique</h2>
+
+            <div class="info-box warning">
+                <strong>🎯 À toi de jouer !</strong>
+                <p>Crée un formulaire de contact avec :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Nom (texte, obligatoire)</li>
+                    <li>Email (email, obligatoire)</li>
+                    <li>Sujet (select avec 3 options : Question, Suggestion, Problème)</li>
+                    <li>Message (textarea, 5 lignes, obligatoire)</li>
+                    <li>Bouton "Envoyer"</li>
+                </ul>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content">
+                    <form onsubmit="event.preventDefault(); alert('Message envoyé ! ✅');"
+                        style="display: grid; gap: 1rem; max-width: 500px;">
+                        <div>
+                            <label for="ex-nom" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom
+                                :</label>
+                            <input type="text" id="ex-nom" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="ex-email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email
+                                :</label>
+                            <input type="email" id="ex-email" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="ex-sujet" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Sujet
+                                :</label>
+                            <select id="ex-sujet" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <option value="">Choisissez...</option>
+                                <option value="question">Question</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="probleme">Problème</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="ex-message"
+                                style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message :</label>
+                            <textarea id="ex-message" rows="5" required
+                                style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            style="padding: 0.875rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Formulaire de Contact&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Contactez-nous&lt;/h1&gt;
+    
+    &lt;form action="/contact" method="POST"&gt;
+        &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom" required&gt;
+
+        &lt;label for="email"&gt;Email :&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+
+        &lt;label for="sujet"&gt;Sujet :&lt;/label&gt;
+        &lt;select id="sujet" name="sujet" required&gt;
+            &lt;option value=""&gt;Choisissez...&lt;/option&gt;
+            &lt;option value="question"&gt;Question&lt;/option&gt;
+            &lt;option value="suggestion"&gt;Suggestion&lt;/option&gt;
+            &lt;option value="probleme"&gt;Problème&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;label for="message"&gt;Message :&lt;/label&gt;
+        &lt;textarea id="message" name="message" rows="5" required&gt;&lt;/textarea&gt;
+
+        &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="info-box success">
+            <strong>📝 Résumé de la leçon</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ <code>&lt;form&gt;</code> - Conteneur du formulaire</li>
+                <li>✅ <code>&lt;label for="id"&gt;</code> - Étiquette liée à un champ</li>
+                <li>✅ <code>&lt;input type="..."&gt;</code> - Champs de saisie (text, email, password, tel...)</li>
+                <li>✅ <code>&lt;textarea&gt;</code> - Texte multi-lignes</li>
+                <li>✅ <code>&lt;select&gt;</code> + <code>&lt;option&gt;</code> - Liste déroulante</li>
+                <li>✅ <code>type="radio"</code> - Choix unique</li>
+                <li>✅ <code>type="checkbox"</code> - Choix multiples</li>
+                <li>✅ <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> - Grouper les champs</li>
+                <li>✅ <code>&lt;button type="submit"&gt;</code> - Envoyer le formulaire</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine leçon :</strong> Introduction au CSS 🎨</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 2 : Tableau de Notes</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📊 Atelier 2 : Tableau de Notes</h1>
+            <p class="subtitle">Créer un tableau HTML structuré et stylisé</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Créer un tableau avec <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>,
+                    <code>&lt;tbody&gt;</code></li>
+                <li>Utiliser les balises <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></li>
+                <li>Structurer des données tabulaires</li>
+                <li>Appliquer du style CSS aux tableaux</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un tableau de notes pour 3 élèves avec les colonnes suivantes :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Créez un tableau avec un en-tête (<code>&lt;thead&gt;</code>)</li>
+                    <li>Colonnes : Nom, Math, Français, Anglais, Moyenne</li>
+                    <li>Ajoutez 3 lignes d'élèves dans le corps (<code>&lt;tbody&gt;</code>)</li>
+                    <li>Utilisez <code>&lt;th&gt;</code> pour les en-têtes et <code>&lt;td&gt;</code> pour les données
+                    </li>
+                    <li>Appliquez du CSS pour rendre le tableau attractif</li>
+                </ul>
+            </div>
+
+            <div class="info-box info" style="margin-top: 1rem;">
+                <strong>💡 Données suggérées</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Ahmed Ben Ali : 16, 14, 15 (Moyenne: 15)</li>
+                    <li>Fatma Trabelsi : 18, 17, 16 (Moyenne: 17)</li>
+                    <li>Mohamed Sassi : 12, 13, 14 (Moyenne: 13)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <table
+                    style="width: 100%; border-collapse: collapse; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                    <thead style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                        <tr>
+                            <th style="padding: 1rem; text-align: left;">Nom</th>
+                            <th style="padding: 1rem; text-align: center;">Math</th>
+                            <th style="padding: 1rem; text-align: center;">Français</th>
+                            <th style="padding: 1rem; text-align: center;">Anglais</th>
+                            <th style="padding: 1rem; text-align: center;">Moyenne</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: white;">
+                            <td style="padding: 0.875rem; border-bottom: 1px solid #e9ecef;">Ahmed Ben Ali</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">16</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">14</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">15</td>
+                            <td
+                                style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef; font-weight: 600; color: #667eea;">
+                                15</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 0.875rem; border-bottom: 1px solid #e9ecef;">Fatma Trabelsi</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">18</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">17</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">16</td>
+                            <td
+                                style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef; font-weight: 600; color: #667eea;">
+                                17</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 0.875rem; border-bottom: 1px solid #e9ecef;">Mohamed Sassi</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">12</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">13</td>
+                            <td style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef;">14</td>
+                            <td
+                                style="padding: 0.875rem; text-align: center; border-bottom: 1px solid #e9ecef; font-weight: 600; color: #667eea;">
+                                13</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <h4 style="margin-bottom: 1rem;">HTML</h4>
+                <div class="code-block">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Nom&lt;/th&gt;
+            &lt;th&gt;Math&lt;/th&gt;
+            &lt;th&gt;Français&lt;/th&gt;
+            &lt;th&gt;Anglais&lt;/th&gt;
+            &lt;th&gt;Moyenne&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Ahmed Ben Ali&lt;/td&gt;
+            &lt;td&gt;16&lt;/td&gt;
+            &lt;td&gt;14&lt;/td&gt;
+            &lt;td&gt;15&lt;/td&gt;
+            &lt;td&gt;15&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Fatma Trabelsi&lt;/td&gt;
+            &lt;td&gt;18&lt;/td&gt;
+            &lt;td&gt;17&lt;/td&gt;
+            &lt;td&gt;16&lt;/td&gt;
+            &lt;td&gt;17&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Mohamed Sassi&lt;/td&gt;
+            &lt;td&gt;12&lt;/td&gt;
+            &lt;td&gt;13&lt;/td&gt;
+            &lt;td&gt;14&lt;/td&gt;
+            &lt;td&gt;13&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem 0;">CSS</h4>
+                <div class="code-block css">
+                    <pre><code>table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background: white;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+td {
+    border-bottom: 1px solid #e9ecef;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Mettre en valeur la moyenne */
+td:last-child {
+    font-weight: 600;
+    color: #667eea;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Utilisez <code>border-collapse: collapse</code> pour fusionner les bordures</li>
+                <li>Les pseudo-classes <code>:nth-child(odd)</code> et <code>:nth-child(even)</code> permettent
+                    d'alterner les couleurs</li>
+                <li>Pensez à centrer les nombres pour une meilleure lisibilité</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations et Effets CSS</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🎬 Animations et Effets CSS</h1>
+            <p class="subtitle">Donner vie à vos pages web</p>
+        </div>
+
+        <!-- Section 1 : Transitions -->
+        <div class="section">
+            <h2 class="section-title">⚡ Transitions (Animations simples)</h2>
+            <p>Les transitions permettent d'animer les changements de propriétés CSS.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <div class="code-block">
+                        <pre><code>.bouton {
+    background: #667eea;
+    padding: 15px 30px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+    /* La magie : */
+    transition: all 0.3s;
+}
+
+.bouton:hover {
+    background: #764ba2;
+    transform: scale(1.1);
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <div class="demo-box">
+                        <div class="demo-header">
+                            <h4>👀 Survolez le bouton</h4>
+                        </div>
+                        <div class="demo-content" style="text-align: center;">
+                            <button
+                                style="background: #667eea; padding: 15px 30px; color: white; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-size: 1rem;"
+                                onmouseover="this.style.background='#764ba2'; this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.background='#667eea'; this.style.transform='scale(1)'">Survolez-moi
+                                !</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box info" style="margin-top: 1.5rem;">
+                <strong>📝 Syntaxe de transition</strong>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>transition: propriété durée fonction-timing délai;
+
+/* Exemples */
+transition: all 0.3s;                    /* Toutes les propriétés */
+transition: background 0.5s ease-in-out; /* Juste le fond */
+transition: transform 0.2s, opacity 0.3s; /* Plusieurs propriétés */</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 : Transform -->
+        <div class="section">
+            <h2 class="section-title">🔄 Transform (Transformations)</h2>
+            <p>La propriété <code>transform</code> permet de déplacer, tourner, agrandir ou déformer les éléments.</p>
+
+            <!-- Rotate -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;"><code>rotate()</code> - Rotation</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div class="code-block">
+                        <pre><code>.element {
+    transform: rotate(15deg);  /* Tourne de 15° */
+    transform: rotate(-45deg); /* Tourne de -45° */
+}</code></pre>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content"
+                            style="display: flex; gap: 20px; justify-content: center; align-items: center; min-height: 120px;">
+                            <div
+                                style="width: 80px; height: 80px; background: #f59e0b; border-radius: 8px; transform: rotate(15deg); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                15°</div>
+                            <div
+                                style="width: 80px; height: 80px; background: #ef4444; border-radius: 8px; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                -45°</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scale -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;"><code>scale()</code> - Agrandissement/Réduction</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div class="code-block">
+                        <pre><code>.element {
+    transform: scale(1.5);   /* 150% de la taille */
+    transform: scale(0.5);   /* 50% de la taille */
+    transform: scale(2, 1);  /* 2x largeur, 1x hauteur */
+}</code></pre>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content"
+                            style="display: flex; gap: 20px; justify-content: center; align-items: center; min-height: 120px;">
+                            <div
+                                style="width: 60px; height: 60px; background: #10b981; border-radius: 8px; transform: scale(0.7); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">
+                                0.7</div>
+                            <div
+                                style="width: 60px; height: 60px; background: #3b82f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                1</div>
+                            <div
+                                style="width: 60px; height: 60px; background: #8b5cf6; border-radius: 8px; transform: scale(1.3); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                1.3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Translate -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #ec4899;">
+                <h3 style="color: #ec4899;"><code>translate()</code> - Déplacement</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div class="code-block">
+                        <pre><code>.element {
+    transform: translate(20px, 0);    /* Droite 20px */
+    transform: translate(0, -10px);   /* Haut 10px */
+    transform: translate(10px, 20px); /* Droite + Bas */
+}</code></pre>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content" style="position: relative; height: 100px;">
+                            <div
+                                style="width: 60px; height: 60px; background: #ddd; border: 2px dashed #999; position: absolute; top: 20px; left: 50px;">
+                            </div>
+                            <div
+                                style="width: 60px; height: 60px; background: #ec4899; border-radius: 8px; position: absolute; top: 20px; left: 50px; transform: translate(30px, -10px); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">
+                                Déplacé</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skew -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #6366f1;">
+                <h3 style="color: #6366f1;"><code>skew()</code> - Inclinaison</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div class="code-block">
+                        <pre><code>.element {
+    transform: skew(10deg);       /* Incline horizontalement */
+    transform: skew(0, 10deg);    /* Incline verticalement */
+    transform: skew(10deg, 5deg); /* Les deux */
+}</code></pre>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-content"
+                            style="display: flex; gap: 20px; justify-content: center; align-items: center; min-height: 100px;">
+                            <div
+                                style="width: 70px; height: 70px; background: #6366f1; border-radius: 8px; transform: skew(15deg); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                Skew</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 : Filter -->
+        <div class="section">
+            <h2 class="section-title">🎨 Filter (Filtres visuels)</h2>
+            <p>La propriété <code>filter</code> permet d'appliquer des effets visuels aux éléments.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <div class="code-block">
+                        <pre><code>img {
+    filter: blur(5px);       /* Flou */
+    filter: grayscale(100%); /* Noir et blanc */
+    filter: invert(100%);    /* Inverse les couleurs */
+    
+    /* Combiner plusieurs filtres */
+    filter: blur(2px) grayscale(50%);
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <div class="demo-box">
+                        <div class="demo-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <!-- Image normale -->
+                            <div style="text-align: center;">
+                                <div
+                                    style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; margin: 0 auto 5px;">
+                                </div>
+                                <p style="font-size: 0.8rem; margin: 0;">Normal</p>
+                            </div>
+
+                            <!-- Blur -->
+                            <div style="text-align: center;">
+                                <div
+                                    style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; margin: 0 auto 5px; filter: blur(5px);">
+                                </div>
+                                <p style="font-size: 0.8rem; margin: 0;">blur(5px)</p>
+                            </div>
+
+                            <!-- Grayscale -->
+                            <div style="text-align: center;">
+                                <div
+                                    style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; margin: 0 auto 5px; filter: grayscale(100%);">
+                                </div>
+                                <p style="font-size: 0.8rem; margin: 0;">grayscale(100%)</p>
+                            </div>
+
+                            <!-- Invert -->
+                            <div style="text-align: center;">
+                                <div
+                                    style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; margin: 0 auto 5px; filter: invert(100%);">
+                                </div>
+                                <p style="font-size: 0.8rem; margin: 0;">invert(100%)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 : Combiner Transform + Filter -->
+        <div class="section">
+            <h2 class="section-title">✨ Combiner Transform + Filter + Transition</h2>
+            <p>La vraie magie arrive quand on combine ces propriétés !</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <div class="code-block">
+                        <pre><code>.carte {
+    transition: all 0.3s;
+}
+
+.carte:hover {
+    transform: rotate(5deg) scale(1.1);
+    filter: brightness(110%);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <div class="demo-box">
+                        <div class="demo-header">
+                            <h4>👀 Survolez la carte</h4>
+                        </div>
+                        <div class="demo-content" style="text-align: center;">
+                            <div style="width: 150px; height: 100px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto; transition: all 0.3s; cursor: pointer;"
+                                onmouseover="this.style.transform='rotate(5deg) scale(1.1)'; this.style.filter='brightness(110%)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'"
+                                onmouseout="this.style.transform=''; this.style.filter=''; this.style.boxShadow=''">
+                                Carte</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Animations @keyframes -->
+        <div class="section">
+            <h2 class="section-title">🎥 Animations (@keyframes)</h2>
+            <p>Pour des animations plus complexes qui se répètent, utilisez <code>@keyframes</code>.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <div class="code-block">
+                        <pre><code>@keyframes rebondir {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.balle {
+    animation: rebondir 1s infinite;
+}</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <div class="demo-box">
+                        <div class="demo-header">
+                            <h4>👀 Balle qui rebondit</h4>
+                        </div>
+                        <div class="demo-content" style="text-align: center; padding: 40px 0;">
+                            <style>
+                                @keyframes rebondir {
+
+                                    0%,
+                                    100% {
+                                        transform: translateY(0);
+                                    }
+
+                                    50% {
+                                        transform: translateY(-30px);
+                                    }
+                                }
+                            </style>
+                            <div
+                                style="width: 60px; height: 60px; background: #ef4444; border-radius: 50%; margin: 0 auto; animation: rebondir 1s infinite;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box info" style="margin-top: 1.5rem;">
+                <strong>📝 Syntaxe d'animation</strong>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>animation: nom durée fonction-timing délai répétition direction;
+
+/* Exemples */
+animation: rebondir 1s infinite;                /* Infini */
+animation: glisser 2s ease-in-out 0.5s 3;       /* 3 fois avec délai */
+animation: tourner 3s linear infinite alternate; /* Aller-retour */</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercice guidé -->
+        <div class="section">
+            <h2 class="section-title">👣 Exercice guidé : Carte interactive</h2>
+            <p>Créez une carte qui s'anime au survol avec rotation, agrandissement et ombre.</p>
+
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <h4>HTML</h4>
+                    <div class="code-block">
+                        <pre><code>&lt;div class="carte-produit"&gt;
+    &lt;h3&gt;Produit&lt;/h3&gt;
+    &lt;p&gt;Description courte&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step">
+                    <h4>CSS</h4>
+                    <div class="code-block">
+                        <pre><code>.carte-produit {
+    width: 200px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    
+    /* Animation fluide */
+    transition: all 0.3s ease;
+}
+
+.carte-produit:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    filter: brightness(105%);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content" style="text-align: center; padding: 40px;">
+                    <div style="width: 200px; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease; margin: 0 auto;"
+                        onmouseover="this.style.transform='translateY(-10px) rotate(2deg)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.2)'; this.style.filter='brightness(105%)'"
+                        onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'; this.style.filter=''">
+                        <h3 style="margin: 0 0 10px 0;">Produit</h3>
+                        <p style="margin: 0; color: #666;">Description courte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge Final -->
+        <div class="section">
+            <h2 class="section-title">🏆 Challenge : Animation de chargement</h2>
+
+            <div class="info-box warning">
+                <strong>Objectif</strong>
+                <p>Créez un spinner de chargement qui tourne en boucle.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Créez un cercle avec une bordure épaisse.</li>
+                    <li>Rendez une partie de la bordure transparente.</li>
+                    <li>Créez une animation @keyframes qui fait tourner le cercle.</li>
+                    <li>L'animation doit être infinie et fluide.</li>
+                </ul>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content" style="text-align: center; padding: 40px;">
+                    <style>
+                        @keyframes tourner {
+                            from {
+                                transform: rotate(0deg);
+                            }
+
+                            to {
+                                transform: rotate(360deg);
+                            }
+                        }
+                    </style>
+                    <div
+                        style="width: 60px; height: 60px; border: 6px solid #e5e7eb; border-top-color: #667eea; border-radius: 50%; animation: tourner 1s linear infinite; margin: 0 auto;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-container">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>/* HTML */
+&lt;div class="spinner"&gt;&lt;/div&gt;
+
+/* CSS */
+@keyframes tourner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #e5e7eb;
+    border-top-color: #667eea; /* Couleur différente pour un côté */
+    border-radius: 50%;
+    animation: tourner 1s linear infinite;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>📝 Résumé</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>transition</code> : Anime les changements de propriétés (au survol, etc.).</li>
+                <li><code>transform</code> : Déplace, tourne, agrandit ou déforme les éléments.</li>
+                <li><code>filter</code> : Applique des effets visuels (flou, noir et blanc, etc.).</li>
+                <li><code>@keyframes</code> : Crée des animations complexes qui se répètent.</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>🎉 Félicitations !</strong> Vous avez terminé le cours HTML/CSS !</p>
+        </div>
+
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

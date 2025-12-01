@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Iframe - Navigation Interactive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête de l'atelier -->
+        <header class="header">
+            <h1>🖼️ Atelier Iframe</h1>
+            <p class="subtitle">Découvrez comment intégrer des pages dans une iframe</p>
+        </header>
+
+        <!-- Menu de navigation -->
+        <nav class="navigation">
+            <h2>Menu de Navigation</h2>
+            <ul class="menu-list">
+                <li>
+                    <a href="accueil.html" target="content-frame" class="menu-link">
+                        🏠 Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="apropos.html" target="content-frame" class="menu-link">
+                        ℹ️ À Propos
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html" target="content-frame" class="menu-link">
+                        ⚙️ Services
+                    </a>
+                </li>
+                <li>
+                    <a href="galerie.html" target="content-frame" class="menu-link">
+                        🖼️ Galerie
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" target="content-frame" class="menu-link">
+                        📧 Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Zone d'affichage avec iframe -->
+        <main class="content-area">
+            <div class="iframe-container">
+                <iframe 
+                    name="content-frame" 
+                    src="accueil.html" 
+                    title="Zone de contenu"
+                    class="content-iframe">
+                </iframe>
+            </div>
+        </main>
+
+        <!-- Pied de page -->
+        <footer class="footer">
+            <p>Atelier Iframe - Apprenez à utiliser les iframes en HTML</p>
+        </footer>
+    </div>
+</body>
+</html>

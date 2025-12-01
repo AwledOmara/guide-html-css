@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 4 : Carte de Produit</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🎨 Atelier 4 : Carte de Produit</h1>
+            <p class="subtitle">Créer une carte produit moderne avec le modèle de boîte CSS</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Maîtriser le modèle de boîte (margin, padding, border)</li>
+                <li>Utiliser les propriétés CSS avancées (border-radius, box-shadow)</li>
+                <li>Créer une mise en page attractive</li>
+                <li>Appliquer des effets au survol (:hover)</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez une carte de produit pour un article de e-commerce avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Une image de produit (utilisez un placeholder coloré)</li>
+                    <li>Un titre du produit</li>
+                    <li>Une description courte</li>
+                    <li>Un prix en gras</li>
+                    <li>Un bouton "Ajouter au panier"</li>
+                    <li>Bordures arrondies (<code>border-radius</code>)</li>
+                    <li>Une ombre portée (<code>box-shadow</code>)</li>
+                    <li>Un effet au survol (agrandissement léger)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content" style="display: flex; justify-content: center;">
+                <div style="width: 300px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;"
+                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)'"
+                    onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'">
+                    <!-- Image -->
+                    <div
+                        style="width: 100%; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        📱
+                    </div>
+
+                    <!-- Contenu -->
+                    <div style="padding: 1.5rem;">
+                        <h3 style="margin: 0 0 0.5rem 0; color: #1a1a1a; font-size: 1.25rem;">Smartphone Pro</h3>
+                        <p style="margin: 0 0 1rem 0; color: #6c757d; font-size: 0.9375rem;">Un téléphone puissant avec
+                            un écran OLED et une batterie longue durée.</p>
+                        <p style="margin: 0 0 1.5rem 0; font-size: 1.5rem; font-weight: 700; color: #667eea;">599 DT</p>
+                        <button
+                            style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: transform 0.2s;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform=''">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <h4 style="margin-bottom: 1rem;">HTML</h4>
+                <div class="code-block">
+                    <pre><code>&lt;div class="carte-produit"&gt;
+    &lt;div class="image-produit"&gt;📱&lt;/div&gt;
+    
+    &lt;div class="contenu-produit"&gt;
+        &lt;h3&gt;Smartphone Pro&lt;/h3&gt;
+        &lt;p class="description"&gt;Un téléphone puissant avec un écran OLED et une batterie longue durée.&lt;/p&gt;
+        &lt;p class="prix"&gt;599 DT&lt;/p&gt;
+        &lt;button&gt;Ajouter au panier&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem 0;">CSS</h4>
+                <div class="code-block css">
+                    <pre><code>.carte-produit {
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.carte-produit:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.image-produit {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.contenu-produit {
+    padding: 1.5rem;
+}
+
+.contenu-produit h3 {
+    margin: 0 0 0.5rem 0;
+    color: #1a1a1a;
+    font-size: 1.25rem;
+}
+
+.description {
+    margin: 0 0 1rem 0;
+    color: #6c757d;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.prix {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.contenu-produit button {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.contenu-produit button:hover {
+    transform: scale(1.05);
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Utilisez <code>overflow: hidden</code> pour que les coins arrondis s'appliquent à l'image</li>
+                <li>La propriété <code>transition</code> rend les animations fluides</li>
+                <li><code>translateY(-8px)</code> déplace l'élément vers le haut</li>
+                <li>Combinez plusieurs transformations pour des effets plus riches</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

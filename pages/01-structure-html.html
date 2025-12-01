@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure d'une page HTML</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📄 Structure d'une page HTML</h1>
+            <p class="subtitle">Comprendre chaque balise et son rôle</p>
+        </div>
+
+        <!-- Section 1 : Anatomie d'une page HTML -->
+        <div class="section">
+            <h2 class="section-title">🔍 Anatomie d'une page HTML</h2>
+
+            <p>Voici la structure minimale d'une page HTML. Chaque élément a un rôle précis :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Ma première page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bonjour le monde !&lt;/h1&gt;
+    &lt;p&gt;Ceci est ma première page HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="info-box info">
+                <strong>💡 Structure en arbre</strong>
+                <p>Le HTML est organisé comme un arbre généalogique : certaines balises sont "parents" d'autres balises
+                    "enfants".</p>
+            </div>
+        </div>
+
+        <!-- Section 2 : Explication balise par balise -->
+        <div class="section">
+            <h2 class="section-title">📚 Explication balise par balise</h2>
+
+            <!-- DOCTYPE -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #667eea;">
+                <h3 style="color: #667eea;">1️⃣ &lt;!DOCTYPE html&gt;</h3>
+
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+                </div>
+
+                <p><strong>Rôle :</strong> Déclare que ce document est une page HTML5 (la version actuelle du HTML)</p>
+
+                <div class="info-box warning" style="margin-top: 1rem;">
+                    <strong>⚠️ Important</strong>
+                    <p>Cette ligne doit TOUJOURS être la première ligne de ton fichier HTML.</p>
+                    <p>Elle indique au navigateur : "Hé ! Je suis un document HTML moderne, traite-moi comme tel !"</p>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Caractéristiques :</strong></p>
+                <ul style="margin-left: 2rem;">
+                    <li>Pas une balise HTML classique (pas de balise fermante)</li>
+                    <li>Obligatoire pour que la page s'affiche correctement</li>
+                    <li>Sensible à la casse (majuscules/minuscules)</li>
+                </ul>
+            </div>
+
+            <!-- HTML -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #764ba2;">
+                <h3 style="color: #764ba2;">2️⃣ &lt;html&gt;&lt;/html&gt;</h3>
+
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>&lt;html lang="fr"&gt;
+    &lt;!-- Tout le contenu de la page ici --&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <p><strong>Rôle :</strong> La balise racine qui contient TOUT le document HTML</p>
+
+                <p style="margin-top: 1rem;"><strong>Attribut important :</strong></p>
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>lang="fr"  → Indique la langue du contenu (français)</code></pre>
+                </div>
+
+                <div class="info-box info">
+                    <strong>💡 Pourquoi préciser la langue ?</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Aide les moteurs de recherche (Google, Bing...)</li>
+                        <li>Améliore l'accessibilité (lecteurs d'écran)</li>
+                        <li>Permet au navigateur de proposer la traduction</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Autres codes de langue courants :</strong></p>
+                <ul style="margin-left: 2rem;">
+                    <li><code>lang="en"</code> → Anglais</li>
+                    <li><code>lang="ar"</code> → Arabe</li>
+                    <li><code>lang="es"</code> → Espagnol</li>
+                </ul>
+            </div>
+
+            <!-- HEAD -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">3️⃣ &lt;head&gt;&lt;/head&gt;</h3>
+
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Titre de ma page&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+
+                <p><strong>Rôle :</strong> Contient les métadonnées (informations INVISIBLES sur la page)</p>
+
+                <div class="demo-box" style="margin: 1.5rem 0;">
+                    <div class="demo-header">
+                        <h4>🧠 Analogie</h4>
+                    </div>
+                    <div class="demo-content">
+                        <p>Le <code>&lt;head&gt;</code> est comme le <strong>cerveau</strong> de la page :</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Il contient des informations importantes</li>
+                            <li>Mais on ne le voit pas directement</li>
+                            <li>Il contrôle comment la page fonctionne</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p><strong>Ce qu'on met dans le &lt;head&gt; :</strong></p>
+                <ul style="margin-left: 2rem;">
+                    <li>Le titre de la page (<code>&lt;title&gt;</code>)</li>
+                    <li>Les métadonnées (<code>&lt;meta&gt;</code>)</li>
+                    <li>Les liens vers les fichiers CSS (<code>&lt;link&gt;</code>)</li>
+                    <li>Les scripts JavaScript (<code>&lt;script&gt;</code>)</li>
+                </ul>
+            </div>
+
+            <!-- META CHARSET -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;">4️⃣ &lt;meta charset="UTF-8"&gt;</h3>
+
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+                </div>
+
+                <p><strong>Rôle :</strong> Définit l'encodage des caractères de la page</p>
+
+                <div class="info-box warning">
+                    <strong>⚠️ Pourquoi c'est important ?</strong>
+                    <p>Sans cette balise, les caractères spéciaux (é, à, ç, €, etc.) peuvent s'afficher incorrectement !
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <div style="background: #fee; padding: 1rem; border-radius: 8px;">
+                        <strong>❌ Sans UTF-8</strong>
+                        <p style="margin-top: 0.5rem;">CafÃ© Ã Paris</p>
+                    </div>
+                    <div style="background: #efe; padding: 1rem; border-radius: 8px;">
+                        <strong>✅ Avec UTF-8</strong>
+                        <p style="margin-top: 0.5rem;">Café à Paris</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>UTF-8 :</strong> Le standard universel qui supporte tous les
+                    caractères (français, arabe, chinois, emojis...)</p>
+            </div>
+
+            <!-- META VIEWPORT -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #ef4444;">
+                <h3 style="color: #ef4444;">5️⃣ &lt;meta name="viewport"&gt;</h3>
+
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                </div>
+
+                <p><strong>Rôle :</strong> Contrôle l'affichage sur les appareils mobiles</p>
+
+                <p style="margin-top: 1rem;"><strong>Décomposition :</strong></p>
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>width=device-width  → La largeur de la page = largeur de l'écran
+initial-scale=1.0   → Zoom initial à 100%</code></pre>
+                </div>
+
+                <div class="demo-box" style="margin: 1.5rem 0;">
+                    <div class="demo-header">
+                        <h4>📱 Responsive Design</h4>
+                    </div>
+                    <div class="demo-content">
+                        <p>Cette balise est <strong>essentielle</strong> pour que ton site s'affiche correctement sur
+                            mobile !</p>
+                        <p style="margin-top: 0.5rem;">Sans elle, le site apparaîtra tout petit et illisible sur
+                            smartphone.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TITLE -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #3b82f6;">
+                <h3 style="color: #3b82f6;">6️⃣ &lt;title&gt;&lt;/title&gt;</h3>
+
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>&lt;title&gt;Ma première page HTML&lt;/title&gt;</code></pre>
+                </div>
+
+                <p><strong>Rôle :</strong> Définit le titre de la page qui apparaît dans l'onglet du navigateur</p>
+
+                <div class="demo-box" style="margin: 1.5rem 0;">
+                    <div class="demo-header">
+                        <h4>👀 Où apparaît le titre ?</h4>
+                    </div>
+                    <div class="demo-content">
+                        <ul style="margin-left: 1.5rem;">
+                            <li>📑 Dans l'onglet du navigateur</li>
+                            <li>🔖 Dans les favoris/signets</li>
+                            <li>🔍 Dans les résultats de recherche Google</li>
+                            <li>📱 Dans l'historique de navigation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <strong>✅ Bonnes pratiques</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Titre court et descriptif (50-60 caractères max)</li>
+                        <li>Unique pour chaque page</li>
+                        <li>Contient les mots-clés importants</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Exemples :</strong></p>
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>✅ Bon : &lt;title&gt;Recette de Couscous Tunisien - Cuisine Traditionnelle&lt;/title&gt;
+❌ Mauvais : &lt;title&gt;Page 1&lt;/title&gt;</code></pre>
+                </div>
+            </div>
+
+            <!-- BODY -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #8b5cf6;">
+                <h3 style="color: #8b5cf6;">7️⃣ &lt;body&gt;&lt;/body&gt;</h3>
+
+                <div class="code-block" style="margin: 1rem 0;">
+                    <pre><code>&lt;body&gt;
+    &lt;h1&gt;Mon titre principal&lt;/h1&gt;
+    &lt;p&gt;Mon paragraphe de texte.&lt;/p&gt;
+    &lt;!-- Tout le contenu visible ici --&gt;
+&lt;/body&gt;</code></pre>
+                </div>
+
+                <p><strong>Rôle :</strong> Contient TOUT le contenu VISIBLE de la page</p>
+
+                <div class="demo-box" style="margin: 1.5rem 0;">
+                    <div class="demo-header">
+                        <h4>👁️ Le corps de la page</h4>
+                    </div>
+                    <div class="demo-content">
+                        <p>Le <code>&lt;body&gt;</code> est comme le <strong>corps visible</strong> d'une personne :</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>C'est ce que les visiteurs voient</li>
+                            <li>Il contient le texte, les images, les vidéos...</li>
+                            <li>C'est là que se passe l'action !</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p><strong>Ce qu'on met dans le &lt;body&gt; :</strong></p>
+                <ul style="margin-left: 2rem;">
+                    <li>Titres (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>...)</li>
+                    <li>Paragraphes (<code>&lt;p&gt;</code>)</li>
+                    <li>Images (<code>&lt;img&gt;</code>)</li>
+                    <li>Liens (<code>&lt;a&gt;</code>)</li>
+                    <li>Listes, tableaux, formulaires...</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3 : Visualisation complète -->
+        <div class="section">
+            <h2 class="section-title">🎯 Visualisation complète</h2>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>📊 Structure annotée</h4>
+                </div>
+                <div class="demo-content">
+                    <div class="code-block">
+                        <pre><code>&lt;!-- 1. Déclaration du type de document --&gt;
+&lt;!DOCTYPE html&gt;
+
+&lt;!-- 2. Balise racine avec langue --&gt;
+&lt;html lang="fr"&gt;
+
+    &lt;!-- 3. En-tête (invisible) --&gt;
+    &lt;head&gt;
+        &lt;!-- 4. Encodage des caractères --&gt;
+        &lt;meta charset="UTF-8"&gt;
+        
+        &lt;!-- 5. Responsive mobile --&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        
+        &lt;!-- 6. Titre dans l'onglet --&gt;
+        &lt;title&gt;Ma Page Web&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;!-- 7. Corps (visible) --&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Bienvenue !&lt;/h1&gt;
+        &lt;p&gt;Ceci est le contenu visible de ma page.&lt;/p&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 : Exercice pratique -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercice pratique</h2>
+
+            <div class="info-box warning">
+                <strong>🎯 À toi de jouer !</strong>
+                <p>Crée un fichier <code>index.html</code> et écris la structure complète d'une page HTML avec :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>La déclaration DOCTYPE</li>
+                    <li>La balise html avec lang="fr"</li>
+                    <li>Un head complet (charset, viewport, title)</li>
+                    <li>Un body avec un titre h1 et un paragraphe</li>
+                </ul>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mon Premier Site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
+    &lt;p&gt;Ceci est ma première page HTML créée de A à Z !&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="info-box success">
+            <strong>📝 Résumé de la leçon</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ <code>&lt;!DOCTYPE html&gt;</code> → Déclare HTML5</li>
+                <li>✅ <code>&lt;html lang="fr"&gt;</code> → Balise racine + langue</li>
+                <li>✅ <code>&lt;head&gt;</code> → Métadonnées invisibles</li>
+                <li>✅ <code>&lt;meta charset="UTF-8"&gt;</code> → Encodage caractères</li>
+                <li>✅ <code>&lt;meta viewport&gt;</code> → Responsive mobile</li>
+                <li>✅ <code>&lt;title&gt;</code> → Titre dans l'onglet</li>
+                <li>✅ <code>&lt;body&gt;</code> → Contenu visible</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine leçon :</strong> Les balises de texte (titres, paragraphes,
+                mise en forme) 📝</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

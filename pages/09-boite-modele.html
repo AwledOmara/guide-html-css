@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Modèle de Boîte CSS</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .box-model-demo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: monospace;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .margin-box {
+            background-color: #fcd34d;
+            /* Orange clair */
+            padding: 30px;
+            border: 2px dashed #d97706;
+            position: relative;
+        }
+
+        .border-box {
+            background-color: #fca5a5;
+            /* Rouge clair */
+            padding: 30px;
+            border: 2px solid #dc2626;
+            position: relative;
+        }
+
+        .padding-box {
+            background-color: #86efac;
+            /* Vert clair */
+            padding: 30px;
+            border: 2px dashed #16a34a;
+            position: relative;
+        }
+
+        .content-box {
+            background-color: #93c5fd;
+            /* Bleu clair */
+            width: 140px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #2563eb;
+            margin: 0 auto;
+        }
+
+        .label {
+            display: block;
+            font-size: 11px;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📦 Le Modèle de Boîte (Box Model)</h1>
+            <p class="subtitle">Comprendre comment les éléments occupent l'espace</p>
+        </div>
+
+        <!-- Section 1 : Tout est une boîte -->
+        <div class="section">
+            <h2 class="section-title">🤔 Tout est une boîte !</h2>
+
+            <p>En CSS, <strong>chaque élément HTML</strong> est considéré comme une boîte rectangulaire.</p>
+            <p>Même si ça ressemble à un cercle ou à du texte, c'est une boîte avec des marges, des bordures et du
+                contenu.</p>
+
+            <div class="demo-box" style="margin-top: 2rem;">
+                <div class="demo-header">
+                    <h4>Anatomie d'une boîte CSS</h4>
+                </div>
+                <div class="demo-content box-model-demo">
+                    <div class="margin-box">
+                        <span class="label">Margin (Marge externe)</span>
+                        <div class="border-box">
+                            <span class="label">Border (Bordure)</span>
+                            <div class="padding-box">
+                                <span class="label">Padding (Marge interne)</span>
+                                <div class="content-box">
+                                    Content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 : Les 4 couches détaillées -->
+        <div class="section">
+            <h2 class="section-title">🔍 Les 4 couches en détail</h2>
+
+            <!-- 1. Content -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #3b82f6;">
+                <h3 style="color: #3b82f6;">1️⃣ Content (Contenu)</h3>
+                <p>C'est le cœur de la boîte : le texte, l'image ou les autres éléments.</p>
+                <p>On définit sa taille avec <code>width</code> (largeur) et <code>height</code> (hauteur).</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>div {
+    width: 200px;
+    height: 100px;
+    background-color: #93c5fd;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div
+                                    style="width: 200px; height: 100px; background-color: #93c5fd; display: flex; align-items: center; justify-content: center;">
+                                    200px x 100px</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Padding -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #22c55e;">
+                <h3 style="color: #22c55e;">2️⃣ Padding (Marge interne)</h3>
+                <p>C'est l'espace entre le contenu et la bordure. Il "gonfle" la boîte de l'intérieur.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>div {
+    background-color: #86efac;
+    padding: 20px; /* Ajoute de l'espace autour du texte */
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div style="background-color: #86efac; padding: 20px; display: inline-block;">Texte avec
+                                    padding</div>
+                                <div style="background-color: #86efac; display: inline-block; margin-left: 10px;">Sans
+                                    padding</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Border -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #ef4444;">
+                <h3 style="color: #ef4444;">3️⃣ Border (Bordure)</h3>
+                <p>C'est la limite visible autour du padding (et du contenu).</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>div {
+    border: 5px solid #ef4444;
+    padding: 10px;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div style="border: 5px solid #ef4444; padding: 10px; display: inline-block;">Avec
+                                    bordure</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Margin -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;">4️⃣ Margin (Marge externe)</h3>
+                <p>C'est l'espace <strong>à l'extérieur</strong> de la bordure. Il sert à espacer les éléments entre
+                    eux.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>.boite {
+    background: #fcd34d;
+    margin-bottom: 20px; /* Espace en dessous */
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content" style="background: #f3f4f6; padding: 10px;">
+                                <div style="background: #fcd34d; padding: 10px; margin-bottom: 20px;">Boîte 1 (marge en
+                                    bas)</div>
+                                <div style="background: #fcd34d; padding: 10px;">Boîte 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bonus : Box Shadow -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #6366f1;">
+                <h3 style="color: #6366f1;">✨ Bonus : box-shadow (Ombre portée)</h3>
+                <p>Pour donner du relief à vos boîtes, vous pouvez ajouter une ombre.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                        <div class="code-block">
+                            <pre><code>.carte {
+    /* x  y  flou  couleur */
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}</code></pre>
+                        </div>
+                        <ul style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; margin-left: 1rem;">
+                            <li><strong>5px</strong> : Décalage horizontal (X)</li>
+                            <li><strong>5px</strong> : Décalage vertical (Y)</li>
+                            <li><strong>10px</strong> : Flou (Blur)</li>
+                            <li><strong>rgba(...)</strong> : Couleur noire avec 20% d'opacité</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div
+                                    style="background: white; padding: 20px; border-radius: 8px; box-shadow: 5px 5px 10px rgba(0,0,0,0.2); display: inline-block;">
+                                    Boîte avec ombre</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 : Box Sizing (Concept CRUCIAL) -->
+        <div class="section">
+            <h2 class="section-title">⚠️ Le piège des dimensions (box-sizing)</h2>
+
+            <p>Par défaut, quand vous dites <code>width: 200px</code>, CSS ajoute le padding et la bordure <strong>EN
+                    PLUS</strong>.</p>
+            <p>Donc une boîte de 200px + 20px de padding = <strong>240px</strong> de large ! 😱</p>
+
+            <div class="info-box warning" style="margin-top: 1rem;">
+                <strong>La solution magique : <code>box-sizing: border-box</code></strong>
+                <p>Cette propriété dit au navigateur : "La largeur que je donne inclut TOUT (contenu + padding +
+                    bordure)".</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <h4 style="color: #ef4444;">❌ Sans border-box (Défaut)</h4>
+                    <div class="code-block">
+                        <pre><code>.boite {
+    width: 200px;
+    padding: 20px;
+    /* Largeur réelle = 240px */
+}</code></pre>
+                    </div>
+                    <div
+                        style="background: #ef4444; color: white; width: 240px; padding: 20px; margin-top: 10px; text-align: center;">
+                        Réel : 240px
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="color: #10b981;">✅ Avec border-box (Recommandé)</h4>
+                    <div class="code-block">
+                        <pre><code>.boite {
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    /* Largeur réelle = 200px */
+}</code></pre>
+                    </div>
+                    <div
+                        style="background: #10b981; color: white; width: 200px; padding: 20px; margin-top: 10px; text-align: center;">
+                        Réel : 200px
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box success" style="margin-top: 1.5rem;">
+                <strong>💡 Astuce de pro</strong>
+                <p>Ajoutez toujours ce code au début de votre fichier CSS pour ne plus jamais avoir de problèmes de
+                    calcul :</p>
+                <pre style="margin-top: 0.5rem; background: rgba(0,0,0,0.05); padding: 0.5rem; border-radius: 4px;"><code>* {
+    box-sizing: border-box;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Section 4 : Affichage et Visibilité -->
+        <div class="section">
+            <h2 class="section-title">🎨 Affichage et Visibilité</h2>
+            <p>Voyons l'impact visuel de ces propriétés essentielles.</p>
+
+            <!-- Display -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #3b82f6;">
+                <h3 style="color: #3b82f6;">1. Display (Affichage)</h3>
+                <p>Contrôle comment l'élément se comporte dans le flux.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="code-block">
+                            <pre><code>.block {
+    display: block; /* Prend toute la largeur */
+    background: #93c5fd;
+    margin-bottom: 5px;
+}
+
+.inline {
+    display: inline; /* Reste sur la ligne */
+    background: #86efac;
+}
+
+.none {
+    display: none; /* Invisible ! */
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div style="display: block; background: #93c5fd; padding: 5px; margin-bottom: 5px;">Je
+                                    suis un BLOCK</div>
+                                <div style="display: block; background: #93c5fd; padding: 5px; margin-bottom: 5px;">Moi
+                                    aussi (retour à la ligne)</div>
+                                <div>
+                                    Texte normal <div style="display: inline; background: #86efac; padding: 2px;">Je
+                                        suis INLINE</div> suite du texte.
+                                </div>
+                                <div style="display: none; background: red;">Je suis caché (display: none)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Float -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">2. Float (Flottant)</h3>
+                <p>Permet d'habiller une image avec du texte.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="code-block">
+                            <pre><code>.image-flottante {
+    float: left; /* Flotte à gauche */
+    margin-right: 15px; /* Espace avec le texte */
+    width: 60px;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="demo-box">
+                            <div class="demo-content" style="overflow: hidden;">
+                                <!-- overflow hidden pour le clearfix -->
+                                <div
+                                    style="float: left; width: 60px; height: 60px; background: #10b981; margin-right: 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    IMG</div>
+                                <p style="margin: 0; font-size: 0.9rem;">Voici du texte qui s'enroule autour de l'image
+                                    flottante. Grâce à <code>float: left</code>, l'image se colle à gauche et le texte
+                                    remonte à côté d'elle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overflow -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b;">3. Overflow (Débordement)</h3>
+                <p>Que faire quand le contenu est trop grand pour la boîte ?</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="code-block">
+                            <pre><code>.boite-scroll {
+    height: 60px; /* Hauteur fixe petite */
+    overflow: auto; /* Scroll si nécessaire */
+    border: 2px solid #f59e0b;
+}
+
+.boite-hidden {
+    height: 60px;
+    overflow: hidden; /* Coupe ce qui dépasse */
+    border: 2px solid #ef4444;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="demo-box">
+                            <div class="demo-content" style="display: flex; gap: 10px;">
+                                <div
+                                    style="width: 48%; height: 60px; border: 2px solid #f59e0b; overflow: auto; padding: 5px; font-size: 0.8rem;">
+                                    <strong>Auto :</strong> Scrollez-moi ! Il y a beaucoup de texte ici pour montrer que
+                                    la barre apparaît quand ça dépasse.
+                                </div>
+                                <div
+                                    style="width: 48%; height: 60px; border: 2px solid #ef4444; overflow: hidden; padding: 5px; font-size: 0.8rem;">
+                                    <strong>Hidden :</strong> Ce texte va être coupé brutalement car il est trop long
+                                    pour la boî...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opacity -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #8b5cf6;">
+                <h3 style="color: #8b5cf6;">4. Opacity (Transparence)</h3>
+                <p>Rend un élément plus ou moins transparent.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <div class="code-block">
+                            <pre><code>.transparent {
+    opacity: 0.5; /* 50% visible */
+    background: #8b5cf6;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="demo-box">
+                            <div class="demo-content">
+                                <div style="background: #8b5cf6; color: white; padding: 10px; margin-bottom: 5px;">
+                                    Opacité 1 (Normal)</div>
+                                <div style="background: #8b5cf6; color: white; padding: 10px; opacity: 0.5;">Opacité 0.5
+                                    (50%)</div>
+                                <div style="background: #8b5cf6; color: white; padding: 10px; opacity: 0.2;">Opacité 0.2
+                                    (20%)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercice Overflow -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercice : La boîte à défilement</h2>
+            <p>Créez une boîte de texte qui force l'apparition d'une barre de défilement.</p>
+
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <h4>Consignes</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Créez une <code>div</code> avec la classe <code>.mon-scroll</code>.</li>
+                        <li>Fixez sa hauteur à <strong>80px</strong>.</li>
+                        <li>Ajoutez <code>overflow: auto</code>.</li>
+                        <li>Remplissez-la avec suffisamment de texte pour qu'elle déborde.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content">
+                    <div
+                        style="width: 200px; height: 80px; border: 1px solid #333; padding: 10px; overflow: auto; background: white;">
+                        Voici beaucoup de texte pour tester le défilement. Il faut écrire assez pour que ça dépasse la
+                        hauteur de 80px. Continuez d'écrire... Encore un peu... Voilà, maintenant vous devriez voir une
+                        barre de défilement apparaître sur le côté ! C'est magique non ?
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-container">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>.mon-scroll {
+    height: 80px;
+    width: 200px;
+    border: 1px solid #333;
+    padding: 10px;
+    overflow: auto; /* C'est la clé ! */
+    background: white;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 : Exercice guidé -->
+        <div class="section">
+            <h2 class="section-title">👣 Exercice guidé : La Carte Parfaite</h2>
+
+            <p>Nous allons créer une carte élégante en jouant avec le padding et les marges.</p>
+
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <h4>1. Structure HTML</h4>
+                    <div class="code-block">
+                        <pre><code>&lt;div class="card"&gt;
+    &lt;h2&gt;Titre de la carte&lt;/h2&gt;
+    &lt;p&gt;Ceci est une description courte.&lt;/p&gt;
+    &lt;button&gt;En savoir plus&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="activity-step">
+                    <h4>2. CSS (Padding et Marges)</h4>
+                    <div class="code-block">
+                        <pre><code>.card {
+    width: 300px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    
+    /* L'espace INTERNE est crucial pour l'élégance */
+    padding: 24px;
+    
+    /* Ombre pour le relief */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-top: 0;        /* Supprime la marge du haut */
+    margin-bottom: 12px;  /* Espace sous le titre */
+    color: #333;
+}
+
+.card p {
+    margin-bottom: 24px;  /* Espace sous le texte */
+    color: #666;
+    line-height: 1.5;
+}
+
+.card button {
+    width: 100%;          /* Bouton pleine largeur */
+    padding: 12px;        /* Bouton confortable */
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>👀 Résultat attendu</h4>
+                </div>
+                <div class="demo-content"
+                    style="display: flex; justify-content: center; background: #f9fafb; padding: 40px;">
+                    <div
+                        style="width: 300px; background: white; border: 1px solid #ddd; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-family: sans-serif;">
+                        <h2 style="margin-top: 0; margin-bottom: 12px; color: #333; font-size: 1.5rem;">Titre de la
+                            carte</h2>
+                        <p style="margin-bottom: 24px; color: #666; line-height: 1.5;">Ceci est une description courte
+                            qui respire grâce au padding et aux marges bien définis.</p>
+                        <button
+                            style="width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem;">En
+                            savoir plus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Challenge Final -->
+        <div class="section">
+            <h2 class="section-title">🏆 Challenge : Composition de boîtes</h2>
+
+            <div class="info-box warning">
+                <strong>Objectif</strong>
+                <p>Créez une mise en page avec 3 boîtes colorées alignées verticalement, espacées de 20px, et ayant
+                    chacune un padding confortable de 30px.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Conteneur principal avec fond gris clair et padding de 20px.</li>
+                    <li>3 boîtes à l'intérieur (rouge, verte, bleue).</li>
+                    <li>Chaque boîte doit avoir une marge en bas de 20px (sauf la dernière si possible, sinon pas
+                        grave).</li>
+                    <li>Texte centré et blanc dans chaque boîte.</li>
+                </ul>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>/* HTML */
+&lt;div class="container"&gt;
+    &lt;div class="box rouge"&gt;Boîte 1&lt;/div&gt;
+    &lt;div class="box verte"&gt;Boîte 2&lt;/div&gt;
+    &lt;div class="box bleue"&gt;Boîte 3&lt;/div&gt;
+&lt;/div&gt;
+
+/* CSS */
+.container {
+    background-color: #f3f4f6;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.box {
+    padding: 30px;          /* Espace interne confortable */
+    margin-bottom: 20px;    /* Espace entre les boîtes */
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.rouge { background-color: #ef4444; }
+.verte { background-color: #10b981; }
+.bleue { background-color: #3b82f6; }</code></pre>
+                    </div>
+
+                    <div class="demo-box" style="margin-top: 1rem;">
+                        <div class="demo-content" style="display: flex; justify-content: center;">
+                            <div
+                                style="background-color: #f3f4f6; padding: 20px; width: 300px; border-radius: 8px; font-family: sans-serif;">
+                                <div
+                                    style="padding: 30px; margin-bottom: 20px; color: white; text-align: center; border-radius: 6px; font-weight: bold; background-color: #ef4444;">
+                                    Boîte 1</div>
+                                <div
+                                    style="padding: 30px; margin-bottom: 20px; color: white; text-align: center; border-radius: 6px; font-weight: bold; background-color: #10b981;">
+                                    Boîte 2</div>
+                                <div
+                                    style="padding: 30px; margin-bottom: 0; color: white; text-align: center; border-radius: 6px; font-weight: bold; background-color: #3b82f6;">
+                                    Boîte 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box success">
+            <strong>📝 Résumé</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><strong>Content</strong> : Le contenu réel.</li>
+                <li><strong>Padding</strong> : Espace interne (gonfle la boîte).</li>
+                <li><strong>Border</strong> : La limite.</li>
+                <li><strong>Margin</strong> : Espace externe (repousse les voisins).</li>
+                <li><strong>IMPORTANT</strong> : Utilisez toujours <code>box-sizing: border-box</code> pour simplifier
+                    vos calculs.</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine étape :</strong> La mise en page (Layout) pour placer les
+                éléments côte à côte ! 📐</p>
+        </div>
+
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

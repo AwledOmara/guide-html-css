@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balises de texte HTML</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📝 Les balises de texte HTML</h1>
+            <p class="subtitle">Structurer et mettre en forme le texte</p>
+        </div>
+
+        <!-- Section 1 : Les titres -->
+        <div class="section">
+            <h2 class="section-title">📑 Les titres (h1 à h6)</h2>
+
+            <p>HTML propose 6 niveaux de titres, du plus important (h1) au moins important (h6) :</p>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>👀 Aperçu visuel</h4>
+                </div>
+                <div class="demo-content">
+                    <h1 style="margin: 0.5rem 0;">Titre de niveau 1 (h1)</h1>
+                    <h2 style="margin: 0.5rem 0;">Titre de niveau 2 (h2)</h2>
+                    <h3 style="margin: 0.5rem 0;">Titre de niveau 3 (h3)</h3>
+                    <h4 style="margin: 0.5rem 0;">Titre de niveau 4 (h4)</h4>
+                    <h5 style="margin: 0.5rem 0;">Titre de niveau 5 (h5)</h5>
+                    <h6 style="margin: 0.5rem 0;">Titre de niveau 6 (h6)</h6>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code>&lt;h1&gt;Titre principal de la page&lt;/h1&gt;
+&lt;h2&gt;Sous-titre important&lt;/h2&gt;
+&lt;h3&gt;Section&lt;/h3&gt;
+&lt;h4&gt;Sous-section&lt;/h4&gt;
+&lt;h5&gt;Détail&lt;/h5&gt;
+&lt;h6&gt;Petit détail&lt;/h6&gt;</code></pre>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ Règles importantes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>Un seul h1 par page</strong> (le titre principal)</li>
+                    <li>Respecter la hiérarchie : h1 → h2 → h3 (ne pas sauter de niveau)</li>
+                    <li>Ne pas utiliser les titres juste pour la taille (utiliser CSS pour ça)</li>
+                </ul>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>📚 Exemple de hiérarchie</h4>
+                </div>
+                <div class="demo-content">
+                    <div class="code-block">
+                        <pre><code>&lt;h1&gt;Mon Blog de Cuisine&lt;/h1&gt;
+
+&lt;h2&gt;Recettes Tunisiennes&lt;/h2&gt;
+    &lt;h3&gt;Couscous&lt;/h3&gt;
+    &lt;h3&gt;Brik&lt;/h3&gt;
+
+&lt;h2&gt;Recettes Italiennes&lt;/h2&gt;
+    &lt;h3&gt;Pizza&lt;/h3&gt;
+    &lt;h3&gt;Pasta&lt;/h3&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 : Les paragraphes -->
+        <div class="section">
+            <h2 class="section-title">📄 Les paragraphes</h2>
+
+            <p>La balise <code>&lt;p&gt;</code> définit un paragraphe de texte :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;p&gt;Ceci est un paragraphe de texte.&lt;/p&gt;
+&lt;p&gt;Ceci est un autre paragraphe.&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>👀 Résultat</h4>
+                </div>
+                <div class="demo-content">
+                    <p>Ceci est un paragraphe de texte.</p>
+                    <p>Ceci est un autre paragraphe.</p>
+                </div>
+            </div>
+
+            <div class="info-box info">
+                <strong>💡 À savoir</strong>
+                <p>Les espaces et retours à la ligne multiples dans le code HTML sont ignorés. Le navigateur affiche
+                    tout sur une seule ligne.</p>
+            </div>
+
+            <div class="code-block">
+                <pre><code>&lt;!-- Ces deux codes donnent le même résultat --&gt;
+
+&lt;p&gt;Texte     avec     beaucoup     d'espaces&lt;/p&gt;
+&lt;p&gt;Texte avec beaucoup d'espaces&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Section 3 : Retour à la ligne -->
+        <div class="section">
+            <h2 class="section-title">↩️ Retour à la ligne</h2>
+
+            <p>Pour forcer un retour à la ligne sans créer un nouveau paragraphe, utilisez <code>&lt;br&gt;</code> :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;p&gt;
+    Première ligne&lt;br&gt;
+    Deuxième ligne&lt;br&gt;
+    Troisième ligne
+&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>👀 Résultat</h4>
+                </div>
+                <div class="demo-content">
+                    <p>
+                        Première ligne<br>
+                        Deuxième ligne<br>
+                        Troisième ligne
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ Attention</strong>
+                <p><code>&lt;br&gt;</code> est une balise <strong>auto-fermante</strong> (pas de balise de fermeture).
+                </p>
+                <p>N'abusez pas de <code>&lt;br&gt;</code> ! Préférez utiliser plusieurs <code>&lt;p&gt;</code> ou du
+                    CSS.</p>
+            </div>
+        </div>
+
+        <!-- Section 4 : Mise en forme du texte -->
+        <div class="section">
+            <h2 class="section-title">✨ Mise en forme du texte</h2>
+
+            <h3>Texte en gras</h3>
+            <p>Deux balises pour mettre en gras :</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea;">
+                    <strong>&lt;strong&gt;</strong> - Importance forte
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;strong&gt;Texte important&lt;/strong&gt;</code></pre>
+                    </div>
+                    <p style="margin-top: 0.5rem;">Résultat : <strong>Texte important</strong></p>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #764ba2;">
+                    <strong>&lt;b&gt;</strong> - Gras visuel uniquement
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;b&gt;Texte en gras&lt;/b&gt;</code></pre>
+                    </div>
+                    <p style="margin-top: 0.5rem;">Résultat : <b>Texte en gras</b></p>
+                </div>
+            </div>
+
+            <div class="info-box success">
+                <strong>✅ Bonne pratique</strong>
+                <p>Utilisez <code>&lt;strong&gt;</code> pour un texte vraiment important (meilleur pour l'accessibilité
+                    et le SEO).</p>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Texte en italique</h3>
+            <p>Deux balises pour mettre en italique :</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #10b981;">
+                    <strong>&lt;em&gt;</strong> - Emphase
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;em&gt;Texte accentué&lt;/em&gt;</code></pre>
+                    </div>
+                    <p style="margin-top: 0.5rem;">Résultat : <em>Texte accentué</em></p>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <strong>&lt;i&gt;</strong> - Italique visuel
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;i&gt;Texte en italique&lt;/i&gt;</code></pre>
+                    </div>
+                    <p style="margin-top: 0.5rem;">Résultat : <i>Texte en italique</i></p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Autres balises de mise en forme</h3>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>&lt;u&gt;</code> - <u>Texte souligné</u>
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;u&gt;Texte souligné&lt;/u&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>&lt;mark&gt;</code> - <mark>Texte surligné</mark>
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;mark&gt;Texte surligné&lt;/mark&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>&lt;small&gt;</code> - <small>Texte plus petit</small>
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;small&gt;Texte plus petit&lt;/small&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>&lt;del&gt;</code> - <del>Texte barré</del>
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;del&gt;Texte barré&lt;/del&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>&lt;ins&gt;</code> - <ins>Texte inséré</ins>
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>&lt;ins&gt;Texte inséré&lt;/ins&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>&lt;sub&gt;</code> - H<sub>2</sub>O (indice)
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>&lt;sup&gt;</code> - E=mc<sup>2</sup> (exposant)
+                    <div class="code-block" style="margin-top: 0.5rem;">
+                        <pre><code>E=mc&lt;sup&gt;2&lt;/sup&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Citations et code -->
+        <div class="section">
+            <h2 class="section-title">💬 Citations et code</h2>
+
+            <h3>Citation en bloc</h3>
+            <div class="code-block">
+                <pre><code>&lt;blockquote&gt;
+    La vie est comme une bicyclette, 
+    il faut avancer pour ne pas perdre l'équilibre.
+&lt;/blockquote&gt;</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-content">
+                    <blockquote
+                        style="border-left: 4px solid #667eea; padding-left: 1rem; font-style: italic; color: #666;">
+                        La vie est comme une bicyclette,
+                        il faut avancer pour ne pas perdre l'équilibre.
+                    </blockquote>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Code informatique</h3>
+            <div class="code-block">
+                <pre><code>&lt;p&gt;Pour afficher du texte, utilisez &lt;code&gt;console.log()&lt;/code&gt;&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-content">
+                    <p>Pour afficher du texte, utilisez <code>console.log()</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercice pratique -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercice pratique</h2>
+
+            <div class="info-box warning">
+                <strong>🎯 À toi de jouer !</strong>
+                <p>Crée une page HTML qui présente ton livre préféré avec :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Un titre h1 avec le nom du livre</li>
+                    <li>Un titre h2 "À propos"</li>
+                    <li>Un paragraphe avec l'auteur en <strong>gras</strong></li>
+                    <li>Un paragraphe avec une citation en <em>italique</em></li>
+                    <li>Un titre h2 "Pourquoi je l'aime"</li>
+                    <li>Plusieurs paragraphes expliquant pourquoi</li>
+                </ul>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mon Livre Préféré&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Le Petit Prince&lt;/h1&gt;
+    
+    &lt;h2&gt;À propos&lt;/h2&gt;
+    &lt;p&gt;Auteur : &lt;strong&gt;Antoine de Saint-Exupéry&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;em&gt;"On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux."&lt;/em&gt;&lt;/p&gt;
+    
+    &lt;h2&gt;Pourquoi je l'aime&lt;/h2&gt;
+    &lt;p&gt;Ce livre m'a marqué par sa simplicité et sa profondeur.&lt;/p&gt;
+    &lt;p&gt;Il nous apprend à voir le monde avec les yeux d'un enfant.&lt;/p&gt;
+    &lt;p&gt;Chaque relecture me fait découvrir de nouvelles leçons de vie.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="info-box success">
+            <strong>📝 Résumé de la leçon</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ Titres : <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> (un seul h1 par page)</li>
+                <li>✅ Paragraphes : <code>&lt;p&gt;</code></li>
+                <li>✅ Retour à la ligne : <code>&lt;br&gt;</code></li>
+                <li>✅ Gras : <code>&lt;strong&gt;</code> (importance) ou <code>&lt;b&gt;</code> (visuel)</li>
+                <li>✅ Italique : <code>&lt;em&gt;</code> (emphase) ou <code>&lt;i&gt;</code> (visuel)</li>
+                <li>✅ Autres : <code>&lt;mark&gt;</code>, <code>&lt;small&gt;</code>, <code>&lt;del&gt;</code>,
+                    <code>&lt;sub&gt;</code>, <code>&lt;sup&gt;</code></li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine leçon :</strong> Listes et liens 🔗</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

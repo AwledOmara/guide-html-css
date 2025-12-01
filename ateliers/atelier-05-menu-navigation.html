@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 5 : Menu de Navigation</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🧭 Atelier 5 : Menu de Navigation</h1>
+            <p class="subtitle">Créer une barre de navigation horizontale moderne</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Créer une navigation avec des listes <code>&lt;ul&gt;</code> et <code>&lt;li&gt;</code></li>
+                <li>Utiliser <code>display: inline-block</code> pour aligner horizontalement</li>
+                <li>Styliser les liens avec des effets au survol</li>
+                <li>Créer une navbar sticky (fixe en haut)</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez une barre de navigation horizontale avec :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Un logo à gauche (texte "MonSite")</li>
+                    <li>Un menu avec 4 liens : Accueil, Services, À propos, Contact</li>
+                    <li>Les liens doivent être alignés horizontalement</li>
+                    <li>Fond dégradé pour la navbar</li>
+                    <li>Effet de soulignement au survol des liens</li>
+                    <li>Navbar fixe en haut de la page (<code>position: sticky</code>)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <nav
+                    style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-radius: 8px;">
+                    <div style="color: white; font-size: 1.5rem; font-weight: 700;">MonSite</div>
+                    <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 2rem;">
+                        <li><a href="#"
+                                style="color: white; text-decoration: none; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: border-color 0.3s;"
+                                onmouseover="this.style.borderColor='white'"
+                                onmouseout="this.style.borderColor='transparent'">Accueil</a></li>
+                        <li><a href="#"
+                                style="color: white; text-decoration: none; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: border-color 0.3s;"
+                                onmouseover="this.style.borderColor='white'"
+                                onmouseout="this.style.borderColor='transparent'">Services</a></li>
+                        <li><a href="#"
+                                style="color: white; text-decoration: none; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: border-color 0.3s;"
+                                onmouseover="this.style.borderColor='white'"
+                                onmouseout="this.style.borderColor='transparent'">À propos</a></li>
+                        <li><a href="#"
+                                style="color: white; text-decoration: none; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: border-color 0.3s;"
+                                onmouseover="this.style.borderColor='white'"
+                                onmouseout="this.style.borderColor='transparent'">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <h4 style="margin-bottom: 1rem;">HTML</h4>
+                <div class="code-block">
+                    <pre><code>&lt;nav class="navbar"&gt;
+    &lt;div class="logo"&gt;MonSite&lt;/div&gt;
+    
+    &lt;ul class="menu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;À propos&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem 0;">CSS</h4>
+                <div class="code-block css">
+                    <pre><code>.navbar {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.menu a:hover {
+    border-bottom-color: white;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li><code>position: sticky</code> fixe l'élément en haut lors du scroll</li>
+                <li><code>display: flex</code> avec <code>gap</code> espace automatiquement les éléments</li>
+                <li>Utilisez <code>z-index</code> pour que la navbar reste au-dessus du contenu</li>
+                <li>L'effet de soulignement au survol améliore l'expérience utilisateur</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

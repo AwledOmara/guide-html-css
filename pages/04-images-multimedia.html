@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images et Multimédia HTML</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🖼️ Images et Multimédia</h1>
+            <p class="subtitle">Intégrer des images, vidéos et audio dans vos pages</p>
+        </div>
+
+        <!-- Section 1 : Les images -->
+        <div class="section">
+            <h2 class="section-title">📷 La balise &lt;img&gt;</h2>
+
+            <p>La balise <code>&lt;img&gt;</code> permet d'afficher une image. C'est une balise
+                <strong>auto-fermante</strong> (pas de balise de fermeture).
+            </p>
+
+            <div class="code-block">
+                <pre><code>&lt;img src="photo.jpg" alt="Description de l'image"&gt;</code></pre>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ Attributs obligatoires</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><code>src</code> (source) = chemin vers l'image</li>
+                    <li><code>alt</code> (alternative) = texte descriptif si l'image ne charge pas</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Pourquoi l'attribut alt est important ?</h3>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                <div class="info-box info">
+                    <strong>♿ Accessibilité</strong>
+                    <p>Les lecteurs d'écran lisent le texte alt pour les personnes malvoyantes</p>
+                </div>
+
+                <div class="info-box info">
+                    <strong>🔍 SEO (Référencement)</strong>
+                    <p>Google utilise le texte alt pour comprendre le contenu de l'image</p>
+                </div>
+
+                <div class="info-box info">
+                    <strong>📶 Connexion lente</strong>
+                    <p>Si l'image ne charge pas, le texte alt s'affiche à la place</p>
+                </div>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>✅ Exemples de bon texte alt</h4>
+                </div>
+                <div class="demo-content">
+                    <div class="code-block">
+                        <pre><code>&lt;!-- ✅ Bon : descriptif et précis --&gt;
+&lt;img src="chat.jpg" alt="Chat roux dormant sur un canapé bleu"&gt;
+
+&lt;!-- ✅ Bon : contexte clair --&gt;
+&lt;img src="logo.png" alt="Logo de l'entreprise TechCorp"&gt;
+
+&lt;!-- ❌ Mauvais : trop vague --&gt;
+&lt;img src="chat.jpg" alt="image"&gt;
+
+&lt;!-- ❌ Mauvais : répète "image de" --&gt;
+&lt;img src="chat.jpg" alt="Image de chat"&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 : Chemins des images -->
+        <div class="section">
+            <h2 class="section-title">📁 Chemins des images</h2>
+
+            <h3>1️⃣ Chemin relatif (image dans ton projet)</h3>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Structure de dossiers :</strong></p>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>mon-site/
+├── index.html
+├── contact.html
+└── images/
+    ├── logo.png
+    └── photo.jpg</code></pre>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Dans index.html :</strong></p>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>&lt;!-- Image dans le dossier images --&gt;
+&lt;img src="images/logo.png" alt="Logo"&gt;
+
+&lt;!-- Image dans le même dossier --&gt;
+&lt;img src="photo.jpg" alt="Photo"&gt;</code></pre>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">2️⃣ Chemin absolu (image sur Internet)</h3>
+
+            <div class="code-block">
+                <pre><code>&lt;img src="https://www.exemple.com/images/photo.jpg" alt="Photo depuis Internet"&gt;</code></pre>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ Attention</strong>
+                <p>Utiliser des images depuis d'autres sites peut poser des problèmes :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>L'image peut être supprimée</li>
+                    <li>Problèmes de droits d'auteur</li>
+                    <li>Ralentit le chargement de ta page</li>
+                </ul>
+                <p style="margin-top: 0.5rem;"><strong>Conseil :</strong> Télécharge l'image et mets-la dans ton projet
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 3 : Dimensions des images -->
+        <div class="section">
+            <h2 class="section-title">📏 Dimensions des images</h2>
+
+            <p>Tu peux définir la largeur et la hauteur avec les attributs <code>width</code> et <code>height</code> :
+            </p>
+
+            <div class="code-block">
+                <pre><code>&lt;!-- En pixels --&gt;
+&lt;img src="photo.jpg" alt="Photo" width="300" height="200"&gt;
+
+&lt;!-- Avec CSS (recommandé) --&gt;
+&lt;img src="photo.jpg" alt="Photo" style="width: 300px; height: 200px;"&gt;</code></pre>
+            </div>
+
+            <div class="info-box success">
+                <strong>✅ Bonnes pratiques</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Utilise CSS pour les dimensions (plus flexible)</li>
+                    <li>Pour une image responsive : <code>style="width: 100%; height: auto;"</code></li>
+                    <li>Garde les proportions de l'image (ne déforme pas)</li>
+                </ul>
+            </div>
+
+            <div class="demo-box" style="margin-top: 1.5rem;">
+                <div class="demo-header">
+                    <h4>🎨 Exemples de dimensions</h4>
+                </div>
+                <div class="demo-content">
+                    <div style="display: grid; gap: 1rem;">
+                        <div>
+                            <p><strong>Largeur fixe :</strong></p>
+                            <div class="code-block">
+                                <pre><code>&lt;img src="photo.jpg" alt="Photo" style="width: 200px;"&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p><strong>Largeur en pourcentage (responsive) :</strong></p>
+                            <div class="code-block">
+                                <pre><code>&lt;img src="photo.jpg" alt="Photo" style="width: 50%;"&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p><strong>Largeur maximale :</strong></p>
+                            <div class="code-block">
+                                <pre><code>&lt;img src="photo.jpg" alt="Photo" style="max-width: 100%; height: auto;"&gt;</code></pre>
+                            </div>
+                            <p style="margin-top: 0.5rem; color: #10b981;">✅ L'image ne dépassera jamais son conteneur
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 : Formats d'images -->
+        <div class="section">
+            <h2 class="section-title">🎨 Formats d'images</h2>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #667eea;">
+                    <h4 style="color: #667eea;">📸 JPEG (.jpg, .jpeg)</h4>
+                    <p><strong>Utilisation :</strong> Photos, images avec beaucoup de couleurs</p>
+                    <p><strong>Avantages :</strong> Petite taille de fichier, bonne qualité</p>
+                    <p><strong>Inconvénients :</strong> Pas de transparence, perte de qualité à la compression</p>
+                </div>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #764ba2;">
+                    <h4 style="color: #764ba2;">🖼️ PNG (.png)</h4>
+                    <p><strong>Utilisation :</strong> Logos, icônes, images avec transparence</p>
+                    <p><strong>Avantages :</strong> Supporte la transparence, sans perte de qualité</p>
+                    <p><strong>Inconvénients :</strong> Fichiers plus lourds que JPEG</p>
+                </div>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #10b981;">
+                    <h4 style="color: #10b981;">🎬 GIF (.gif)</h4>
+                    <p><strong>Utilisation :</strong> Animations simples, images avec peu de couleurs</p>
+                    <p><strong>Avantages :</strong> Supporte l'animation</p>
+                    <p><strong>Inconvénients :</strong> Limité à 256 couleurs</p>
+                </div>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #f59e0b;">🚀 WebP (.webp)</h4>
+                    <p><strong>Utilisation :</strong> Format moderne pour le web</p>
+                    <p><strong>Avantages :</strong> Meilleure compression que JPEG/PNG, supporte la transparence</p>
+                    <p><strong>Inconvénients :</strong> Moins compatible avec les vieux navigateurs</p>
+                </div>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #ef4444;">
+                    <h4 style="color: #ef4444;">📐 SVG (.svg)</h4>
+                    <p><strong>Utilisation :</strong> Logos, icônes, graphiques vectoriels</p>
+                    <p><strong>Avantages :</strong> Qualité parfaite à toutes les tailles, fichiers légers</p>
+                    <p><strong>Inconvénients :</strong> Pas adapté aux photos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 : Figure et Figcaption -->
+        <div class="section">
+            <h2 class="section-title">🖼️ Figure et Légende</h2>
+
+            <p>Pour associer une image à sa légende, utilisez <code>&lt;figure&gt;</code> et
+                <code>&lt;figcaption&gt;</code> :
+            </p>
+
+            <div class="code-block">
+                <pre><code>&lt;figure&gt;
+    &lt;img src="tour-eiffel.jpg" alt="Tour Eiffel illuminée la nuit"&gt;
+    &lt;figcaption&gt;La Tour Eiffel à Paris, France&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-header">
+                    <h4>👀 Résultat</h4>
+                </div>
+                <div class="demo-content">
+                    <figure style="margin: 0; text-align: center;">
+                        <div
+                            style="width: 300px; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; margin: 0 auto;">
+                            🗼
+                        </div>
+                        <figcaption style="margin-top: 0.5rem; color: #666; font-style: italic;">La Tour Eiffel à Paris,
+                            France</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6 : Vidéos -->
+        <div class="section">
+            <h2 class="section-title">🎬 Vidéos avec &lt;video&gt;</h2>
+
+            <p>La balise <code>&lt;video&gt;</code> permet d'intégrer une vidéo directement dans la page :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;video width="640" height="360" controls&gt;
+    &lt;source src="ma-video.mp4" type="video/mp4"&gt;
+    &lt;source src="ma-video.webm" type="video/webm"&gt;
+    Votre navigateur ne supporte pas la balise vidéo.
+&lt;/video&gt;</code></pre>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Attributs importants</h3>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>controls</code> - Affiche les boutons play/pause/volume
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>autoplay</code> - Lance la vidéo automatiquement (⚠️ déconseillé)
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>loop</code> - Rejoue la vidéo en boucle
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>muted</code> - Désactive le son par défaut
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 8px;">
+                    <code>poster="image.jpg"</code> - Image affichée avant le lancement
+                </div>
+            </div>
+
+            <div class="info-box warning" style="margin-top: 1rem;">
+                <strong>⚠️ Formats vidéo</strong>
+                <p>Utilisez plusieurs formats pour une meilleure compatibilité :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>MP4</strong> - Le plus compatible</li>
+                    <li><strong>WebM</strong> - Meilleure compression</li>
+                    <li><strong>OGG</strong> - Alternative open-source</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Intégrer une vidéo YouTube</h3>
+
+            <div class="code-block">
+                <pre><code>&lt;iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/CODE_VIDEO" 
+    title="Titre de la vidéo"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+            </div>
+
+            <div class="info-box info">
+                <strong>💡 Comment obtenir le code YouTube ?</strong>
+                <ol style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Va sur la vidéo YouTube</li>
+                    <li>Clique sur "Partager"</li>
+                    <li>Clique sur "Intégrer"</li>
+                    <li>Copie le code fourni</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 7 : Audio -->
+        <div class="section">
+            <h2 class="section-title">🎵 Audio avec &lt;audio&gt;</h2>
+
+            <p>La balise <code>&lt;audio&gt;</code> permet d'intégrer un fichier audio :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;audio controls&gt;
+    &lt;source src="musique.mp3" type="audio/mpeg"&gt;
+    &lt;source src="musique.ogg" type="audio/ogg"&gt;
+    Votre navigateur ne supporte pas la balise audio.
+&lt;/audio&gt;</code></pre>
+            </div>
+
+            <div class="info-box success">
+                <strong>✅ Formats audio recommandés</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li><strong>MP3</strong> - Le plus compatible</li>
+                    <li><strong>OGG</strong> - Bonne qualité, open-source</li>
+                    <li><strong>WAV</strong> - Haute qualité, fichiers lourds</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 8 : Iframe -->
+        <div class="section">
+            <h2 class="section-title">🪟 Iframe - Intégrer d'autres pages</h2>
+
+            <p>La balise <code>&lt;iframe&gt;</code> permet d'intégrer une page web dans une autre :</p>
+
+            <div class="code-block">
+                <pre><code>&lt;iframe src="https://www.exemple.com" 
+    width="800" 
+    height="600" 
+    title="Description de l'iframe"&gt;
+&lt;/iframe&gt;</code></pre>
+            </div>
+
+            <div class="info-box info">
+                <strong>💡 Utilisations courantes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Intégrer des vidéos YouTube/Vimeo</li>
+                    <li>Intégrer Google Maps</li>
+                    <li>Intégrer des formulaires externes</li>
+                    <li>Afficher des graphiques interactifs</li>
+                </ul>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ Sécurité</strong>
+                <p>Certains sites bloquent l'intégration via iframe pour des raisons de sécurité.</p>
+            </div>
+        </div>
+
+        <!-- Exercice pratique -->
+        <div class="section">
+            <h2 class="section-title">✍️ Exercice pratique</h2>
+
+            <div class="info-box warning">
+                <strong>🎯 À toi de jouer !</strong>
+                <p>Crée une page "Ma Galerie" avec :</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Un titre h1 "Ma Galerie Photo"</li>
+                    <li>3 images avec des légendes (utilise figure/figcaption)</li>
+                    <li>Une vidéo YouTube intégrée</li>
+                    <li>Un fichier audio avec contrôles</li>
+                    <li>Toutes les images doivent avoir un texte alt descriptif</li>
+                    <li>Les images doivent être responsive (max-width: 100%)</li>
+                </ul>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1.5rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ma Galerie&lt;/title&gt;
+    &lt;style&gt;
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        figcaption {
+            margin-top: 0.5rem;
+            color: #666;
+            font-style: italic;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Ma Galerie Photo&lt;/h1&gt;
+    
+    &lt;figure&gt;
+        &lt;img src="images/paysage1.jpg" alt="Coucher de soleil sur la plage de Hammamet"&gt;
+        &lt;figcaption&gt;Coucher de soleil à Hammamet&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;img src="images/paysage2.jpg" alt="Médina de Tunis avec ses ruelles étroites"&gt;
+        &lt;figcaption&gt;La Médina de Tunis&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;img src="images/paysage3.jpg" alt="Désert du Sahara avec dunes de sable"&gt;
+        &lt;figcaption&gt;Le Sahara Tunisien&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;h2&gt;Ma Vidéo Préférée&lt;/h2&gt;
+    &lt;iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="Vidéo YouTube"
+        frameborder="0" 
+        allowfullscreen&gt;
+    &lt;/iframe&gt;
+    
+    &lt;h2&gt;Ma Musique&lt;/h2&gt;
+    &lt;audio controls&gt;
+        &lt;source src="audio/musique.mp3" type="audio/mpeg"&gt;
+        Votre navigateur ne supporte pas l'audio.
+    &lt;/audio&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="info-box success">
+            <strong>📝 Résumé de la leçon</strong>
+            <ul style="margin-top: 0.75rem; margin-left: 1.5rem;">
+                <li>✅ Images : <code>&lt;img src="..." alt="..."&gt;</code></li>
+                <li>✅ Formats : JPEG (photos), PNG (transparence), SVG (vectoriel)</li>
+                <li>✅ Figure : <code>&lt;figure&gt;</code> + <code>&lt;figcaption&gt;</code></li>
+                <li>✅ Vidéo : <code>&lt;video controls&gt;</code> ou iframe YouTube</li>
+                <li>✅ Audio : <code>&lt;audio controls&gt;</code></li>
+                <li>✅ Iframe : <code>&lt;iframe src="..."&gt;</code></li>
+                <li>✅ Toujours mettre un texte alt descriptif !</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Prochaine leçon :</strong> Les tableaux 📊</p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

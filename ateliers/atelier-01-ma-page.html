@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 1 : Ma Première Page HTML</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>🎨 Atelier 1 : Ma Première Page HTML</h1>
+            <p class="subtitle">Créer une page HTML complète de A à Z</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Créer la structure de base d'une page HTML</li>
+                <li>Utiliser les balises de texte (titres, paragraphes)</li>
+                <li>Ajouter des listes et des liens</li>
+                <li>Organiser le contenu de manière sémantique</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez une page HTML qui présente votre profil personnel avec les éléments suivants :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Un titre principal <code>&lt;h1&gt;</code> avec votre nom</li>
+                    <li>Un sous-titre <code>&lt;h2&gt;</code> "À propos de moi"</li>
+                    <li>Un paragraphe de présentation</li>
+                    <li>Un sous-titre <code>&lt;h2&gt;</code> "Mes compétences"</li>
+                    <li>Une liste non ordonnée avec 3 compétences</li>
+                    <li>Un sous-titre <code>&lt;h2&gt;</code> "Mes liens"</li>
+                    <li>Une liste avec 2 liens (GitHub, LinkedIn, ou autres)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <div style="background: white; padding: 2rem; border: 1px solid #e9ecef; border-radius: 8px;">
+                    <h1 style="margin-bottom: 1rem;">Nizar Ben Ahmed</h1>
+
+                    <h2 style="color: #667eea; margin-top: 1.5rem; margin-bottom: 0.5rem;">À propos de moi</h2>
+                    <p>Je suis étudiant en développement web et je suis passionné par la création de sites internet
+                        modernes et interactifs.</p>
+
+                    <h2 style="color: #667eea; margin-top: 1.5rem; margin-bottom: 0.5rem;">Mes compétences</h2>
+                    <ul>
+                        <li>HTML & CSS</li>
+                        <li>JavaScript</li>
+                        <li>Design responsive</li>
+                    </ul>
+
+                    <h2 style="color: #667eea; margin-top: 1.5rem; margin-bottom: 0.5rem;">Mes liens</h2>
+                    <ul>
+                        <li><a href="#" style="color: #667eea;">Mon GitHub</a></li>
+                        <li><a href="#" style="color: #667eea;">Mon LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <div class="code-block">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mon Profil&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Nizar Ben Ahmed&lt;/h1&gt;
+    
+    &lt;h2&gt;À propos de moi&lt;/h2&gt;
+    &lt;p&gt;Je suis étudiant en développement web et je suis passionné par la création de sites internet modernes et interactifs.&lt;/p&gt;
+    
+    &lt;h2&gt;Mes compétences&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;HTML &amp; CSS&lt;/li&gt;
+        &lt;li&gt;JavaScript&lt;/li&gt;
+        &lt;li&gt;Design responsive&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h2&gt;Mes liens&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="https://github.com/votre-nom"&gt;Mon GitHub&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://linkedin.com/in/votre-nom"&gt;Mon LinkedIn&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>N'oubliez pas la structure de base : <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>,
+                    <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code></li>
+                <li>Utilisez des titres hiérarchiques (h1 pour le titre principal, h2 pour les sous-titres)</li>
+                <li>Testez votre page dans le navigateur pour voir le résultat</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

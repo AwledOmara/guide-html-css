@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier 3 : Formulaire d'Inscription</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <h1>📝 Atelier 3 : Formulaire d'Inscription</h1>
+            <p class="subtitle">Créer un formulaire HTML complet et stylisé</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section objectifs">
+            <h2 class="section-title">🎯 Objectifs</h2>
+            <ul>
+                <li>Créer un formulaire avec <code>&lt;form&gt;</code></li>
+                <li>Utiliser différents types d'inputs (text, email, password, date)</li>
+                <li>Ajouter des labels et des placeholders</li>
+                <li>Créer un bouton de soumission</li>
+                <li>Styliser le formulaire avec CSS</li>
+            </ul>
+        </div>
+
+        <!-- Énoncé -->
+        <div class="section">
+            <h2 class="section-title">📝 Énoncé</h2>
+            <p>Créez un formulaire d'inscription avec les champs suivants :</p>
+
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+                <strong>Consignes</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Un champ "Nom complet" (type text, requis)</li>
+                    <li>Un champ "Email" (type email, requis)</li>
+                    <li>Un champ "Mot de passe" (type password, requis)</li>
+                    <li>Un champ "Date de naissance" (type date)</li>
+                    <li>Un bouton "S'inscrire"</li>
+                    <li>Chaque champ doit avoir un <code>&lt;label&gt;</code></li>
+                    <li>Ajoutez des placeholders pour guider l'utilisateur</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Résultat attendu -->
+        <div class="demo-box" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="demo-header">
+                <h4>👀 Résultat attendu</h4>
+            </div>
+            <div class="demo-content">
+                <form
+                    style="max-width: 500px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem;">Inscription</h2>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1a1a1a;">Nom
+                            complet</label>
+                        <input type="text" placeholder="Ex: Ahmed Ben Ali" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1a1a1a;">Email</label>
+                        <input type="email" placeholder="exemple@email.com" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1a1a1a;">Mot de
+                            passe</label>
+                        <input type="password" placeholder="••••••••" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #1a1a1a;">Date de
+                            naissance</label>
+                        <input type="date"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <button type="submit"
+                        style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 1.125rem; font-weight: 600; cursor: pointer;">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-container">
+            <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+            <div class="solution-content">
+                <h4 style="margin-bottom: 1rem;">HTML</h4>
+                <div class="code-block">
+                    <pre><code>&lt;form class="formulaire-inscription"&gt;
+    &lt;h2&gt;Inscription&lt;/h2&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label for="nom"&gt;Nom complet&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom" placeholder="Ex: Ahmed Ben Ali" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label for="email"&gt;Email&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" placeholder="exemple@email.com" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label for="password"&gt;Mot de passe&lt;/label&gt;
+        &lt;input type="password" id="password" name="password" placeholder="••••••••" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label for="date"&gt;Date de naissance&lt;/label&gt;
+        &lt;input type="date" id="date" name="date"&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit"&gt;S'inscrire&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem 0;">CSS</h4>
+                <div class="code-block css">
+                    <pre><code>.formulaire-inscription {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.formulaire-inscription h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conseils -->
+        <div class="info-box success" style="margin-top: 2rem;">
+            <strong>💡 Conseils</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>L'attribut <code>required</code> rend le champ obligatoire</li>
+                <li>Utilisez <code>for</code> dans le label et <code>id</code> dans l'input pour les lier</li>
+                <li>Le type <code>email</code> valide automatiquement le format de l'email</li>
+                <li>Ajoutez <code>:focus</code> en CSS pour améliorer l'expérience utilisateur</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>
