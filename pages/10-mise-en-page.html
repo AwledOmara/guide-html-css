@@ -55,7 +55,8 @@
                     <p>Prend <strong>toute la largeur</strong> disponible et commence sur une <strong>nouvelle
                             ligne</strong>.</p>
                     <p style="font-size: 0.9rem; color: #666;">Exemples : <code>&lt;div&gt;</code>,
-                        <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;section&gt;</code></p>
+                        <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;section&gt;</code>
+                    </p>
 
                     <div class="demo-box" style="margin-top: 1rem;">
                         <div class="demo-content">
@@ -72,7 +73,8 @@
                     <p>Prend <strong>juste la largeur nécessaire</strong> et reste sur la <strong>même ligne</strong>.
                     </p>
                     <p style="font-size: 0.9rem; color: #666;">Exemples : <code>&lt;span&gt;</code>,
-                        <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;img&gt;</code></p>
+                        <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;img&gt;</code>
+                    </p>
 
                     <div class="demo-box" style="margin-top: 1rem;">
                         <div class="demo-content">
@@ -231,7 +233,8 @@
                     <div>
                         <h3 style="color: #f59e0b;">4. Sticky</h3>
                         <p>Se comporte comme <code>relative</code> jusqu'à ce qu'on scrolle, puis devient
-                            <code>fixed</code> (collé).</p>
+                            <code>fixed</code> (collé).
+                        </p>
                         <div class="code-block">
                             <pre><code>.menu {
     position: sticky;
@@ -292,13 +295,236 @@
             </div>
         </div>
 
+        <!-- Section 5 : Float (Flottement) -->
+        <div class="section">
+            <h2 class="section-title">🌊 La propriété Float</h2>
+
+            <p>La propriété <code>float</code> permet de faire "flotter" un élément à gauche ou à droite, et le texte
+                s'enroule autour de lui.</p>
+            <p>C'était la méthode principale pour créer des mises en page avant Flexbox et Grid.</p>
+
+            <div style="display: grid; gap: 2rem; margin-top: 1.5rem;">
+
+                <!-- Float Left -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #3b82f6;">
+                    <h3 style="color: #3b82f6;">⬅️ float: left</h3>
+                    <p>L'élément flotte à <strong>gauche</strong> et le contenu suivant s'enroule à sa droite.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                            <div class="code-block">
+                                <pre><code>.image {
+    float: left;
+    width: 150px;
+    margin-right: 15px;
+}
+
+.texte {
+    /* Le texte s'enroule automatiquement */
+}</code></pre>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                            <div class="demo-box">
+                                <div class="demo-content">
+                                    <div
+                                        style="float: left; width: 80px; height: 80px; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; margin-right: 10px; border-radius: 8px;">
+                                        Image
+                                    </div>
+                                    <p style="margin: 0; font-size: 0.9rem;">
+                                        Le texte s'enroule autour de l'image qui flotte à gauche. C'est très utile pour
+                                        les articles de blog ou les descriptions de produits.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Float Right -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981;">
+                    <h3 style="color: #10b981;">➡️ float: right</h3>
+                    <p>L'élément flotte à <strong>droite</strong> et le contenu suivant s'enroule à sa gauche.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                            <div class="code-block">
+                                <pre><code>.encadre {
+    float: right;
+    width: 200px;
+    background: #f0f0f0;
+    padding: 10px;
+    margin-left: 15px;
+}</code></pre>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                            <div class="demo-box">
+                                <div class="demo-content">
+                                    <div
+                                        style="float: right; width: 100px; background: #10b981; color: white; padding: 10px; margin-left: 10px; border-radius: 8px; text-align: center; font-size: 0.85rem;">
+                                        Encadré
+                                    </div>
+                                    <p style="margin: 0; font-size: 0.9rem;">
+                                        L'encadré flotte à droite et le texte s'enroule à sa gauche. Parfait pour les
+                                        citations ou les informations complémentaires.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clear -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <h3 style="color: #f59e0b;">🚫 clear: both (Annuler le flottement)</h3>
+                    <p>Utilisez <code>clear: both</code> pour forcer un élément à se placer <strong>en dessous</strong>
+                        des éléments flottants.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">💻 Code</p>
+                            <div class="code-block">
+                                <pre><code>.box1 { float: left; }
+.box2 { float: right; }
+
+.footer {
+    clear: both; /* Passe en dessous */
+    background: #f59e0b;
+}</code></pre>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">👀 Résultat</p>
+                            <div class="demo-box">
+                                <div class="demo-content">
+                                    <div
+                                        style="float: left; width: 60px; height: 40px; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                        Left
+                                    </div>
+                                    <div
+                                        style="float: right; width: 60px; height: 40px; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                        Right
+                                    </div>
+                                    <div
+                                        style="clear: both; background: #f59e0b; color: white; padding: 8px; text-align: center; margin-top: 5px; font-size: 0.85rem;">
+                                        Footer (clear: both)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Exercice Float -->
+            <div class="info-box warning" style="margin-top: 2rem;">
+                <strong>✏️ Exercice pratique : Mise en page 2 colonnes</strong>
+                <p style="margin-top: 0.5rem;">Créez une mise en page avec :</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Un conteneur principal <code>.container</code></li>
+                    <li>Une colonne principale <code>.main</code> qui flotte à gauche (70% de largeur)</li>
+                    <li>Une barre latérale <code>.sidebar</code> qui flotte à droite (30% de largeur)</li>
+                    <li>Un pied de page <code>.footer</code> qui passe en dessous (clear: both)</li>
+                </ul>
+            </div>
+
+            <div class="solution-container" style="margin-top: 1rem;">
+                <button class="solution-toggle" onclick="toggleSolution(this)">Afficher la solution</button>
+                <div class="solution-content">
+                    <div class="code-block">
+                        <pre><code>/* HTML */
+&lt;div class="container"&gt;
+    &lt;div class="main"&gt;Contenu principal&lt;/div&gt;
+    &lt;div class="sidebar"&gt;Barre latérale&lt;/div&gt;
+    &lt;div class="footer"&gt;Pied de page&lt;/div&gt;
+&lt;/div&gt;
+
+/* CSS */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main {
+    float: left;
+    width: 70%;
+    background: #e3f2fd;
+    padding: 20px;
+    min-height: 200px;
+}
+
+.sidebar {
+    float: right;
+    width: 28%;
+    background: #fff3e0;
+    padding: 20px;
+    min-height: 200px;
+}
+
+.footer {
+    clear: both;
+    background: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}</code></pre>
+                    </div>
+
+                    <div class="demo-box" style="margin-top: 1rem;">
+                        <div class="demo-content">
+                            <div style="width: 100%; padding: 10px; background: #fafafa;">
+                                <div
+                                    style="float: left; width: 68%; background: #e3f2fd; padding: 15px; min-height: 100px; border-radius: 8px;">
+                                    <strong>Contenu principal (70%)</strong>
+                                    <p style="margin-top: 5px; font-size: 0.85rem;">Cette zone flotte à gauche et
+                                        occupe 70% de la largeur.</p>
+                                </div>
+                                <div
+                                    style="float: right; width: 28%; background: #fff3e0; padding: 15px; min-height: 100px; border-radius: 8px;">
+                                    <strong>Sidebar (30%)</strong>
+                                    <p style="margin-top: 5px; font-size: 0.85rem;">Cette zone flotte à droite.</p>
+                                </div>
+                                <div
+                                    style="clear: both; background: #f5f5f5; padding: 15px; text-align: center; margin-top: 10px; border-radius: 8px;">
+                                    <strong>Footer (clear: both)</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box info" style="margin-top: 1.5rem;">
+                <strong>💡 Bon à savoir</strong>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><code>float</code> retire l'élément du flux normal (comme <code>position: absolute</code>).</li>
+                    <li>Le parent ne "voit" plus la hauteur des enfants flottants (problème classique !).</li>
+                    <li><strong>Solution :</strong> Ajoutez <code>overflow: auto</code> au parent ou utilisez un
+                        <code>clear: both</code> à la fin.
+                    </li>
+                    <li>Aujourd'hui, <strong>Flexbox et Grid</strong> sont préférés pour les mises en page, mais
+                        <code>float</code> reste utile pour l'habillage de texte.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!-- Exercice guidé -->
         <div class="section">
             <h2 class="section-title">👣 Exercice guidé : Créer une bannière "Hero"</h2>
 
             <p>Nous allons créer une bannière avec une image de fond et du texte centré par-dessus.</p>
             <p>C'est le cas d'utilisation classique de <code>position: relative</code> (parent) +
-                <code>position: absolute</code> (enfant).</p>
+                <code>position: absolute</code> (enfant).
+            </p>
 
             <div class="activity-steps">
                 <div class="activity-step">
@@ -438,7 +664,8 @@
                 <li><code>position: fixed/sticky</code> pour les éléments qui restent visibles.</li>
             </ul>
             <p style="margin-top: 1rem;"><strong>Prochaine étape :</strong> La révolution de la mise en page :
-                <strong>Flexbox</strong> ! 🚀</p>
+                <strong>Flexbox</strong> ! 🚀
+            </p>
         </div>
 
     </div>

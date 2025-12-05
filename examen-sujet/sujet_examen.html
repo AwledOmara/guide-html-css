@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Final - HTML5 & CSS3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+        }
+
+        /* Format A3 : 29.7cm x 42cm */
+        .page {
+            width: 29.7cm;
+            min-height: 40cm;
+            padding: 1.5cm 2cm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .meta {
+            font-size: 1em;
+            margin-top: 8px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid #000;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 2px solid #000;
+            padding-bottom: 6px;
+            margin: 18px 0 12px 0;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 1.15em;
+            margin: 12px 0 8px 0;
+            text-decoration: underline;
+        }
+
+        .instruction {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-bottom: 12px;
+            font-style: italic;
+            background: #f5f5f5;
+            font-size: 1em;
+        }
+
+        .question {
+            margin-bottom: 14px;
+            padding: 10px;
+            border: 1px solid #333;
+            background: #fafafa;
+        }
+
+        .question strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        /* Grille 2 colonnes pour QCM */
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .options label {
+            padding: 4px;
+            font-size: 0.95em;
+        }
+
+        .points {
+            float: right;
+            border: 2px solid #000;
+            padding: 2px 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .code-box {
+            background: #f0f0f0;
+            border: 2px solid #000;
+            padding: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .answer-line {
+            border-bottom: 1.5px solid #000;
+            min-height: 30px;
+            margin: 8px 0;
+            padding: 4px;
+        }
+
+        .answer-box {
+            border: 2px dashed #000;
+            min-height: 120px;
+            padding: 10px;
+            margin: 12px 0;
+            background: #fff;
+        }
+
+        .vf-options {
+            display: inline-flex;
+            gap: 25px;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 1cm;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.95em;
+            border-top: 2px solid #000;
+            padding-top: 8px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            border: 2px solid #000;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+            font-size: 0.95em;
+        }
+
+        th {
+            background: #e0e0e0;
+            font-weight: bold;
+        }
+
+        ol,
+        ul {
+            margin-left: 25px;
+            margin-top: 8px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            font-size: 0.9em;
+        }
+
+        /* Grille 3 colonnes pour A3 */
+        .grid-3col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .visual-box {
+            text-align: center;
+            border: 2px solid #000;
+            padding: 15px;
+            background: #f9f9f9;
+            margin: 12px 0;
+        }
+
+        .visual-box img {
+            max-width: 100%;
+            border: 1px solid #000;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                page-break-after: always;
+            }
+
+            .question {
+                page-break-inside: avoid;
+            }
+        }
+
+        @page {
+            size: A3;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1 : QCM (3 colonnes) -->
+    <div class="page">
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                <div style="text-align: left; font-size: 0.9em;">
+                    <strong>Lycée Hamouda Becha</strong><br>
+                    Manouba<br>
+                    Année scolaire : 2024/2025
+                </div>
+                <div style="text-align: center; flex: 1;">
+                    <h1 style="margin: 0; font-size: 1.8em;">Devoir de Synthèse N°1</h1>
+                    <p class="subtitle" style="margin: 5px 0;">Développement Web - HTML5 & CSS3</p>
+                </div>
+                <div style="text-align: right; font-size: 0.9em;">
+                    <strong>Classe :</strong> 3ème STI 2<br>
+                    <strong>Durée :</strong> 2 Heures<br>
+                    <strong>Coefficient :</strong> 2
+                </div>
+            </div>
+            <div style="border-top: 3px solid #000; border-bottom: 3px solid #000; padding: 8px 0; text-align: center;">
+                <strong style="font-size: 1.1em;">Total : 40 Points</strong>
+            </div>
+        </header>
+
+        <div class="info">
+            <span><strong>Nom et Prénom :</strong> _____________________________________________</span>
+            <span><strong>N° :</strong> __________</span>
+        </div>
+
+        <section>
+            <h2>Partie 1 : QCM (8 Points)</h2>
+            <div class="instruction">
+                Cochez une seule réponse par question. <strong>0.5 point par question.</strong>
+            </div>
+
+            <div class="grid-3col">
+                <!-- Colonne 1 -->
+                <div>
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>1. Balise pour un lien ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;link&gt;</label>
+                            <label>☐ &lt;a&gt;</label>
+                            <label>☐ &lt;href&gt;</label>
+                            <label>☐ &lt;url&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>2. Afficher une image ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;image&gt;</label>
+                            <label>☐ &lt;img&gt;</label>
+                            <label>☐ &lt;picture&gt;</label>
+                            <label>☐ &lt;photo&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>3. Couleur de fond CSS ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ color</label>
+                            <label>☐ bg-color</label>
+                            <label>☐ background-color</label>
+                            <label>☐ fond</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>4. Liste à puces ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;list&gt;</label>
+                            <label>☐ &lt;ul&gt;</label>
+                            <label>☐ &lt;ol&gt;</label>
+                            <label>☐ &lt;bullets&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>5. Balise paragraphe ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;paragraph&gt;</label>
+                            <label>☐ &lt;p&gt;</label>
+                            <label>☐ &lt;text&gt;</label>
+                            <label>☐ &lt;para&gt;</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 2 -->
+                <div>
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>6. Centrer du texte ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ align: center</label>
+                            <label>☐ text-align: center</label>
+                            <label>☐ center: true</label>
+                            <label>☐ position: center</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>7. Champ de saisie ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;textbox&gt;</label>
+                            <label>☐ &lt;field&gt;</label>
+                            <label>☐ &lt;input&gt;</label>
+                            <label>☐ &lt;text&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>8. Classe CSS "menu" ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ #menu</label>
+                            <label>☐ .menu</label>
+                            <label>☐ menu</label>
+                            <label>☐ *menu</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>9. Titre niveau 2 ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;title2&gt;</label>
+                            <label>☐ &lt;h2&gt;</label>
+                            <label>☐ &lt;heading2&gt;</label>
+                            <label>☐ &lt;t2&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>10. Lien email ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ email:...</label>
+                            <label>☐ mailto:...</label>
+                            <label>☐ send:...</label>
+                            <label>☐ &lt;email&gt;</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 3 -->
+                <div>
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>11. Taille du texte CSS ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ text-size</label>
+                            <label>☐ size</label>
+                            <label>☐ font-size</label>
+                            <label>☐ font-height</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>12. Fusionner cellules ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ merge="2"</label>
+                            <label>☐ colspan="2"</label>
+                            <label>☐ rowspan="2"</label>
+                            <label>☐ span="2"</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>13. Texte multiligne ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;input&gt;</label>
+                            <label>☐ &lt;textbox&gt;</label>
+                            <label>☐ &lt;textarea&gt;</label>
+                            <label>☐ &lt;multitext&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>14. Masquer élément ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ visible: none</label>
+                            <label>☐ display: none</label>
+                            <label>☐ hide: true</label>
+                            <label>☐ show: false</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>15. Pied de page HTML5 ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;bottom&gt;</label>
+                            <label>☐ &lt;footer&gt;</label>
+                            <label>☐ &lt;foot&gt;</label>
+                            <label>☐ &lt;end&gt;</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <span class="points">0.5</span>
+                <strong>16. Commentaire HTML ?</strong>
+                <div class="options">
+                    <label>☐ // Commentaire</label>
+                    <label>☐ /* Commentaire */</label>
+                    <label>☐ &lt;!-- Commentaire --&gt;</label>
+                    <label>☐ # Commentaire</label>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Partie 2 : Vrai ou Faux (4 Points)</h2>
+            <div class="instruction">
+                Cochez V (Vrai) ou F (Faux). <strong>0.5 point par question.</strong>
+            </div>
+
+            <div class="grid-2col">
+                <div>
+                    <div class="question">
+                        <strong>17. La balise &lt;br&gt; permet de créer un saut de ligne dans le texte.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>18. En CSS, la propriété margin définit l'espace à l'intérieur de la bordure.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>19. L'attribut alt est obligatoire pour toutes les balises &lt;img&gt;.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>20. La balise &lt;strong&gt; met le texte en italique.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="question">
+                        <strong>21. La propriété CSS float: left permet de faire flotter un élément à gauche.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>22. Un ID peut être utilisé plusieurs fois sur une même page HTML.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>23. La balise &lt;iframe&gt; permet d'intégrer une autre page web à l'intérieur de la
+                            page actuelle.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>24. La propriété CSS padding crée un espace à l'extérieur de l'élément.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">Page 1/4</div>
+    </div>
+
+    <!-- PAGE 2 : ERREURS + PRATIQUE -->
+    <div class="page">
+        <section style="margin-top: 20px;">
+            <h2>Partie 3 : Trouvez les Erreurs (12 Points)</h2>
+
+            <div class="grid-2col">
+                <div>
+                    <h3>Exercice A : Menu (4 pts)</h3>
+                    <div class="instruction">
+                        4 erreurs à trouver et corriger.
+                    </div>
+
+                    <pre class="code-box">&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="accueil.html"&gt;Accueil&lt;/a&gt;
+    &lt;li&gt;&lt;a href="services.html"&gt;Services&lt;/li&gt;&lt;/a&gt;
+    &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;ul&gt;
+&lt;/nav&gt;</pre>
+
+                    <p><strong>Corrections :</strong></p>
+                    <div class="answer-line">1. _______________________________</div>
+                    <div class="answer-line">2. _______________________________</div>
+                    <div class="answer-line">3. _______________________________</div>
+                    <div class="answer-line">4. _______________________________</div>
+
+                    <h3>Exercice B : Carte Produit (4 pts)</h3>
+                    <div class="instruction">
+                        4 erreurs à trouver et corriger.
+                    </div>
+
+                    <pre class="code-box">&lt;div class="produit"&gt;
+  &lt;img src="chaussure.jpg"&gt;
+  &lt;h2&gt;Chaussures de Sport&lt;h2&gt;
+  &lt;p&gt;Prix : &lt;strong&gt;49.99€&lt;/p&gt;&lt;/strong&gt;
+  &lt;button&gt;Ajouter au panier&lt;button&gt;
+&lt;/div&gt;</pre>
+
+                    <p><strong>Corrections :</strong></p>
+                    <div class="answer-line">1. _______________________________</div>
+                    <div class="answer-line">2. _______________________________</div>
+                    <div class="answer-line">3. _______________________________</div>
+                    <div class="answer-line">4. _______________________________</div>
+                </div>
+
+                <div>
+                    <h3>Exercice C : Formulaire (4 pts)</h3>
+                    <div class="instruction">
+                        4 erreurs à trouver et corriger.
+                    </div>
+
+                    <pre class="code-box">&lt;form action="traitement.php" method="post"&gt;
+  &lt;label&gt;Nom :&lt;/label&gt;
+  &lt;input type="text" name="nom"&gt;
+  
+  &lt;label for="email"&gt;Email :&lt;/label&gt;
+  &lt;input type="email" id="mail" name="email"&gt;
+  
+  &lt;label&gt;Message :&lt;/label&gt;
+  &lt;textarea name="message" rows="5" cols="30"
+  
+  &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;</pre>
+
+                    <p><strong>Corrections :</strong></p>
+                    <div class="answer-line">1. _______________________________</div>
+                    <div class="answer-line">2. _______________________________</div>
+                    <div class="answer-line">3. _______________________________</div>
+                    <div class="answer-line">4. _______________________________</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Partie 4 : Exercices Pratiques (8 Points)</h2>
+
+            <div class="grid-2col">
+                <div>
+                    <h3>Exercice A : Tableau (4 pts)</h3>
+                    <div class="instruction">
+                        Créez ce tableau en HTML :
+                    </div>
+
+                    <table style="width:100%; font-size:0.9em;">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Prix</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Laptop</td>
+                                <td>899€</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>Souris</td>
+                                <td>25€</td>
+                                <td>50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="font-size:0.9em;"><strong>Utilisez :</strong> &lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;,
+                        &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</p>
+
+                    <div class="answer-box" style="min-height:150px;"></div>
+                </div>
+
+                <div>
+                    <h3>Exercice B : Sélecteurs CSS (4 pts)</h3>
+                    <div class="instruction">
+                        Écrivez les sélecteurs CSS :
+                    </div>
+
+                    <div class="question">
+                        <strong>1. Tous les &lt;p&gt; :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="question">
+                        <strong>2. ID "header" :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="question">
+                        <strong>3. Classe "important" :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="question">
+                        <strong>4. &lt;a&gt; dans &lt;nav&gt; :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Partie 4 (Suite) : Float CSS (4 Points)</h2>
+
+            <h3>Exercice C : Utilisation de Float (4 pts)</h3>
+            <div class="instruction">
+                Observez le code HTML et écrivez le CSS pour obtenir la mise en page demandée.
+            </div>
+
+            <p><strong>Code HTML :</strong></p>
+            <pre class="code-box">&lt;div class="container"&gt;
+    &lt;div class="box-gauche"&gt;Contenu Gauche&lt;/div&gt;
+    &lt;div class="box-droite"&gt;Contenu Droite&lt;/div&gt;
+    &lt;div class="texte"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+            <p><strong>Résultat attendu :</strong></p>
+            <div style="border:2px solid #000; padding:10px; margin:10px 0; font-size:0.85em;">
+                <div style="display:flex; gap:10px; margin-bottom:10px;">
+                    <div style="border:1px solid #000; padding:8px; width:30%; background:#f0f0f0; text-align:center;">
+                        <strong>Contenu Gauche</strong><br>(float: left, width: 30%)
+                    </div>
+                    <div
+                        style="border:1px solid #000; padding:8px; width:30%; background:#f0f0f0; text-align:center; margin-left:auto;">
+                        <strong>Contenu Droite</strong><br>(float: right, width: 30%)
+                    </div>
+                </div>
+                <div style="border:1px solid #000; padding:8px; background:#fff;">
+                    Le texte s'affiche en dessous et occupe toute la largeur (clear: both)
+                </div>
+            </div>
+
+            <p><strong>CSS à écrire :</strong></p>
+            <ol style="font-size:0.85em;">
+                <li><strong>.box-gauche</strong> : width 30%, float left, background #f0f0f0, padding 10px</li>
+                <li><strong>.box-droite</strong> : width 30%, float right, background #f0f0f0, padding 10px</li>
+                <li><strong>.texte</strong> : clear both, padding 10px</li>
+                <li><strong>.container</strong> : border 1px solid #333, padding 15px</li>
+            </ol>
+
+            <div class="answer-box" style="min-height:150px;"></div>
+        </section>
+
+        <div class="footer">Page 2/4</div>
+    </div>
+
+    <!-- PAGE 3 : EXERCICES COMPLÉMENTAIRES -->
+    <div class="page">
+        <section style="margin-top: 20px;">
+            <h2>Partie 4 (Suite) : Exercices Complémentaires (6 Points)</h2>
+
+            <div class="grid-2col">
+                <div>
+                    <h3>Exercice C : Iframe (3 pts)</h3>
+                    <div class="instruction">
+                        Créez un menu qui charge des pages dans une iframe.
+                    </div>
+
+                    <p><strong>Consignes :</strong></p>
+                    <ol style="font-size:0.85em;">
+                        <li>Créez une <code>&lt;iframe&gt;</code> nommée "contenu"</li>
+                        <li>Créez 3 liens : Accueil, Services, Contact</li>
+                        <li>Les liens doivent s'ouvrir dans l'iframe</li>
+                        <li>L'iframe doit afficher "accueil.html" au départ</li>
+                    </ol>
+
+                    <p style="font-size:0.85em; margin-top:8px;"><strong>Rappel :</strong> Utilisez l'attribut
+                        <code>target</code> dans les liens et <code>name</code> dans l'iframe.
+                    </p>
+
+                    <div class="answer-box" style="min-height:180px;"></div>
+                </div>
+
+                <div>
+                    <h3>Exercice D : Layout avec Float (3 pts)</h3>
+                    <div class="instruction">
+                        Créez une mise en page 2 colonnes avec float.
+                    </div>
+
+                    <p><strong>Structure attendue :</strong></p>
+                    <div style="border:2px solid #000; padding:10px; margin:8px 0; font-size:0.8em;">
+                        <div
+                            style="border:1px solid #000; padding:5px; margin-bottom:5px; text-align:center; background:#f0f0f0;">
+                            <strong>HEADER</strong> (pleine largeur)
+                        </div>
+                        <div style="display:flex; gap:5px;">
+                            <div style="border:1px solid #000; padding:5px; flex:2; background:#f9f9f9;">
+                                <strong>MAIN</strong><br>(70% - float left)
+                            </div>
+                            <div style="border:1px solid #000; padding:5px; flex:1; background:#f9f9f9;">
+                                <strong>ASIDE</strong><br>(30% - float right)
+                            </div>
+                        </div>
+                        <div
+                            style="border:1px solid #000; padding:5px; margin-top:5px; text-align:center; background:#f0f0f0; clear:both;">
+                            <strong>FOOTER</strong> (pleine largeur)
+                        </div>
+                    </div>
+
+                    <p><strong>CSS à écrire :</strong></p>
+                    <ol style="font-size:0.85em;">
+                        <li><code>main</code> : width 70%, float left</li>
+                        <li><code>aside</code> : width 30%, float right</li>
+                        <li><code>footer</code> : clear both</li>
+                    </ol>
+
+                    <div class="answer-box" style="min-height:120px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Partie 4 (Bonus) : Questions Avancées (4 Points)</h2>
+
+            <div class="grid-2col">
+                <div>
+                    <h3>Question A : Box Model (2 pts)</h3>
+                    <div class="instruction">
+                        Calculez la largeur totale de cet élément :
+                    </div>
+
+                    <pre class="code-box">.element {
+    width: 250px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 15px;
+}</pre>
+
+                    <p><strong>Questions :</strong></p>
+                    <div class="question">
+                        <strong>1. Largeur totale (bord à bord) :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="question">
+                        <strong>2. Quelle propriété CSS permet de faire que width=250px inclut padding et border
+                            ?</strong>
+                        <div class="answer-line"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Question B : Pseudo-classes (2 pts)</h3>
+                    <div class="instruction">
+                        Écrivez les sélecteurs CSS pour :
+                    </div>
+
+                    <div class="question">
+                        <strong>1. Cibler un lien au survol :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="question">
+                        <strong>2. Cibler le premier élément &lt;li&gt; d'une liste :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="question">
+                        <strong>3. Cibler un input quand il est sélectionné (focus) :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+
+                    <div class="question">
+                        <strong>4. Cibler tous les paragraphes pairs :</strong>
+                        <div class="answer-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">Page 3/4</div>
+    </div>
+
+    <!-- PAGE 4 : REPRODUIRE STYLE + MINI-PROJET -->
+    <div class="page">
+        <section style="margin-top: 20px;">
+            <h2>Partie 5 : Reproduire le Style (6 Points)</h2>
+
+            <div class="grid-2col">
+                <div>
+                    <h3>Exercice A : Fieldset (3 pts)</h3>
+                    <div class="instruction">
+                        Écrivez le CSS pour obtenir ce résultat :
+                    </div>
+
+                    <div class="visual-box">
+                        <p style="margin-bottom:8px;"><strong>RÉSULTAT ATTENDU :</strong></p>
+                        <div
+                            style="border:2px solid #000; padding:15px; background:#f8f9fa; border-radius:8px; text-align:left;">
+                            <p style="font-weight:bold; margin-bottom:10px; font-size:1.1em;">Informations Personnelles
+                            </p>
+                            <div
+                                style="border:1px solid #ddd; padding:8px; margin-bottom:8px; background:#fff; border-radius:4px;">
+                                Nom</div>
+                            <div style="border:1px solid #ddd; padding:8px; background:#fff; border-radius:4px;">Prénom
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>HTML fourni :</strong></p>
+                    <pre class="code-box" style="font-size:0.75em;">&lt;fieldset&gt;
+  &lt;legend&gt;Informations Personnelles&lt;/legend&gt;
+  &lt;input type="text" placeholder="Nom"&gt;
+  &lt;input type="text" placeholder="Prénom"&gt;
+&lt;/fieldset&gt;</pre>
+
+                    <p><strong>CSS à écrire :</strong></p>
+                    <ol style="font-size:0.8em;">
+                        <li><strong>fieldset</strong> : bordure 2px solid #3498db, border-radius 8px, background
+                            #f8f9fa, padding 20px</li>
+                        <li><strong>legend</strong> : color #3498db, font-size 18px, font-weight bold</li>
+                        <li><strong>input</strong> : width 100%, border 1px solid #ddd, padding 10px, border-radius 4px,
+                            margin-bottom 10px</li>
+                    </ol>
+
+                    <div class="answer-box" style="min-height:140px;"></div>
+                </div>
+
+                <div>
+                    <h3>Exercice B : Bouton (3 pts)</h3>
+                    <div class="instruction">
+                        Écrivez le CSS pour obtenir ce résultat :
+                    </div>
+
+                    <div class="visual-box">
+                        <p style="margin-bottom:8px;"><strong>RÉSULTAT ATTENDU :</strong></p>
+                        <div style="text-align:center; padding:15px;">
+                            <div
+                                style="display:inline-block; background:#27ae60; color:#fff; padding:12px 30px; border-radius:5px; box-shadow:0 2px 4px rgba(0,0,0,0.2); font-weight:bold;">
+                                S'inscrire
+                            </div>
+                        </div>
+                        <p style="font-size:0.75em; margin-top:5px; font-style:italic;">Au survol : fond plus foncé
+                            (#229954)</p>
+                    </div>
+
+                    <p><strong>HTML fourni :</strong></p>
+                    <pre class="code-box"
+                        style="font-size:0.75em;">&lt;button class="btn-inscription"&gt;S'inscrire&lt;/button&gt;</pre>
+
+                    <p><strong>CSS à écrire :</strong></p>
+                    <ol style="font-size:0.8em;">
+                        <li><strong>.btn-inscription</strong> : background #27ae60, color white</li>
+                        <li>padding 12px 30px</li>
+                        <li>border-radius 5px, border none</li>
+                        <li>box-shadow : 0 2px 4px rgba(0,0,0,0.2)</li>
+                        <li>cursor pointer</li>
+                        <li><strong>:hover</strong> : background #229954</li>
+                    </ol>
+
+                    <div class="answer-box" style="min-height:140px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Partie 6 : Mini-Projet - Carte de Visite (8 Points)</h2>
+
+            <div class="instruction">
+                <strong>Objectif :</strong> Créer une carte de visite en HTML et CSS.
+            </div>
+
+            <div class="grid-2col">
+                <div>
+                    <h3>HTML (4 pts)</h3>
+                    <p>Créez une <code>&lt;div class="carte"&gt;</code> avec :</p>
+                    <ul style="font-size:0.8em;">
+                        <li>Nom dans &lt;h2&gt;</li>
+                        <li>Métier dans &lt;p class="metier"&gt;</li>
+                        <li>Email dans &lt;a&gt; avec mailto:</li>
+                        <li>Téléphone dans &lt;p&gt;</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>CSS (4 pts)</h3>
+                    <p>Stylisez <code>.carte</code> avec :</p>
+                    <ul style="font-size:0.8em;">
+                        <li>width 300px</li>
+                        <li>border 2px solid #333</li>
+                        <li>border-radius 10px</li>
+                        <li>box-shadow : 0 4px 8px rgba(0,0,0,0.2)</li>
+                        <li>padding 20px, text-align center</li>
+                        <li><strong>Bonus (+1) :</strong> :hover change background</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="answer-box" style="min-height:280px; margin-top:10px;">
+                <p style="font-style:italic; color:#666; font-size:0.85em;">Écrivez votre code HTML et CSS ci-dessous :
+                </p>
+            </div>
+        </section>
+
+        <div class="footer">Page 4/4 - Fin de l'épreuve - Bonne chance !</div>
+    </div>
+
+</body>
+
+</html>

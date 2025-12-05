@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devoir de Synthèse N°1 - HTML5 & CSS3</title>
+    <style>
+        /* ========================================
+           ÉTAPE 1 : RESET ET CONFIGURATION DE BASE
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            font-size: 11pt;
+        }
+
+        /* ========================================
+           ÉTAPE 2 : FORMAT PAGE A3
+           Dimensions: 29.7cm x 42cm
+           ======================================== */
+        .page {
+            width: 29.7cm;
+            min-height: 40cm;
+            padding: 2cm 2.5cm;
+            margin: 0 auto 1cm auto;
+            background: white;
+            page-break-after: always;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ========================================
+           ÉTAPE 3 : EN-TÊTE DE L'EXAMEN
+           ======================================== */
+        header {
+            text-align: center;
+            border-bottom: 4px double #000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .header-left,
+        .header-right {
+            font-size: 10pt;
+            line-height: 1.8;
+        }
+
+        .header-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .total-points {
+            border-top: 3px solid #000;
+            border-bottom: 3px solid #000;
+            padding: 10px 0;
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* ========================================
+           ÉTAPE 4 : INFORMATIONS ÉTUDIANT
+           ======================================== */
+        .student-info {
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid #000;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            font-size: 11pt;
+            background: #f9f9f9;
+        }
+
+        .student-info strong {
+            margin-right: 10px;
+        }
+
+        /* ========================================
+           ÉTAPE 5 : SECTIONS ET TITRES
+           ======================================== */
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            border-bottom: 3px solid #000;
+            padding-bottom: 8px;
+            margin: 25px 0 15px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* ========================================
+           ÉTAPE 6 : INSTRUCTIONS
+           ======================================== */
+        .instruction {
+            border: 2px solid #000;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-style: italic;
+            background: #f5f5f5;
+            font-size: 10.5pt;
+            line-height: 1.5;
+        }
+
+        .instruction strong {
+            font-style: normal;
+            color: #000;
+        }
+
+        /* ========================================
+           ÉTAPE 7 : QUESTIONS
+           ======================================== */
+        .question {
+            margin-bottom: 16px;
+            padding: 12px;
+            border: 1.5px solid #555;
+            background: #fafafa;
+            border-radius: 3px;
+        }
+
+        .question strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 10.5pt;
+            line-height: 1.5;
+        }
+
+        /* ========================================
+           ÉTAPE 8 : OPTIONS QCM
+           ======================================== */
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .options label {
+            padding: 5px;
+            font-size: 10pt;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background: #e9e9e9;
+        }
+
+        /* ========================================
+           ÉTAPE 9 : POINTS
+           ======================================== */
+        .points {
+            float: right;
+            border: 2px solid #000;
+            padding: 3px 10px;
+            font-size: 9pt;
+            font-weight: bold;
+            background: #fff;
+        }
+
+        /* ========================================
+           ÉTAPE 10 : GRILLES DE COLONNES
+           ======================================== */
+        .grid-3col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* ========================================
+           ÉTAPE 11 : VRAI/FAUX
+           ======================================== */
+        .vf-options {
+            display: inline-flex;
+            gap: 30px;
+            margin-left: 20px;
+            font-weight: bold;
+            font-size: 11pt;
+        }
+
+        .vf-options label {
+            cursor: pointer;
+        }
+
+        /* ========================================
+           ÉTAPE 12 : CODE BOX
+           ======================================== */
+        .code-box {
+            background: #f0f0f0;
+            border: 2px solid #333;
+            padding: 15px;
+            font-family: 'Courier New', 'Consolas', monospace;
+            font-size: 9.5pt;
+            line-height: 1.7;
+            margin: 12px 0;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* ========================================
+           ÉTAPE 13 : ZONES DE RÉPONSE
+           ======================================== */
+        .answer-line {
+            border-bottom: 2px solid #000;
+            min-height: 35px;
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        .answer-box {
+            border: 2px dashed #333;
+            min-height: 150px;
+            padding: 15px;
+            margin: 15px 0;
+            background: #fff;
+        }
+
+        /* ========================================
+           ÉTAPE 14 : TABLEAUX
+           ======================================== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border: 2px solid #000;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 12px;
+            text-align: left;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #e0e0e0;
+            font-weight: bold;
+        }
+
+        /* ========================================
+           ÉTAPE 15 : LISTES
+           ======================================== */
+        ol,
+        ul {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           ÉTAPE 16 : VISUAL BOX
+           ======================================== */
+        .visual-box {
+            text-align: center;
+            border: 2px solid #000;
+            padding: 20px;
+            background: #f9f9f9;
+            margin: 15px 0;
+        }
+
+        /* ========================================
+           ÉTAPE 17 : FOOTER DE PAGE
+           ======================================== */
+        .footer {
+            position: absolute;
+            bottom: 1.5cm;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10pt;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+            font-weight: bold;
+        }
+
+        /* ========================================
+           ÉTAPE 18 : STYLES D'IMPRESSION
+           ======================================== */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+
+            .question {
+                page-break-inside: avoid;
+            }
+
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        @page {
+            size: A3;
+            margin: 0;
+        }
+
+        /* ========================================
+           ÉTAPE 19 : EXERCICE TRANSFORMATIONS
+           ======================================== */
+        .transform-exercise {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .instructions-panel {
+            border: 2px solid #000;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .instructions-panel h4 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #000;
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .instructions-panel ol {
+            margin-left: 20px;
+        }
+
+        .instructions-panel li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .instructions-panel code {
+            background: #e0e0e0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+        }
+
+        .result-panel {
+            border: 2px solid #000;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .result-panel h4 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #000;
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .demo-area {
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            background: #f5f5f5;
+            padding: 30px;
+            border: 1px dashed #999;
+            margin: 15px 0;
+        }
+
+        /* Éléments de démonstration */
+        .demo-box {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14pt;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .demo-rotate-15 {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            transform: rotate(15deg);
+        }
+
+        .demo-rotate-minus45 {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            transform: rotate(-45deg);
+        }
+
+        .demo-scale-1-5 {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            transform: scale(1.5);
+        }
+
+        .demo-scale-0-5 {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            transform: scale(0.5);
+        }
+
+        .demo-scale-2-1 {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            transform: scale(2, 1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+         PAGE 1 : QCM ET VRAI/FAUX
+         ======================================== -->
+    <div class="page">
+        <header>
+            <div class="header-top">
+                <div class="header-left">
+                    <strong>Lycée Hamouda Becha</strong><br>
+                    Manouba<br>
+                    Année scolaire : 2024/2025
+                </div>
+                <div class="header-center">
+                    <h1>Devoir de Synthèse N°1</h1>
+                    <p class="subtitle">Développement Web - HTML5 & CSS3</p>
+                </div>
+                <div class="header-right">
+                    <strong>Classe :</strong> 3ème STI 2<br>
+                    <strong>Durée :</strong> 2 Heures<br>
+                    <strong>Coefficient :</strong> 2
+                </div>
+            </div>
+            <div class="total-points">
+                Total : 40 Points
+            </div>
+        </header>
+
+        <div class="student-info">
+            <span><strong>Nom et Prénom :</strong> _____________________________________________</span>
+            <span><strong>N° :</strong> __________</span>
+        </div>
+
+        <section>
+            <h2>Partie 1 : QCM (8 Points)</h2>
+            <div class="instruction">
+                Cochez <strong>une seule réponse</strong> par question. <strong>0.5 point par question.</strong>
+            </div>
+
+            <div class="grid-3col">
+                <!-- Colonne 1 -->
+                <div>
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>1. Quelle balise HTML permet de créer un lien hypertexte ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;link&gt;</label>
+                            <label>☐ &lt;a&gt;</label>
+                            <label>☐ &lt;href&gt;</label>
+                            <label>☐ &lt;url&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>2. Quelle balise permet d'afficher une image ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;image&gt;</label>
+                            <label>☐ &lt;img&gt;</label>
+                            <label>☐ &lt;picture&gt;</label>
+                            <label>☐ &lt;photo&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>3. Quelle propriété CSS définit la couleur de fond ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ color</label>
+                            <label>☐ bg-color</label>
+                            <label>☐ background-color</label>
+                            <label>☐ fond</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>4. Quelle balise crée une liste à puces ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;list&gt;</label>
+                            <label>☐ &lt;ul&gt;</label>
+                            <label>☐ &lt;ol&gt;</label>
+                            <label>☐ &lt;bullets&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>5. Quelle est la balise pour un paragraphe ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;paragraph&gt;</label>
+                            <label>☐ &lt;p&gt;</label>
+                            <label>☐ &lt;text&gt;</label>
+                            <label>☐ &lt;para&gt;</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 2 -->
+                <div>
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>6. Comment centrer du texte en CSS ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ align: center</label>
+                            <label>☐ text-align: center</label>
+                            <label>☐ center: true</label>
+                            <label>☐ position: center</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>7. Quelle balise crée un champ de saisie ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;textbox&gt;</label>
+                            <label>☐ &lt;field&gt;</label>
+                            <label>☐ &lt;input&gt;</label>
+                            <label>☐ &lt;text&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>8. Comment sélectionner une classe CSS nommée "menu" ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ #menu</label>
+                            <label>☐ .menu</label>
+                            <label>☐ menu</label>
+                            <label>☐ *menu</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>9. Quelle balise crée un titre de niveau 2 ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;title2&gt;</label>
+                            <label>☐ &lt;h2&gt;</label>
+                            <label>☐ &lt;heading2&gt;</label>
+                            <label>☐ &lt;t2&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>10. Comment créer un lien email ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ email:...</label>
+                            <label>☐ mailto:...</label>
+                            <label>☐ send:...</label>
+                            <label>☐ &lt;email&gt;</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 3 -->
+                <div>
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>11. Quelle propriété CSS définit la taille du texte ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ text-size</label>
+                            <label>☐ size</label>
+                            <label>☐ font-size</label>
+                            <label>☐ font-height</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>12. Quel attribut permet de fusionner des cellules horizontalement ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ merge="2"</label>
+                            <label>☐ colspan="2"</label>
+                            <label>☐ rowspan="2"</label>
+                            <label>☐ span="2"</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>13. Quelle balise crée une zone de texte multiligne ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;input&gt;</label>
+                            <label>☐ &lt;textbox&gt;</label>
+                            <label>☐ &lt;textarea&gt;</label>
+                            <label>☐ &lt;multitext&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>14. Comment masquer un élément en CSS ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ visible: none</label>
+                            <label>☐ display: none</label>
+                            <label>☐ hide: true</label>
+                            <label>☐ show: false</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <span class="points">0.5</span>
+                        <strong>15. Quelle balise HTML5 définit un pied de page ?</strong>
+                        <div class="options" style="grid-template-columns: 1fr;">
+                            <label>☐ &lt;bottom&gt;</label>
+                            <label>☐ &lt;footer&gt;</label>
+                            <label>☐ &lt;foot&gt;</label>
+                            <label>☐ &lt;end&gt;</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <span class="points">0.5</span>
+                <strong>16. Comment écrire un commentaire en HTML ?</strong>
+                <div class="options">
+                    <label>☐ // Commentaire</label>
+                    <label>☐ /* Commentaire */</label>
+                    <label>☐ &lt;!-- Commentaire --&gt;</label>
+                    <label>☐ # Commentaire</label>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Partie 2 : Vrai ou Faux (4 Points)</h2>
+            <div class="instruction">
+                Cochez <strong>V (Vrai)</strong> ou <strong>F (Faux)</strong>. <strong>0.5 point par question.</strong>
+            </div>
+
+            <div class="grid-2col">
+                <div>
+                    <div class="question">
+                        <strong>17. La balise &lt;br&gt; permet de créer un saut de ligne dans le texte.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>18. En CSS, la propriété margin définit l'espace à l'intérieur de la bordure.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>19. L'attribut alt est obligatoire pour toutes les balises &lt;img&gt;.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>20. La balise &lt;strong&gt; met le texte en italique.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="question">
+                        <strong>21. La propriété CSS float: left permet de faire flotter un élément à gauche.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>22. Un ID peut être utilisé plusieurs fois sur une même page HTML.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>23. La balise &lt;iframe&gt; permet d'intégrer une autre page web à l'intérieur de la
+                            page actuelle.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+
+                    <div class="question">
+                        <strong>24. La propriété CSS padding crée un espace à l'extérieur de l'élément.</strong>
+                        <span class="vf-options">
+                            <label>☐ V</label>
+                            <label>☐ F</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">Page 1/4</div>
+    </div>
+
+    <!-- ========================================
+         PAGE 2 : TRANSFORMATIONS CSS
+         ======================================== -->
+    <div class="page">
+        <section style="margin-top: 20px;">
+            <h2>Partie 3 : Transformations CSS (6 Points)</h2>
+
+            <h3>Exercice A : rotate() - Rotation (3 points)</h3>
+            <div class="instruction">
+                Complétez le code CSS pour obtenir les rotations affichées à droite.
+            </div>
+
+            <div class="transform-exercise">
+                <!-- Instructions à gauche -->
+                <div class="instructions-panel">
+                    <h4>📝 Instructions à compléter</h4>
+                    <p style="margin-bottom: 15px;"><strong>Code HTML fourni :</strong></p>
+                    <pre class="code-box" style="margin: 0 0 15px 0;">&lt;div class="box-orange"&gt;15°&lt;/div&gt;
+&lt;div class="box-red"&gt;-45°&lt;/div&gt;</pre>
+
+                    <p style="margin-bottom: 10px;"><strong>Complétez le CSS :</strong></p>
+                    <ol style="font-size: 10pt;">
+                        <li>
+                            <strong>.box-orange</strong> doit tourner de <code>15 degrés</code> dans le sens horaire
+                            <div class="answer-line" style="margin-top: 8px;"></div>
+                        </li>
+                        <li>
+                            <strong>.box-red</strong> doit tourner de <code>45 degrés</code> dans le sens anti-horaire
+                            <div class="answer-line" style="margin-top: 8px;"></div>
+                        </li>
+                    </ol>
+
+                    <p style="margin-top: 15px; font-size: 9.5pt; font-style: italic; color: #555;">
+                        💡 <strong>Rappel :</strong> Utilisez <code>transform: rotate()</code>
+                    </p>
+                </div>
+
+                <!-- Résultat à droite -->
+                <div class="result-panel">
+                    <h4>✅ Résultat Attendu</h4>
+                    <div class="demo-area">
+                        <div class="demo-box demo-rotate-15">15°</div>
+                        <div class="demo-box demo-rotate-minus45">-45°</div>
+                    </div>
+                    <p style="text-align: center; font-size: 9.5pt; color: #666; margin-top: 10px;">
+                        La boîte orange tourne de 15° (sens horaire)<br>
+                        La boîte rouge tourne de -45° (sens anti-horaire)
+                    </p>
+                </div>
+            </div>
+
+            <h3>Exercice B : scale() - Agrandissement/Réduction (3 points)</h3>
+            <div class="instruction">
+                Complétez le code CSS pour obtenir les transformations d'échelle affichées à droite.
+            </div>
+
+            <div class="transform-exercise">
+                <!-- Instructions à gauche -->
+                <div class="instructions-panel">
+                    <h4>📝 Instructions à compléter</h4>
+                    <p style="margin-bottom: 15px;"><strong>Code HTML fourni :</strong></p>
+                    <pre class="code-box" style="margin: 0 0 15px 0;">&lt;div class="box-green"&gt;x1.5&lt;/div&gt;
+&lt;div class="box-blue"&gt;x0.5&lt;/div&gt;
+&lt;div class="box-purple"&gt;2x1&lt;/div&gt;</pre>
+
+                    <p style="margin-bottom: 10px;"><strong>Complétez le CSS :</strong></p>
+                    <ol style="font-size: 10pt;">
+                        <li>
+                            <strong>.box-green</strong> : agrandir à <code>150%</code> (1.5 fois la taille)
+                            <div class="answer-line" style="margin-top: 8px;"></div>
+                        </li>
+                        <li>
+                            <strong>.box-blue</strong> : réduire à <code>50%</code> (0.5 fois la taille)
+                            <div class="answer-line" style="margin-top: 8px;"></div>
+                        </li>
+                        <li>
+                            <strong>.box-purple</strong> : largeur <code>x2</code>, hauteur <code>x1</code>
+                            <div class="answer-line" style="margin-top: 8px;"></div>
+                        </li>
+                    </ol>
+
+                    <p style="margin-top: 15px; font-size: 9.5pt; font-style: italic; color: #555;">
+                        💡 <strong>Rappel :</strong> <code>scale(1.5)</code> ou <code>scale(2, 1)</code>
+                    </p>
+                </div>
+
+                <!-- Résultat à droite -->
+                <div class="result-panel">
+                    <h4>✅ Résultat Attendu</h4>
+                    <div class="demo-area">
+                        <div class="demo-box demo-scale-1-5">x1.5</div>
+                        <div class="demo-box demo-scale-0-5">x0.5</div>
+                        <div class="demo-box demo-scale-2-1">2x1</div>
+                    </div>
+                    <p style="text-align: center; font-size: 9.5pt; color: #666; margin-top: 10px;">
+                        Vert : 150% de la taille | Bleu : 50% de la taille<br>
+                        Violet : 2x en largeur, 1x en hauteur
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Partie 4 : Exercice Pratique - Combinaison (4 Points)</h2>
+            <div class="instruction">
+                Créez une carte avec transformation au survol. Écrivez le code HTML et CSS complet.
+            </div>
+
+            <div class="grid-2col">
+                <div>
+                    <h3>Consignes</h3>
+                    <ol style="font-size: 10pt;">
+                        <li>Créez une <code>&lt;div class="card"&gt;</code> contenant :
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>Un titre <code>&lt;h3&gt;</code></li>
+                                <li>Un paragraphe de description</li>
+                            </ul>
+                        </li>
+                        <li>Stylisez la carte :
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>Largeur : 250px</li>
+                                <li>Bordure : 2px solid #333</li>
+                                <li>Padding : 20px</li>
+                                <li>Border-radius : 10px</li>
+                            </ul>
+                        </li>
+                        <li>Au survol (<code>:hover</code>) :
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>Agrandir à 110% avec <code>scale(1.1)</code></li>
+                                <li>Ajouter une ombre : <code>box-shadow: 0 4px 8px rgba(0,0,0,0.3)</code></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h3>Résultat attendu</h3>
+                    <div style="border: 2px solid #000; padding: 20px; background: #f9f9f9; min-height: 200px;">
+                        <p style="font-size: 9.5pt; margin-bottom: 15px; text-align: center;">
+                            <strong>État normal :</strong>
+                        </p>
+                        <div
+                            style="width: 250px; border: 2px solid #333; padding: 20px; border-radius: 10px; background: #fff; margin: 0 auto;">
+                            <h4 style="margin: 0 0 10px 0; font-size: 11pt;">Titre de la carte</h4>
+                            <p style="margin: 0; font-size: 9pt; line-height: 1.5;">Description de la carte avec du
+                                texte.</p>
+                        </div>
+                        <p
+                            style="font-size: 9.5pt; margin-top: 15px; text-align: center; font-style: italic; color: #666;">
+                            Au survol : agrandissement + ombre
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-box" style="min-height: 200px; margin-top: 15px;">
+                <p style="font-style: italic; color: #666; font-size: 10pt; margin-bottom: 10px;">
+                    Écrivez votre code HTML et CSS ci-dessous :
+                </p>
+            </div>
+        </section>
+
+        <div class="footer">Page 2/4</div>
+    </div>
+
+</body>
+
+</html>

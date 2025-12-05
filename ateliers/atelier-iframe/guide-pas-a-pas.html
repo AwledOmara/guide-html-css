@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Pas à Pas - Atelier iFrame</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #475569;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: #2563eb;
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tbody tr:hover {
+            background: #f1f5f9;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #dc2626;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: none;
+            color: #e2e8f0;
+            padding: 0;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .step {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .toc {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Guide Pas à Pas - Atelier iFrame</h1>
+            <p>Apprenez à créer un système de navigation avec iframes et maîtrisez l'attribut <code>target</code></p>
+        </header>
+
+        <div class="toc">
+            <h3>📋 Table des Matières</h3>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#target">2. L'attribut target de href</a></li>
+                <li><a href="#etapes">3. Étapes de l'Atelier</a></li>
+                <li><a href="#exercices">4. Exercices Pratiques</a></li>
+                <li><a href="#resume">5. Résumé</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="introduction">
+            <h2>1. Introduction</h2>
+            <p>Dans cet atelier, vous allez apprendre à créer un système de navigation avec des iframes. Vous
+                découvrirez comment utiliser l'attribut <code>target</code> pour charger du contenu dans une iframe
+                spécifique.</p>
+
+            <div class="info-box">
+                <strong>🎯 Objectif :</strong> Comprendre le fonctionnement des iframes et de l'attribut
+                <code>target</code> pour créer une navigation dynamique.
+            </div>
+        </div>
+
+        <div class="section" id="target">
+            <h2>2. L'attribut <code>target</code> de <code>href</code></h2>
+
+            <h3>📊 Tableau Explicatif</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Valeur de target</th>
+                        <th>Description</th>
+                        <th>Exemple</th>
+                        <th>Comportement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>_self</code></td>
+                        <td>Ouvre le lien dans la même fenêtre/frame (par défaut)</td>
+                        <td><code>&lt;a href="page.html" target="_self"&gt;</code></td>
+                        <td>Remplace la page actuelle</td>
+                    </tr>
+                    <tr>
+                        <td><code>_blank</code></td>
+                        <td>Ouvre le lien dans une nouvelle fenêtre ou un nouvel onglet</td>
+                        <td><code>&lt;a href="page.html" target="_blank"&gt;</code></td>
+                        <td>Nouvelle fenêtre/onglet</td>
+                    </tr>
+                    <tr>
+                        <td><code>_parent</code></td>
+                        <td>Ouvre le lien dans le cadre parent</td>
+                        <td><code>&lt;a href="page.html" target="_parent"&gt;</code></td>
+                        <td>Remplace le cadre parent</td>
+                    </tr>
+                    <tr>
+                        <td><code>_top</code></td>
+                        <td>Ouvre le lien dans la fenêtre complète (sort de tous les frames)</td>
+                        <td><code>&lt;a href="page.html" target="_top"&gt;</code></td>
+                        <td>Fenêtre complète</td>
+                    </tr>
+                    <tr style="background: #fef3c7;">
+                        <td><strong>Nom personnalisé</strong></td>
+                        <td>Ouvre le lien dans un frame/fenêtre avec ce nom</td>
+                        <td><code>&lt;a href="page.html" target="monIframe"&gt;</code></td>
+                        <td>Charge dans l'iframe nommée</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🎯 Focus sur l'utilisation avec les iframes</h3>
+
+            <p>Quand vous utilisez un <span class="highlight">nom personnalisé</span> comme valeur de
+                <code>target</code>, le navigateur cherche une iframe (ou une fenêtre) avec l'attribut <code>name</code>
+                correspondant.
+            </p>
+
+            <div class="warning-box">
+                <strong>⚠️ Important :</strong> Le nom dans <code>target</code> doit correspondre exactement au
+                <code>name</code> de l'iframe !
+            </div>
+
+            <h3>Exemple pratique :</h3>
+
+            <pre><code>&lt;!-- L'iframe avec un nom --&gt;
+&lt;iframe name="contenu" src="accueil.html"&gt;&lt;/iframe&gt;
+
+&lt;!-- Le lien qui cible cette iframe --&gt;
+&lt;a href="apropos.html" target="contenu"&gt;À Propos&lt;/a&gt;</code></pre>
+
+            <div class="success-box">
+                <strong>✅ Résultat :</strong> Quand on clique sur le lien "À Propos", la page <code>apropos.html</code>
+                se charge <strong>à l'intérieur</strong> de l'iframe nommée "contenu".
+            </div>
+        </div>
+
+        <div class="section" id="etapes">
+            <h2>3. Étapes de l'Atelier</h2>
+
+            <div class="step">
+                <h3><span class="step-number">1</span> Créer la structure HTML de base</h3>
+                <p><strong>Objectif :</strong> Créer le fichier <code>index.html</code> avec la structure de base.</p>
+
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Atelier iFrame&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;!-- Le contenu viendra ici --&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">2</span> Ajouter le menu de navigation</h3>
+                <p><strong>Objectif :</strong> Créer un menu avec des liens qui ciblent l'iframe.</p>
+
+                <pre><code>&lt;nav class="menu"&gt;
+    &lt;h2&gt;Menu&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="accueil.html" target="zone-contenu"&gt;🏠 Accueil&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="apropos.html" target="zone-contenu"&gt;ℹ️ À Propos&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="services.html" target="zone-contenu"&gt;⚙️ Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="galerie.html" target="zone-contenu"&gt;🖼️ Galerie&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="contact.html" target="zone-contenu"&gt;📧 Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+                <div class="info-box">
+                    <strong>Points importants :</strong>
+                    <ul>
+                        <li>Tous les liens ont <code>target="zone-contenu"</code></li>
+                        <li>Ce nom doit correspondre au <code>name</code> de l'iframe</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">3</span> Ajouter l'iframe</h3>
+                <p><strong>Objectif :</strong> Créer la zone d'affichage du contenu.</p>
+
+                <pre><code>&lt;div class="content-area"&gt;
+    &lt;iframe 
+        name="zone-contenu" 
+        src="accueil.html"
+        title="Zone de contenu"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+
+                <div class="info-box">
+                    <strong>Points importants :</strong>
+                    <ul>
+                        <li><code>name="zone-contenu"</code> : correspond au <code>target</code> des liens</li>
+                        <li><code>src="accueil.html"</code> : page affichée par défaut</li>
+                        <li><code>title</code> : pour l'accessibilité</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">4</span> Ajouter le CSS de base</h3>
+                <p><strong>Objectif :</strong> Styliser la page pour un affichage agréable.</p>
+
+                <pre><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: #f1f5f9;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.menu {
+    width: 250px;
+    background: white;
+    padding: 2rem;
+    border-right: 1px solid #e2e8f0;
+}
+
+.content-area {
+    flex: 1;
+    padding: 2rem;
+}
+
+iframe {
+    width: 100%;
+    height: calc(100vh - 4rem);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+}</code></pre>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">5</span> Créer les pages de contenu</h3>
+                <p><strong>Objectif :</strong> Créer des pages simples à afficher dans l'iframe.</p>
+
+                <p><strong>Exemple : <code>accueil.html</code></strong></p>
+
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Accueil&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        h1 {
+            color: #1e293b;
+            font-size: 2.5rem;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;🏠 Bienvenue&lt;/h1&gt;
+    &lt;p&gt;Ceci est la page d'accueil chargée dans l'iframe.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <div class="warning-box">
+                    <strong>À faire :</strong> Créer les autres pages (<code>apropos.html</code>,
+                    <code>services.html</code>, etc.) avec un contenu différent.
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="exercices">
+            <h2>4. Exercices Pratiques</h2>
+
+            <h3><span class="emoji">📝</span> Exercice 1 : Tester les différentes valeurs de <code>target</code></h3>
+            <ol>
+                <li>Créez un lien avec <code>target="_blank"</code> dans le menu</li>
+                <li>Observez le comportement : nouvelle fenêtre/onglet</li>
+                <li>Créez un lien avec <code>target="_self"</code></li>
+                <li>Observez : remplace la page entière</li>
+            </ol>
+            <div class="info-box">
+                <strong>Question :</strong> Quelle est la différence entre <code>target="_blank"</code> et
+                <code>target="zone-contenu"</code> ?
+            </div>
+
+            <h3><span class="emoji">🌐</span> Exercice 2 : Ajouter un lien externe</h3>
+            <ol>
+                <li>Dans une des pages de contenu (ex: <code>services.html</code>), ajoutez un lien vers Google</li>
+                <li>Utilisez <code>target="_blank"</code> pour qu'il s'ouvre dans un nouvel onglet</li>
+                <li>Testez le lien</li>
+            </ol>
+            <pre><code>&lt;a href="https://www.google.com" target="_blank"&gt;Rechercher sur Google&lt;/a&gt;</code></pre>
+
+            <h3><span class="emoji">🔲</span> Exercice 3 : Créer une deuxième iframe</h3>
+            <ol>
+                <li>Ajoutez une deuxième iframe nommée <code>zone-info</code></li>
+                <li>Créez des liens qui ciblent cette nouvelle iframe</li>
+                <li>Affichez deux contenus différents simultanément</li>
+            </ol>
+            <div class="info-box">
+                <strong>Indice :</strong>
+                <pre><code>&lt;iframe name="zone-info" src="info.html"&gt;&lt;/iframe&gt;
+&lt;a href="details.html" target="zone-info"&gt;Voir détails&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3><span class="emoji">🔝</span> Exercice 4 : Sortir de l'iframe</h3>
+            <ol>
+                <li>Dans une page de contenu, ajoutez un bouton "Sortir de l'iframe"</li>
+                <li>Utilisez <code>target="_top"</code> pour charger la page dans la fenêtre complète</li>
+            </ol>
+            <pre><code>&lt;a href="index.html" target="_top"&gt;🔝 Sortir de l'iframe&lt;/a&gt;</code></pre>
+        </div>
+
+        <div class="section" id="resume">
+            <h2>5. 🎓 Résumé</h2>
+
+            <h3>Ce que vous avez appris :</h3>
+            <div class="success-box">
+                <ul>
+                    <li>✅ Comment créer une iframe avec l'attribut <code>name</code></li>
+                    <li>✅ Comment utiliser <code>target</code> pour cibler une iframe spécifique</li>
+                    <li>✅ Les différentes valeurs de <code>target</code> et leurs comportements</li>
+                    <li>✅ Comment créer un système de navigation avec menu et iframe</li>
+                    <li>✅ Comment styliser une page avec iframe</li>
+                </ul>
+            </div>
+
+            <h3>Points clés à retenir :</h3>
+            <div class="info-box">
+                <ul>
+                    <li><code>target="nom"</code> + <code>name="nom"</code> = connexion entre lien et iframe</li>
+                    <li><code>target="_blank"</code> = nouvelle fenêtre/onglet</li>
+                    <li><code>target="_self"</code> = même fenêtre (défaut)</li>
+                    <li><code>target="_top"</code> = sortir de tous les frames</li>
+                </ul>
+            </div>
+
+            <h3>📚 Pour aller plus loin :</h3>
+            <ul>
+                <li>Essayez d'imbriquer plusieurs iframes</li>
+                <li>Ajoutez des animations CSS lors du changement de page</li>
+                <li>Créez un système de navigation avec des sous-menus</li>
+                <li>Explorez l'attribut <code>sandbox</code> pour sécuriser les iframes</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
